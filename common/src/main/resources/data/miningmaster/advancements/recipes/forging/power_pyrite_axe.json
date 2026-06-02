@@ -1,0 +1,47 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "miningmaster:forging/power_pyrite_axe"
+    ]
+  },
+  "criteria": {
+    "has_diamond_axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:diamond_axe"
+            ]
+          }
+        ]
+      }
+    },
+    "has_power_pyrite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:power_pyrite"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "miningmaster:forging/power_pyrite_axe"
+      }
+    }
+  },
+  "requirements": [
+      [
+        "has_diamond_axe",
+        "has_power_pyrite",
+        "has_the_recipe"
+      ]
+  ]
+}

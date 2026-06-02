@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:basalt_deltas",
+  "features": "miningmaster:ore_kinetic_opal",
+  "step": "underground_ores"
+}

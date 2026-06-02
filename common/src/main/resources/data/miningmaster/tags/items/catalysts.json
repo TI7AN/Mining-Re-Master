@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:diamond_sword",
+    "miningmaster:fire_ruby_sword",
+    "miningmaster:ice_sapphire_sword",
+    "miningmaster:spirit_garnet_sword",
+    "miningmaster:lucky_citrine_sword",
+    "minecraft:diamond_axe",
+    "miningmaster:power_pyrite_axe",
+    "miningmaster:haste_peridot_axe",
+    "miningmaster:kinetic_opal_axe",
+    "minecraft:diamond_pickaxe",
+    "miningmaster:lucky_citrine_pickaxe",
+    "miningmaster:haste_peridot_pickaxe",
+    "miningmaster:unbreaking_iolite_pickaxe",
+    "minecraft:bow",
+    "minecraft:diamond_helmet",
+    "minecraft:diamond_chestplate",
+    "minecraft:diamond_leggings",
+    "minecraft:diamond_boots"
+  ]
+}

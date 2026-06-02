@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "miningmaster:forging/paragon_chestplate"
+    ]
+  },
+  "criteria": {
+    "has_diamond_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:diamond_chestplate"
+            ]
+          }
+        ]
+      }
+    },
+    "has_dive_aquamarine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:dive_aquamarine"
+            ]
+          }
+        ]
+      }
+    },
+    "has_heart_rhodonite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:heart_rhodonite"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "miningmaster:forging/paragon_chestplate"
+      }
+    }
+  },
+  "requirements": [
+      [
+        "has_diamond_chestplate",
+        "has_dive_aquamarine",
+        "has_heart_rhodonite",
+        "has_the_recipe"
+      ]
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "miningmaster:gem_smithing_recipe",
+  "blacklist": {
+    "tag": "miningmaster:gem_enchanting_blacklist"
+  },
+  "gem": {
+    "id": "minecraft:iron_ingot",
+    "count": 1
+  },
+  "enchantments": [
+    "minecraft:protection"
+  ]
+}

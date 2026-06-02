@@ -1,0 +1,73 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "miningmaster:forging/ultima_pickaxe_2"
+    ]
+  },
+  "criteria": {
+    "has_lucky_citrine_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:lucky_citrine_pickaxe"
+            ]
+          }
+        ]
+      }
+    },
+    "has_haste_peridot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:haste_peridot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_unbreaking_iolite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:unbreaking_iolite"
+            ]
+          }
+        ]
+      }
+    },
+    "has_fire_ruby": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:fire_ruby"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "miningmaster:forging/ultima_pickaxe_2"
+      }
+    }
+  },
+  "requirements": [
+      [
+        "has_lucky_citrine_pickaxe",
+        "has_haste_peridot",
+        "has_fire_ruby",
+        "has_unbreaking_iolite",
+        "has_the_recipe"
+      ]
+  ]
+}

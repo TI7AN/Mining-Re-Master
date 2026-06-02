@@ -1,0 +1,160 @@
+{
+  "parent": "miningmaster:miningmaster/hidden_power",
+  "display": {
+    "icon": {
+      "item": "miningmaster:spirit_garnet"
+    },
+    "title": {
+      "translate": "miningmaster.advancements.miningmaster.top_to_bottom.title"
+    },
+    "description": {
+      "translate": "miningmaster.advancements.miningmaster.top_to_bottom.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "rewards": {
+    "experience": 60
+  },
+  "criteria": {
+    "miningmaster:fire_ruby": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:fire_ruby"
+            ]
+          }
+        ]
+      }
+    },
+    "miningmaster:ice_sapphire": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:ice_sapphire"
+            ]
+          }
+        ]
+      }
+    },
+    "miningmaster:spirit_garnet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:spirit_garnet"
+            ]
+          }
+        ]
+      }
+    },
+    "miningmaster:lucky_citrine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:lucky_citrine"
+            ]
+          }
+        ]
+      }
+    },
+    "miningmaster:haste_peridot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:haste_peridot"
+            ]
+          }
+        ]
+      }
+    },
+    "miningmaster:dive_aquamarine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:dive_aquamarine"
+            ]
+          }
+        ]
+      }
+    },
+    "miningmaster:divine_beryl": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:divine_beryl"
+            ]
+          }
+        ]
+      }
+    },
+    "miningmaster:spider_kunzite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:spider_kunzite"
+            ]
+          }
+        ]
+      }
+    },
+    "miningmaster:unbreaking_iolite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "miningmaster:unbreaking_iolite"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "miningmaster:fire_ruby"
+    ],
+    [
+      "miningmaster:ice_sapphire"
+    ],
+    [
+      "miningmaster:spirit_garnet"
+    ],
+    [
+      "miningmaster:lucky_citrine"
+    ],
+    [
+      "miningmaster:haste_peridot"
+    ],
+    [
+      "miningmaster:dive_aquamarine"
+    ],
+    [
+      "miningmaster:divine_beryl"
+    ],
+    [
+      "miningmaster:spider_kunzite"
+    ],
+    [
+      "miningmaster:unbreaking_iolite"
+    ]
+  ]
+}

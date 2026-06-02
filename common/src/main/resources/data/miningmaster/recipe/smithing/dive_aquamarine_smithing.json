@@ -1,0 +1,14 @@
+{
+  "type": "miningmaster:gem_smithing_recipe",
+  "blacklist": {
+    "tag": "miningmaster:gem_enchanting_blacklist"
+  },
+  "gem": {
+    "item": "miningmaster:dive_aquamarine"
+  },
+  "enchantments": [
+    "minecraft:aqua_affinity",
+    "minecraft:riptide",
+    "miningmaster:grace"
+  ]
+}

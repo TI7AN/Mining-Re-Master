@@ -1,0 +1,8 @@
+accessWidener       v2       named
+#protected net.minecraft.client.gui.screens.recipebook.RecipeBookComponent f_100276_ # xOffset
+#protected net.minecraft.client.gui.screens.recipebook.RecipeBookComponent f_100277_ # width
+#protected net.minecraft.client.gui.screens.recipebook.RecipeBookComponent f_100278_ # height
+#protected net.minecraft.client.gui.screens.recipebook.RecipeBookComponent f_100281_ # searchBox
+#protected net.minecraft.client.gui.screens.recipebook.RecipeBookComponent  f_100273_ # SEARCH_HINT
+#protected net.minecraft.client.gui.screens.recipebook.RecipeBookComponent  f_100279_ # tabButtons
+#protected net.minecraft.client.gui.screens.recipebook.RecipeBookComponent  f_100284_ # recipeBookPage
