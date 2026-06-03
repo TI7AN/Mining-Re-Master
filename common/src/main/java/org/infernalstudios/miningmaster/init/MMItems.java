@@ -31,7 +31,9 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantments;
 import org.infernalstudios.miningmaster.MiningMaster;
 //import org.infernalstudios.miningmaster.items.GemArmorItem;
+import org.infernalstudios.miningmaster.items.GemAxeItem;
 import org.infernalstudios.miningmaster.items.GemItem;
+import org.infernalstudios.miningmaster.items.GemPickaxeItem;
 import org.infernalstudios.miningmaster.items.GemSwordItem;
 //import org.infernalstudios.miningmaster.items.GemArmorItem;
 //import org.infernalstudios.miningmaster.items.GemAxeItem;
@@ -65,17 +67,17 @@ public class MMItems {
     public static final GemSwordItem LUCKY_CITRINE_SWORD = (GemSwordItem) register("lucky_citrine_sword", new GemSwordItem(MMItemTiers.SUPRA, Ingredient.of(LUCKY_CITRINE), 3, -2.4F, new Item.Properties(), new Pair<>(Enchantments.LOOTING, 3)));
     public static final GemSwordItem POWER_PYRITE_SWORD = (GemSwordItem) register("power_pyrite_sword", new GemSwordItem(MMItemTiers.SUPRA, Ingredient.of(POWER_PYRITE), 3, -2.4F, new Item.Properties(), new Pair<>(Enchantments.SHARPNESS, 6)));
 //    public static final GemSwordItem ULTIMA_SWORD = (GemSwordItem) register("ultima_sword", new GemSwordItem(MMItemTiers.ULTIMA, Ingredient.of(FIRE_RUBY, ICE_SAPPHIRE, SPIRIT_GARNET, LUCKY_CITRINE), 3, -2.4F, new Item.Properties(), new Pair<>(Enchantments.FIRE_ASPECT, 3), new Pair<>(MMEnchantments.FREEZING, 3), new Pair<>(Enchantments.LOOTING, 3), new Pair<>(MMEnchantments.LEECHING, 1)));
-//
-//    public static final GemAxeItem HASTE_PERIDOT_AXE = register("haste_peridot_axe", new GemAxeItem(MMItemTiers.SUPRA, Ingredient.of(HASTE_PERIDOT.get()), 5, -3.0F, new Item.Properties(), new Pair<>(() -> Enchantments.BLOCK_EFFICIENCY, 6)));
-//    public static final GemAxeItem POWER_PYRITE_AXE = register("power_pyrite_axe", new GemAxeItem(MMItemTiers.SUPRA, Ingredient.of(POWER_PYRITE.get()), 5, -3.0F, new Item.Properties(), new Pair<>(() -> Enchantments.SHARPNESS, 6)));
-//    public static final GemAxeItem KINETIC_OPAL_AXE = register("kinetic_opal_axe", new GemAxeItem(MMItemTiers.SUPRA, Ingredient.of(KINETIC_OPAL.get()), 5, -3.0F, new Item.Properties(), new Pair<>(() -> Enchantments.KNOCKBACK, 3)));
-//    public static final GemAxeItem ULTIMA_AXE = register("ultima_axe", new GemAxeItem(MMItemTiers.ULTIMA, Ingredient.of(POWER_PYRITE.get(), KINETIC_OPAL.get(), HASTE_PERIDOT.get()), 5, -3.0F, new Item.Properties(), new Pair<>(() -> Enchantments.SHARPNESS, 5), new Pair<>(() -> Enchantments.BLOCK_EFFICIENCY, 5), new Pair<>(() -> Enchantments.KNOCKBACK, 3)));
-//
-//    public static final GemPickaxeItem HASTE_PERIDOT_PICKAXE = register("haste_peridot_pickaxe", new GemPickaxeItem(MMItemTiers.SUPRA, Ingredient.of(HASTE_PERIDOT.get()), 1, -2.8F, new Item.Properties(), new Pair<>(() -> Enchantments.BLOCK_EFFICIENCY, 6)));
-//    public static final GemPickaxeItem LUCKY_CITRINE_PICKAXE = register("lucky_citrine_pickaxe", new GemPickaxeItem(MMItemTiers.SUPRA, Ingredient.of(LUCKY_CITRINE.get()), 1, -2.8F, new Item.Properties(), new Pair<>(() -> Enchantments.BLOCK_FORTUNE, 3)));
-//    public static final GemPickaxeItem UNBREAKING_IOLITE_PICKAXE = register("unbreaking_iolite_pickaxe", new GemPickaxeItem(MMItemTiers.SUPRA, Ingredient.of(UNBREAKING_IOLITE.get()), 1, -2.8F, new Item.Properties(), new Pair<>(() -> Enchantments.UNBREAKING, 4)));
-//    public static final GemPickaxeItem ULTIMA_PICKAXE = register("ultima_pickaxe", new GemPickaxeItem(MMItemTiers.ULTIMA, Ingredient.of(KINETIC_OPAL.get(), LUCKY_CITRINE.get(), HASTE_PERIDOT.get(), UNBREAKING_IOLITE.get()), 1, -2.8F, new Item.Properties(), new Pair<>(() -> Enchantments.BLOCK_EFFICIENCY, 6), new Pair<>(() -> Enchantments.BLOCK_FORTUNE, 3), new Pair<>(() -> Enchantments.UNBREAKING, 3), new Pair<>(MMEnchantments.SMELTING, 1)));
-//
+
+    public static final GemAxeItem HASTE_PERIDOT_AXE = (GemAxeItem) register("haste_peridot_axe", new GemAxeItem(MMItemTiers.SUPRA, Ingredient.of(HASTE_PERIDOT), 5, -3.0F, new Item.Properties(), new Pair<>(Enchantments.EFFICIENCY, 6)));
+    public static final GemAxeItem POWER_PYRITE_AXE = (GemAxeItem) register("power_pyrite_axe", new GemAxeItem(MMItemTiers.SUPRA, Ingredient.of(POWER_PYRITE), 5, -3.0F, new Item.Properties(), new Pair<>(Enchantments.SHARPNESS, 6)));
+    public static final GemAxeItem KINETIC_OPAL_AXE = (GemAxeItem) register("kinetic_opal_axe", new GemAxeItem(MMItemTiers.SUPRA, Ingredient.of(KINETIC_OPAL), 5, -3.0F, new Item.Properties(), new Pair<>(Enchantments.KNOCKBACK, 3)));
+    public static final GemAxeItem ULTIMA_AXE = (GemAxeItem) register("ultima_axe", new GemAxeItem(MMItemTiers.ULTIMA, Ingredient.of(POWER_PYRITE, KINETIC_OPAL, HASTE_PERIDOT), 5, -3.0F, new Item.Properties(), new Pair<>(Enchantments.SHARPNESS, 5), new Pair<>(Enchantments.EFFICIENCY, 5), new Pair<>(Enchantments.KNOCKBACK, 3)));
+
+    public static final GemPickaxeItem HASTE_PERIDOT_PICKAXE = (GemPickaxeItem) register("haste_peridot_pickaxe", new GemPickaxeItem(MMItemTiers.SUPRA, Ingredient.of(HASTE_PERIDOT), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.EFFICIENCY, 6)));
+    public static final GemPickaxeItem LUCKY_CITRINE_PICKAXE = (GemPickaxeItem) register("lucky_citrine_pickaxe", new GemPickaxeItem(MMItemTiers.SUPRA, Ingredient.of(LUCKY_CITRINE), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.FORTUNE, 3)));
+    public static final GemPickaxeItem UNBREAKING_IOLITE_PICKAXE = (GemPickaxeItem) register("unbreaking_iolite_pickaxe", new GemPickaxeItem(MMItemTiers.SUPRA, Ingredient.of(UNBREAKING_IOLITE), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.UNBREAKING, 4)));
+//    public static final GemPickaxeItem ULTIMA_PICKAXE = (GemPickaxeItem) register("ultima_pickaxe", new GemPickaxeItem(MMItemTiers.ULTIMA, Ingredient.of(KINETIC_OPAL, LUCKY_CITRINE, HASTE_PERIDOT, UNBREAKING_IOLITE), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.EFFICIENCY, 6), new Pair<>(Enchantments.FORTUNE, 3), new Pair<>(Enchantments.UNBREAKING, 3), new Pair<>(MMEnchantments.SMELTING, 1)));
+
 //    public static final GemBowItem AIR_MALACHITE_BOW = (GemBowItem) register("air_malachite_bow", new GemBowItem(new Item.Properties().durability(753), new Pair<>(MMEnchantments.FLOATATION, 5)));
 //
 //    // ARMOR

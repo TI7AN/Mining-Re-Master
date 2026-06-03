@@ -31,8 +31,12 @@ public class GemSwordItem extends SwordItem {
     private final Pair<ResourceKey<Enchantment>, Integer>[] enchantments;
 
     @SafeVarargs
-    public GemSwordItem(Tier tier, Ingredient repairItems, int attackDamageIn, float attackSpeedIn, Properties properties, Pair<ResourceKey<Enchantment>, Integer>... enchantments) {
-        super(tier, properties);
+    public GemSwordItem(Tier tier, Ingredient repairItems, int attackDamage, float attackSpeed, Properties properties, Pair<ResourceKey<Enchantment>, Integer>... enchantments) {
+        super(tier, properties.attributes(SwordItem.createAttributes(
+                tier,
+                attackDamage,
+                attackSpeed
+        )));
         this.repairItems = repairItems;
         this.enchantments = enchantments;
     }
