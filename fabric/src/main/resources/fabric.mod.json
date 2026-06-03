@@ -20,6 +20,9 @@
     ],
     "client": [
       "org.infernalstudios.fabric.miningmaster.client.MiningMasterFabricClient"
+    ],
+    "fabric-datagen": [
+      "org.infernalstudios.fabric.miningmaster.client.datagen.MMDataGenerator"
     ]
   },
   "mixins": [
