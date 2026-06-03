@@ -25,6 +25,7 @@ import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.RegistryFixedCodec;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
@@ -42,12 +43,10 @@ import java.util.List;
 public class GemSmithingRecipe implements SmithingRecipe {
 
     final Ingredient blacklist;
-    final ItemStack gem;
+    final Ingredient gem;
     final List<Holder<Enchantment>> enchantments;
 
-    public GemSmithingRecipe(Ingredient blacklist, ItemStack gem
-            , List<Holder<Enchantment>> enchantments
-    ) {
+    public GemSmithingRecipe(Ingredient blacklist, Ingredient gem, List<Holder<Enchantment>> enchantments) {
         this.blacklist = blacklist;
         this.gem = gem;
         this.enchantments = enchantments;
@@ -57,9 +56,8 @@ public class GemSmithingRecipe implements SmithingRecipe {
     public boolean matches(SmithingRecipeInput recipeInput, Level level) {
         if (level.isClientSide()) return false;
 
-        //TODO blacklist is actually a whitelist
         return !this.blacklist.test(recipeInput.getItem(1)) &&
-                ItemStack.isSameItem(this.gem, recipeInput.getItem(2)) &&
+                this.gem.test(recipeInput.getItem(2)) &&
                 assemble(recipeInput, level.registryAccess()) != null;
     }
 
@@ -67,6 +65,7 @@ public class GemSmithingRecipe implements SmithingRecipe {
     public @NotNull ItemStack assemble(SmithingRecipeInput input, HolderLookup.Provider provider) {
 
         ItemStack result = input.getItem(1).copy();
+        int gem_count = input.getItem(2).getCount();
 
         if (result.isEmpty()) {
             return ItemStack.EMPTY;
@@ -75,56 +74,42 @@ public class GemSmithingRecipe implements SmithingRecipe {
         boolean enchanted = false;
 
         for (Holder<Enchantment> enchantment : enchantments) {
+            if (!enchantment.value().canEnchant(result)) continue;
+            if (!areEnchantsCompatible(result, enchantment)) continue;
 
-            if (!enchantment.value().canEnchant(result)) {
-                continue;
-            }
-
-            if (!areEnchantsCompatible(result, enchantment)) {
-                continue;
-            }
-
-            ItemEnchantments current =
-                    EnchantmentHelper.getEnchantmentsForCrafting(result);
-
+            ItemEnchantments current = EnchantmentHelper.getEnchantmentsForCrafting(result);
             int level = current.getLevel(enchantment);
 
-            if (level > 0) {
-                int target = level + 1;
-
-                if (target > enchantment.value().getMaxLevel()) {
-                    break;
-                }
-
-                ItemEnchantments.Mutable mutable =
-                        new ItemEnchantments.Mutable(current);
-
-                mutable.set(enchantment, target);
-
-                EnchantmentHelper.setEnchantments(
-                        result,
-                        mutable.toImmutable()
-                );
-
-                enchanted = true;
-                break;
-            }
-
-            ItemEnchantments.Mutable mutable =
-                    new ItemEnchantments.Mutable(current);
-
-            mutable.set(enchantment, 1);
-
+            if (level >= enchantment.value().getMaxLevel()) break;
+            int upgraded_level = Math.min(level + gem_count, enchantment.value().getMaxLevel());
+            ItemEnchantments.Mutable mutable = new ItemEnchantments.Mutable(current);
+            mutable.set(enchantment, upgraded_level);
             EnchantmentHelper.setEnchantments(
                     result,
                     mutable.toImmutable()
             );
-
             enchanted = true;
-            break;
         }
 
         return enchanted ? result : ItemStack.EMPTY;
+    }
+
+    public int getGemCost(ItemStack gemStack, ItemStack input) {
+        int gem_count = gemStack.getCount();
+        int cost = 0;
+        for (Holder<Enchantment> enchantment : enchantments) {
+            if (!enchantment.value().canEnchant(input)) continue;
+            if (!areEnchantsCompatible(input, enchantment)) continue;
+
+            ItemEnchantments current = EnchantmentHelper.getEnchantmentsForCrafting(input);
+            int level = current.getLevel(enchantment);
+
+            if (level >= enchantment.value().getMaxLevel()) break;
+            int upgraded_level = Math.min(level + gem_count, enchantment.value().getMaxLevel());
+            cost = Math.max(cost, upgraded_level - level);
+        }
+
+        return cost;
     }
 
 //    private boolean areEnchantsCompatible(ItemStack itemStack, Enchantment enchant) {
@@ -202,7 +187,7 @@ public class GemSmithingRecipe implements SmithingRecipe {
                                 Ingredient.CODEC.fieldOf("blacklist")
                                         .forGetter(r -> r.blacklist),
 
-                                ItemStack.CODEC.fieldOf("gem")
+                                Ingredient.CODEC.fieldOf("gem")
                                         .forGetter(r -> r.gem),
 
                                 RegistryFixedCodec.create(Registries.ENCHANTMENT)
@@ -217,7 +202,7 @@ public class GemSmithingRecipe implements SmithingRecipe {
                         Ingredient.CONTENTS_STREAM_CODEC,
                         r -> r.blacklist,
 
-                        ItemStack.STREAM_CODEC,
+                        Ingredient.CONTENTS_STREAM_CODEC,
                         r -> r.gem,
 
                         ByteBufCodecs.holderRegistry(Registries.ENCHANTMENT)

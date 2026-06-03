@@ -4,10 +4,9 @@
     "tag": "miningmaster:gem_enchanting_blacklist"
   },
   "gem": {
-    "id": "minecraft:iron_ingot",
-    "count": 1
+    "item": "minecraft:iron_ingot"
   },
   "enchantments": [
-    "minecraft:protection"
+    "minecraft:unbreaking"
   ]
 }
