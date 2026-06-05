@@ -23,21 +23,11 @@ public final class MiningMasterNeoForge {
 
     public MiningMasterNeoForge() {
         // Run our common setup.
+        MiningMaster.init();
 //        final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 //
 //        modEventBus.addListener(this::commonSetup);
 //        modEventBus.addListener(this::clientSetup);
-//
-//        MMBlocks.register(modEventBus);
-//        MMItems.register(modEventBus);
-//        MMItems.TABS.register(modEventBus);
-//        MMEnchantments.register(modEventBus);
-//        MMRecipes.register(modEventBus);
-//        MMContainerTypes.register(modEventBus);
-//        MMTileEntityTypes.register(modEventBus);
-//        MMSounds.register(modEventBus);
-//        MMLootModifiers.register(modEventBus);
-//        MMFeatures.register(modEventBus);
 //
 //        NeoForge.EVENT_BUS.register(new MiningMasterEvents());
 //        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> NeoForge.EVENT_BUS.register(new MiningMasterClientEvents()));
@@ -50,12 +40,6 @@ public final class MiningMasterNeoForge {
 //        NeoForge.EVENT_BUS.addListener(GraceEnchantment::onLivingUpdate);
 //        NeoForge.EVENT_BUS.addListener(KnightJumpEnchantment::onClientTick);
 
-    }
-
-    @SubscribeEvent
-    public static void register(RegisterEvent event) {
-        //TODO use this event to register everything
-        MiningMaster.init();
     }
 
 //    private void commonSetup(final FMLCommonSetupEvent event) {

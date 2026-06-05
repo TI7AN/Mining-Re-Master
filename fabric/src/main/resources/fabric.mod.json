@@ -22,7 +22,7 @@
       "org.infernalstudios.fabric.miningmaster.client.MiningMasterFabricClient"
     ],
     "fabric-datagen": [
-      "org.infernalstudios.fabric.miningmaster.client.datagen.MMDataGenerator"
+      "org.infernalstudios.fabric.miningmaster.datagen.MMDataGenerator"
     ]
   },
   "mixins": [

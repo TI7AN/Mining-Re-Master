@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_heart_rhodonite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "miningmaster:heart_rhodonite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "miningmaster:smithing/heart_rhodonite_gem_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_heart_rhodonite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "miningmaster:smithing/heart_rhodonite_gem_smithing"
+    ]
+  }
+}

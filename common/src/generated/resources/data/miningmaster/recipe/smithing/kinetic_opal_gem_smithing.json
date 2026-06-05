@@ -1,0 +1,14 @@
+{
+  "type": "miningmaster:gem_smithing_recipe",
+  "blacklist": {
+    "tag": "miningmaster:gem_enchanting_blacklist"
+  },
+  "enchantments": [
+    "minecraft:blast_protection",
+    "minecraft:knockback",
+    "minecraft:punch"
+  ],
+  "gem": {
+    "item": "miningmaster:kinetic_opal"
+  }
+}

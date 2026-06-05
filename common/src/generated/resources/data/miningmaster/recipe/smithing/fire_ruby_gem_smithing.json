@@ -1,0 +1,15 @@
+{
+  "type": "miningmaster:gem_smithing_recipe",
+  "blacklist": {
+    "tag": "miningmaster:gem_enchanting_blacklist"
+  },
+  "enchantments": [
+    "minecraft:fire_aspect",
+    "minecraft:flame",
+    "minecraft:fire_protection",
+    "miningmaster:smelting"
+  ],
+  "gem": {
+    "item": "miningmaster:fire_ruby"
+  }
+}

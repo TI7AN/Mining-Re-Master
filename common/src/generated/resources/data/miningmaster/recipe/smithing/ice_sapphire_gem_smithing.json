@@ -1,0 +1,14 @@
+{
+  "type": "miningmaster:gem_smithing_recipe",
+  "blacklist": {
+    "tag": "miningmaster:gem_enchanting_blacklist"
+  },
+  "enchantments": [
+    "minecraft:frost_walker",
+    "miningmaster:freezing",
+    "miningmaster:snowpiercer"
+  ],
+  "gem": {
+    "item": "miningmaster:ice_sapphire"
+  }
+}

@@ -23,6 +23,8 @@ import net.minecraft.resources.ResourceLocation;
 //import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
 import org.infernalstudios.miningmaster.MiningMaster;
+
+import java.util.List;
 //import org.infernalstudios.miningmaster.enchantments.FloatationEnchantment;
 //import org.infernalstudios.miningmaster.enchantments.FreezingEnchantment;
 //import org.infernalstudios.miningmaster.enchantments.GraceEnchantment;
@@ -35,40 +37,35 @@ import org.infernalstudios.miningmaster.MiningMaster;
 //import org.infernalstudios.miningmaster.enchantments.StonebreakerEnchantment;
 
 public class MMEnchantments {
-//    public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, MiningMaster.MOD_ID);
+    public static final ResourceKey<Enchantment> FREEZING = of("freezing");
+    public static final ResourceKey<Enchantment> LEECHING = of("leeching");
+    public static final ResourceKey<Enchantment> SMELTING = of("smelting");
+    public static final ResourceKey<Enchantment> STONEBREAKER = of( "stonebreaker");
+    public static final ResourceKey<Enchantment> RUNNER = of( "runner");
+    public static final ResourceKey<Enchantment> HEARTFELT = of( "heartfelt");
+    public static final ResourceKey<Enchantment> FLOATATION = of( "floatation");
+    public static final ResourceKey<Enchantment> KNIGHT_JUMP = of( "knight_jump");
+    public static final ResourceKey<Enchantment> SNOWPIERCER = of( "snowpiercer");
+    public static final ResourceKey<Enchantment> GRACE = of( "grace");
 
-    public static final ResourceKey<Enchantment> FREEZING =
-            ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "freezing"));
-//            ENCHANTMENTS.register("freezing", () -> new FreezingEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.MAINHAND));
-    public static final ResourceKey<Enchantment> LEECHING =
-        ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "leeching"));
-//        ENCHANTMENTS.register("leeching", () -> new LeechingEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.MAINHAND));
-    public static final ResourceKey<Enchantment> SMELTING =
-        ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "smelting"));
-//            ENCHANTMENTS.register("smelting", () -> new SmeltingEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.MAINHAND));
-    public static final ResourceKey<Enchantment> STONEBREAKER =
-        ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "stonebreaker"));
-//            ENCHANTMENTS.register("stonebreaker", () -> new StonebreakerEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.MAINHAND));
-    public static final ResourceKey<Enchantment> RUNNER =
-        ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "runner"));
-//            ENCHANTMENTS.register("runner", () -> new RunnerEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.FEET));
-    public static final ResourceKey<Enchantment> HEARTFELT =
-        ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "heartfelt"));
-//            ENCHANTMENTS.register("heartfelt", () -> new HeartfeltEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET));
-    public static final ResourceKey<Enchantment> FLOATATION =
-        ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "floatation"));
-//            ENCHANTMENTS.register("floatation", () -> new FloatationEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.MAINHAND));
-    public static final ResourceKey<Enchantment> KNIGHT_JUMP =
-        ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "knight_jump"));
-//            ENCHANTMENTS.register("knight_jump", () -> new KnightJumpEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.LEGS));
-    public static final ResourceKey<Enchantment> SNOWPIERCER =
-        ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "snowpiercer"));
-//            ENCHANTMENTS.register("snowpiercer", () -> new SnowpiercerEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.LEGS));
-    public static final ResourceKey<Enchantment> GRACE =
-        ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "grace"));
-//            ENCHANTMENTS.register("grace", () -> new GraceEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.CHEST));
+    public static final List<ResourceKey<Enchantment>> ENCHANTMENTS_LIST = List.of(
+            FREEZING,
+            LEECHING,
+            SMELTING,
+            STONEBREAKER,
+            RUNNER,
+            HEARTFELT,
+            FLOATATION,
+            KNIGHT_JUMP,
+            SNOWPIERCER,
+            GRACE
+    );
 
     public static void init() {
         MiningMaster.LOGGER.info("Enchantments registered");
     };
+
+    private static ResourceKey<Enchantment> of(String id) {
+        return ResourceKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, id));
+    }
 }

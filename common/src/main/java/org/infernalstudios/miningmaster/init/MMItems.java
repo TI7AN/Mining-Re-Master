@@ -17,6 +17,8 @@
 package org.infernalstudios.miningmaster.init;
 
 import com.mojang.datafixers.util.Pair;
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -31,62 +33,75 @@ import net.minecraft.world.item.enchantment.Enchantments;
 import org.infernalstudios.miningmaster.MiningMaster;
 import org.infernalstudios.miningmaster.items.*;
 
+import java.util.List;
+
 public class MMItems {
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(MiningMaster.MOD_ID, Registries.ITEM);
 
     // GEMS
-    public static final Item FIRE_RUBY = register("fire_ruby",new GemItem());
-    public static final Item ICE_SAPPHIRE = register("ice_sapphire", new GemItem());
-    public static final Item SPIRIT_GARNET = register("spirit_garnet", new GemItem());
-    public static final Item HASTE_PERIDOT = register("haste_peridot", new GemItem());
-    public static final Item LUCKY_CITRINE = register("lucky_citrine", new GemItem());
-    public static final Item DIVE_AQUAMARINE = register("dive_aquamarine", new GemItem());
-    public static final Item DIVINE_BERYL = register("divine_beryl", new GemItem());
-    public static final Item SPIDER_KUNZITE = register("spider_kunzite", new GemItem());
-    public static final Item UNBREAKING_IOLITE = register("unbreaking_iolite", new GemItem());
-    public static final Item HEART_RHODONITE = register("heart_rhodonite", new GemItem());
-    public static final Item POWER_PYRITE = register("power_pyrite", new GemItem());
-    public static final Item KINETIC_OPAL = register("kinetic_opal", new GemItem());
-    public static final Item AIR_MALACHITE = register("air_malachite", new GemItem());
+    public static final RegistrySupplier<Item> FIRE_RUBY = ITEMS.register("fire_ruby", GemItem::new);
+    public static final RegistrySupplier<Item> ICE_SAPPHIRE = ITEMS.register("ice_sapphire",  GemItem::new);
+    public static final RegistrySupplier<Item> SPIRIT_GARNET = ITEMS.register("spirit_garnet",  GemItem::new);
+    public static final RegistrySupplier<Item> HASTE_PERIDOT = ITEMS.register("haste_peridot",  GemItem::new);
+    public static final RegistrySupplier<Item> LUCKY_CITRINE = ITEMS.register("lucky_citrine",  GemItem::new);
+    public static final RegistrySupplier<Item> DIVE_AQUAMARINE = ITEMS.register("dive_aquamarine",  GemItem::new);
+    public static final RegistrySupplier<Item> DIVINE_BERYL = ITEMS.register("divine_beryl",  GemItem::new);
+    public static final RegistrySupplier<Item> SPIDER_KUNZITE = ITEMS.register("spider_kunzite",  GemItem::new);
+    public static final RegistrySupplier<Item> UNBREAKING_IOLITE = ITEMS.register("unbreaking_iolite",  GemItem::new);
+    public static final RegistrySupplier<Item> HEART_RHODONITE = ITEMS.register("heart_rhodonite",  GemItem::new);
+    public static final RegistrySupplier<Item> POWER_PYRITE = ITEMS.register("power_pyrite",  GemItem::new);
+    public static final RegistrySupplier<Item> KINETIC_OPAL = ITEMS.register("kinetic_opal",  GemItem::new);
+    public static final RegistrySupplier<Item> AIR_MALACHITE = ITEMS.register("air_malachite",  GemItem::new);
+
+    public static final List<RegistrySupplier<Item>> LIST_GEMS = List.of(
+            FIRE_RUBY,
+            ICE_SAPPHIRE,
+            SPIRIT_GARNET,
+            HASTE_PERIDOT,
+            LUCKY_CITRINE,
+            DIVE_AQUAMARINE,
+            DIVINE_BERYL,
+            SPIDER_KUNZITE,
+            UNBREAKING_IOLITE,
+            HEART_RHODONITE,
+            POWER_PYRITE,
+            KINETIC_OPAL,
+            AIR_MALACHITE
+    );
 
     // TOOLS
-    public static final GemSwordItem FIRE_RUBY_SWORD = (GemSwordItem) register("fire_ruby_sword", new GemSwordItem(MMItemTiers.SUPRA, Ingredient.of(FIRE_RUBY), 3, -2.4F, new Item.Properties(), new Pair<>(Enchantments.FIRE_ASPECT, 3)));
-    public static final GemSwordItem ICE_SAPPHIRE_SWORD = (GemSwordItem) register("ice_sapphire_sword", new GemSwordItem(MMItemTiers.SUPRA, Ingredient.of(ICE_SAPPHIRE), 3, -2.4F, new Item.Properties(), new Pair<>(MMEnchantments.FREEZING, 3)));
-    public static final GemSwordItem SPIRIT_GARNET_SWORD = (GemSwordItem) register("spirit_garnet_sword", new GemSwordItem(MMItemTiers.SUPRA, Ingredient.of(SPIRIT_GARNET), 3, -2.4F, new Item.Properties(), new Pair<>(MMEnchantments.LEECHING, 2)));
-    public static final GemSwordItem LUCKY_CITRINE_SWORD = (GemSwordItem) register("lucky_citrine_sword", new GemSwordItem(MMItemTiers.SUPRA, Ingredient.of(LUCKY_CITRINE), 3, -2.4F, new Item.Properties(), new Pair<>(Enchantments.LOOTING, 3)));
-    public static final GemSwordItem POWER_PYRITE_SWORD = (GemSwordItem) register("power_pyrite_sword", new GemSwordItem(MMItemTiers.SUPRA, Ingredient.of(POWER_PYRITE), 3, -2.4F, new Item.Properties(), new Pair<>(Enchantments.SHARPNESS, 6)));
-    public static final GemSwordItem ULTIMA_SWORD = (GemSwordItem) register("ultima_sword", new GemSwordItem(MMItemTiers.ULTIMA, Ingredient.of(FIRE_RUBY, ICE_SAPPHIRE, SPIRIT_GARNET, LUCKY_CITRINE), 3, -2.4F, new Item.Properties(), new Pair<>(Enchantments.FIRE_ASPECT, 3), new Pair<>(MMEnchantments.FREEZING, 3), new Pair<>(Enchantments.LOOTING, 3), new Pair<>(MMEnchantments.LEECHING, 1)));
+    public static final RegistrySupplier<GemSwordItem> FIRE_RUBY_SWORD = ITEMS.register("fire_ruby_sword",() -> new GemSwordItem(MMItemTiers.SUPRA, Ingredient.of(FIRE_RUBY.get()), 3, -2.4F, new Item.Properties(), new Pair<>(Enchantments.FIRE_ASPECT, 3)));
+    public static final RegistrySupplier<GemSwordItem> ICE_SAPPHIRE_SWORD = ITEMS.register("ice_sapphire_sword",() -> new GemSwordItem(MMItemTiers.SUPRA, Ingredient.of(ICE_SAPPHIRE.get()), 3, -2.4F, new Item.Properties(), new Pair<>(MMEnchantments.FREEZING, 3)));
+    public static final RegistrySupplier<GemSwordItem> SPIRIT_GARNET_SWORD = ITEMS.register("spirit_garnet_sword",() -> new GemSwordItem(MMItemTiers.SUPRA, Ingredient.of(SPIRIT_GARNET.get()), 3, -2.4F, new Item.Properties(), new Pair<>(MMEnchantments.LEECHING, 2)));
+    public static final RegistrySupplier<GemSwordItem> LUCKY_CITRINE_SWORD = ITEMS.register("lucky_citrine_sword",() -> new GemSwordItem(MMItemTiers.SUPRA, Ingredient.of(LUCKY_CITRINE.get()), 3, -2.4F, new Item.Properties(), new Pair<>(Enchantments.LOOTING, 3)));
+    public static final RegistrySupplier<GemSwordItem> POWER_PYRITE_SWORD = ITEMS.register("power_pyrite_sword",() -> new GemSwordItem(MMItemTiers.SUPRA, Ingredient.of(POWER_PYRITE.get()), 3, -2.4F, new Item.Properties(), new Pair<>(Enchantments.SHARPNESS, 6)));
+    public static final RegistrySupplier<GemSwordItem> ULTIMA_SWORD = ITEMS.register("ultima_sword",() -> new GemSwordItem(MMItemTiers.ULTIMA, Ingredient.of(FIRE_RUBY.get(), ICE_SAPPHIRE.get(), SPIRIT_GARNET.get(), LUCKY_CITRINE.get()), 3, -2.4F, new Item.Properties(), new Pair<>(Enchantments.FIRE_ASPECT, 3), new Pair<>(MMEnchantments.FREEZING, 3), new Pair<>(Enchantments.LOOTING, 3), new Pair<>(MMEnchantments.LEECHING, 1)));
 
-    public static final GemAxeItem HASTE_PERIDOT_AXE = (GemAxeItem) register("haste_peridot_axe", new GemAxeItem(MMItemTiers.SUPRA, Ingredient.of(HASTE_PERIDOT), 5, -3.0F, new Item.Properties(), new Pair<>(Enchantments.EFFICIENCY, 6)));
-    public static final GemAxeItem POWER_PYRITE_AXE = (GemAxeItem) register("power_pyrite_axe", new GemAxeItem(MMItemTiers.SUPRA, Ingredient.of(POWER_PYRITE), 5, -3.0F, new Item.Properties(), new Pair<>(Enchantments.SHARPNESS, 6)));
-    public static final GemAxeItem KINETIC_OPAL_AXE = (GemAxeItem) register("kinetic_opal_axe", new GemAxeItem(MMItemTiers.SUPRA, Ingredient.of(KINETIC_OPAL), 5, -3.0F, new Item.Properties(), new Pair<>(Enchantments.KNOCKBACK, 3)));
-    public static final GemAxeItem ULTIMA_AXE = (GemAxeItem) register("ultima_axe", new GemAxeItem(MMItemTiers.ULTIMA, Ingredient.of(POWER_PYRITE, KINETIC_OPAL, HASTE_PERIDOT), 5, -3.0F, new Item.Properties(), new Pair<>(Enchantments.SHARPNESS, 5), new Pair<>(Enchantments.EFFICIENCY, 5), new Pair<>(Enchantments.KNOCKBACK, 3)));
+    public static final RegistrySupplier<GemAxeItem> HASTE_PERIDOT_AXE = ITEMS.register("haste_peridot_axe",() -> new GemAxeItem(MMItemTiers.SUPRA, Ingredient.of(HASTE_PERIDOT.get()), 5, -3.0F, new Item.Properties(), new Pair<>(Enchantments.EFFICIENCY, 6)));
+    public static final RegistrySupplier<GemAxeItem> POWER_PYRITE_AXE = ITEMS.register("power_pyrite_axe",() -> new GemAxeItem(MMItemTiers.SUPRA, Ingredient.of(POWER_PYRITE.get()), 5, -3.0F, new Item.Properties(), new Pair<>(Enchantments.SHARPNESS, 6)));
+    public static final RegistrySupplier<GemAxeItem> KINETIC_OPAL_AXE = ITEMS.register("kinetic_opal_axe",() -> new GemAxeItem(MMItemTiers.SUPRA, Ingredient.of(KINETIC_OPAL.get()), 5, -3.0F, new Item.Properties(), new Pair<>(Enchantments.KNOCKBACK, 3)));
+    public static final RegistrySupplier<GemAxeItem> ULTIMA_AXE = ITEMS.register("ultima_axe",() -> new GemAxeItem(MMItemTiers.ULTIMA, Ingredient.of(POWER_PYRITE.get(), KINETIC_OPAL.get(), HASTE_PERIDOT.get()), 5, -3.0F, new Item.Properties(), new Pair<>(Enchantments.SHARPNESS, 5), new Pair<>(Enchantments.EFFICIENCY, 5), new Pair<>(Enchantments.KNOCKBACK, 3)));
 
-    public static final GemPickaxeItem HASTE_PERIDOT_PICKAXE = (GemPickaxeItem) register("haste_peridot_pickaxe", new GemPickaxeItem(MMItemTiers.SUPRA, Ingredient.of(HASTE_PERIDOT), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.EFFICIENCY, 6)));
-    public static final GemPickaxeItem LUCKY_CITRINE_PICKAXE = (GemPickaxeItem) register("lucky_citrine_pickaxe", new GemPickaxeItem(MMItemTiers.SUPRA, Ingredient.of(LUCKY_CITRINE), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.FORTUNE, 3)));
-    public static final GemPickaxeItem UNBREAKING_IOLITE_PICKAXE = (GemPickaxeItem) register("unbreaking_iolite_pickaxe", new GemPickaxeItem(MMItemTiers.SUPRA, Ingredient.of(UNBREAKING_IOLITE), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.UNBREAKING, 4)));
-    public static final GemPickaxeItem ULTIMA_PICKAXE = (GemPickaxeItem) register("ultima_pickaxe", new GemPickaxeItem(MMItemTiers.ULTIMA, Ingredient.of(KINETIC_OPAL, LUCKY_CITRINE, HASTE_PERIDOT, UNBREAKING_IOLITE), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.EFFICIENCY, 6), new Pair<>(Enchantments.FORTUNE, 3), new Pair<>(Enchantments.UNBREAKING, 3), new Pair<>(MMEnchantments.SMELTING, 1)));
+    public static final RegistrySupplier<GemPickaxeItem> HASTE_PERIDOT_PICKAXE = ITEMS.register("haste_peridot_pickaxe",() -> new GemPickaxeItem(MMItemTiers.SUPRA, Ingredient.of(HASTE_PERIDOT.get()), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.EFFICIENCY, 6)));
+    public static final RegistrySupplier<GemPickaxeItem> LUCKY_CITRINE_PICKAXE = ITEMS.register("lucky_citrine_pickaxe",() -> new GemPickaxeItem(MMItemTiers.SUPRA, Ingredient.of(LUCKY_CITRINE.get()), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.FORTUNE, 3)));
+    public static final RegistrySupplier<GemPickaxeItem> UNBREAKING_IOLITE_PICKAXE = ITEMS.register("unbreaking_iolite_pickaxe",() -> new GemPickaxeItem(MMItemTiers.SUPRA, Ingredient.of(UNBREAKING_IOLITE.get()), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.UNBREAKING, 4)));
+    public static final RegistrySupplier<GemPickaxeItem> ULTIMA_PICKAXE = ITEMS.register("ultima_pickaxe",() -> new GemPickaxeItem(MMItemTiers.ULTIMA, Ingredient.of(KINETIC_OPAL.get(), LUCKY_CITRINE.get(), HASTE_PERIDOT.get(), UNBREAKING_IOLITE.get()), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.EFFICIENCY, 6), new Pair<>(Enchantments.FORTUNE, 3), new Pair<>(Enchantments.UNBREAKING, 3), new Pair<>(MMEnchantments.SMELTING, 1)));
 
 //    public static final GemBowItem AIR_MALACHITE_BOW = (GemBowItem) register("air_malachite_bow", new GemBowItem(new Item.Properties().durability(753), new Pair<>(MMEnchantments.FLOATATION, 5)));
 
     // ARMOR
-    public static final GemArmorItem PARAGON_HELMET = (GemArmorItem) register("paragon_helmet", new GemArmorItem(MMArmorMaterials.PARAGON, Ingredient.of(FIRE_RUBY, KINETIC_OPAL, SPIRIT_GARNET), ArmorItem.Type.HELMET, new Item.Properties(), new Pair<>(Enchantments.THORNS, 3), new Pair<>(Enchantments.FIRE_PROTECTION, 3), new Pair<>(Enchantments.BLAST_PROTECTION, 3)));
-    public static final GemArmorItem PARAGON_CHESTPLATE = (GemArmorItem) register("paragon_chestplate", new GemArmorItem(MMArmorMaterials.PARAGON, Ingredient.of(DIVE_AQUAMARINE, HEART_RHODONITE), ArmorItem.Type.CHESTPLATE, new Item.Properties(), new Pair<>(MMEnchantments.GRACE, 5), new Pair<>(MMEnchantments.HEARTFELT, 4)));
-    public static final GemArmorItem PARAGON_LEGGINGS = (GemArmorItem) register("paragon_leggings", new GemArmorItem(MMArmorMaterials.PARAGON, Ingredient.of(AIR_MALACHITE, ICE_SAPPHIRE), ArmorItem.Type.LEGGINGS, new Item.Properties(), new Pair<>(MMEnchantments.KNIGHT_JUMP, 4), new Pair<>(MMEnchantments.SNOWPIERCER, 1)));
-    public static final GemArmorItem PARAGON_BOOTS = (GemArmorItem) register("paragon_boots", new GemArmorItem(MMArmorMaterials.PARAGON, Ingredient.of(KINETIC_OPAL, ICE_SAPPHIRE, AIR_MALACHITE), ArmorItem.Type.BOOTS, new Item.Properties(), new Pair<>(MMEnchantments.RUNNER, 3), new Pair<>(Enchantments.FEATHER_FALLING, 3), new Pair<>(Enchantments.FROST_WALKER, 2)));
+    public static final RegistrySupplier<GemArmorItem> PARAGON_HELMET = ITEMS.register("paragon_helmet",() -> new GemArmorItem(MMArmorMaterials.PARAGON, Ingredient.of(FIRE_RUBY.get(), KINETIC_OPAL.get(), SPIRIT_GARNET.get()), ArmorItem.Type.HELMET, new Item.Properties(), new Pair<>(Enchantments.THORNS, 3), new Pair<>(Enchantments.FIRE_PROTECTION, 3), new Pair<>(Enchantments.BLAST_PROTECTION, 3)));
+    public static final RegistrySupplier<GemArmorItem> PARAGON_CHESTPLATE = ITEMS.register("paragon_chestplate",() -> new GemArmorItem(MMArmorMaterials.PARAGON, Ingredient.of(DIVE_AQUAMARINE.get(), HEART_RHODONITE.get()), ArmorItem.Type.CHESTPLATE, new Item.Properties(), new Pair<>(MMEnchantments.GRACE, 5), new Pair<>(MMEnchantments.HEARTFELT, 4)));
+    public static final RegistrySupplier<GemArmorItem> PARAGON_LEGGINGS = ITEMS.register("paragon_leggings",() -> new GemArmorItem(MMArmorMaterials.PARAGON, Ingredient.of(AIR_MALACHITE.get(), ICE_SAPPHIRE.get()), ArmorItem.Type.LEGGINGS, new Item.Properties(), new Pair<>(MMEnchantments.KNIGHT_JUMP, 4), new Pair<>(MMEnchantments.SNOWPIERCER, 1)));
+    public static final RegistrySupplier<GemArmorItem> PARAGON_BOOTS = ITEMS.register("paragon_boots",() -> new GemArmorItem(MMArmorMaterials.PARAGON, Ingredient.of(KINETIC_OPAL.get(), ICE_SAPPHIRE.get(), AIR_MALACHITE.get()), ArmorItem.Type.BOOTS, new Item.Properties(), new Pair<>(MMEnchantments.RUNNER, 3), new Pair<>(Enchantments.FEATHER_FALLING, 3), new Pair<>(Enchantments.FROST_WALKER, 2)));
 
     // ICON
-    public static final Item TAB_ITEM = register("mm_tab_icon", new Item(new Item.Properties()));
+    public static final RegistrySupplier<Item> TAB_ITEM = ITEMS.register("mm_tab_icon",() -> new Item(new Item.Properties()));
 
     public static void init() {
         MiningMaster.LOGGER.info("Items registered");
+//        ITEMS.register();
     }
-
-    public static Item register(String id, Item item) {
-        ResourceLocation itemID = ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, id);
-
-        return Registry.register(BuiltInRegistries.ITEM, itemID, item);
-    }
-
 
     // TAB
     public static final ResourceKey<CreativeModeTab> TABS = ResourceKey.create(BuiltInRegistries.CREATIVE_MODE_TAB.key(), ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "item_group"));

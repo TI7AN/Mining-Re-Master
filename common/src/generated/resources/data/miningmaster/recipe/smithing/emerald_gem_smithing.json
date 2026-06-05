@@ -3,10 +3,11 @@
   "blacklist": {
     "tag": "miningmaster:gem_enchanting_blacklist"
   },
-  "gem": {
-    "item": "minecraft:iron_ingot"
-  },
   "enchantments": [
-    "minecraft:unbreaking"
-  ]
+    "minecraft:looting",
+    "minecraft:fortune"
+  ],
+  "gem": {
+    "item": "minecraft:emerald"
+  }
 }

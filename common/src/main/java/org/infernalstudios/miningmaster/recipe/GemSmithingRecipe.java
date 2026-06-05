@@ -165,7 +165,7 @@ public class GemSmithingRecipe implements SmithingRecipe {
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return MMRecipes.GEM_SMITHING_RECIPE_SERIALIZER;
+        return MMRecipes.GEM_SMITHING_RECIPE_SERIALIZER.get();
     }
 
     @Override
@@ -177,7 +177,6 @@ public class GemSmithingRecipe implements SmithingRecipe {
     public boolean isSpecial() {
         return true;
     }
-
 
     public static class GemSmithingRecipeSerializer implements RecipeSerializer<GemSmithingRecipe> {
 

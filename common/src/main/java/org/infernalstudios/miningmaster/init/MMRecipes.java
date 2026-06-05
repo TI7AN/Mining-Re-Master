@@ -16,26 +16,33 @@
 
 package org.infernalstudios.miningmaster.init;
 
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.item.crafting.RecipeType;
 import org.infernalstudios.miningmaster.MiningMaster;
-import org.infernalstudios.miningmaster.recipe.GemSmithingRecipe;
+import org.infernalstudios.miningmaster.MiningMaster;
+import org.infernalstudios.miningmaster.recipe.*;
 
 public class MMRecipes {
-    public static final RecipeSerializer<GemSmithingRecipe> GEM_SMITHING_RECIPE_SERIALIZER = Registry.register(
-            BuiltInRegistries.RECIPE_SERIALIZER,
-            ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "gem_smithing_recipe"),
-            new GemSmithingRecipe.GemSmithingRecipeSerializer()
+    public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(MiningMaster.MOD_ID, Registries.RECIPE_SERIALIZER);
+
+    public static final RegistrySupplier<RecipeSerializer<GemSmithingRecipe>> GEM_SMITHING_RECIPE_SERIALIZER = RECIPE_SERIALIZERS.register(
+            "gem_smithing_recipe",
+            GemSmithingRecipe.GemSmithingRecipeSerializer::new
     );
 
-//    public static final RegistryObject<RecipeSerializer<ForgingRecipe>> FORGING_RECIPE = RECIPE_SERIALIZERS.register("forging_recipe", ForgingRecipe.ForgingRecipeSerializer::new);
+    public static final RegistrySupplier<RecipeSerializer<ForgingRecipe>> FORGING_RECIPE = RECIPE_SERIALIZERS.register("forging_recipe", ForgingRecipe.ForgingRecipeSerializer::new);
 
-//    public static RecipeType<ForgingRecipe> FORGING_RECIPE_TYPE = new ForgingRecipe.ForgingRecipeType();
+    public static RecipeType<ForgingRecipe> FORGING_RECIPE_TYPE = new ForgingRecipe.ForgingRecipeType();
 //    public static RecipeBookType GEM_FORGE = RecipeBookType.create("GEM_FORGE");
 
     public static void init() {
         MiningMaster.LOGGER.info("Recipes registered");
+        RECIPE_SERIALIZERS.register();
     };
 }

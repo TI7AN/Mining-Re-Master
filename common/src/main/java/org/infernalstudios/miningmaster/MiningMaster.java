@@ -9,13 +9,14 @@ public final class MiningMaster {
     public static final String MOD_ID = "miningmaster";
 
     public static void init() {
-//        MMArmorMaterials.init();
 //        MMBlockEntities.init();
-        MMBlocks.init();
+        MMArmorMaterials.ARMOR_MATERIALS.register();
+        MMBlocks.BLOCKS.register();
+        MMItems.ITEMS.register();
 //        MMContainerTypes.init();
-//        MMEnchantments.init();
-        MMItems.init();
-        MMRecipes.init();
+        MMEnchantments.init();
+        MMRecipes.RECIPE_SERIALIZERS.register();
+        MMFeatures.FEATURES.register();
 //        MMSounds.init();
 //        MMTileEntityTypes.init();
     }
