@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "minecraft:soul_sand_valley",
+  "features": "miningmaster:ore_heart_rhodonite_gem_placed",
+  "step": "underground_ores"
+}

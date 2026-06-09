@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "miningmaster:lucky_citrine_block"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "miningmaster:lucky_citrine"
+  }
+}

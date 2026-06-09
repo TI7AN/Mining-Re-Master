@@ -56,8 +56,8 @@ public class MMArmorMaterials {
     );
 
     public static void init() {
-        MiningMaster.LOGGER.info("Tool/Armor materials registered");
         ARMOR_MATERIALS.register();
+        MiningMaster.LOGGER.info("Tool/Armor Materials registered");
     };
 
     public static RegistrySupplier<ArmorMaterial> registerMaterial(String id, Map<ArmorItem.Type, Integer> defensePoints, int enchantability, Holder<SoundEvent> equipSound, Supplier<Ingredient> repairIngredientSupplier, float toughness, float knockbackResistance, boolean dyeable) {

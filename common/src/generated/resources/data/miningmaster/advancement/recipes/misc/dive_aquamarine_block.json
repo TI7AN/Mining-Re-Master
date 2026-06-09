@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_dive_aquamarine": {
+      "conditions": {
+        "items": [
+          {
+            "items": "miningmaster:dive_aquamarine"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "miningmaster:dive_aquamarine_block"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_dive_aquamarine"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "miningmaster:dive_aquamarine_block"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "miningmaster:unbreaking_iolite_block"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "miningmaster:unbreaking_iolite"
+  }
+}

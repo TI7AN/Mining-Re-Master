@@ -4,9 +4,6 @@ import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.enchantment.Enchantment;
-import org.apache.http.config.RegistryBuilder;
-import org.infernalstudios.miningmaster.init.MMEnchantments;
 
 public class MMDataGenerator implements DataGeneratorEntrypoint {
 
@@ -14,12 +11,18 @@ public class MMDataGenerator implements DataGeneratorEntrypoint {
     public void onInitializeDataGenerator(FabricDataGenerator dataGenerator) {
         FabricDataGenerator.Pack pack = dataGenerator.createPack();
 
-        pack.addProvider(EnchantmentProvider::new);
-        pack.addProvider(RecipeProvider::new);
+        pack.addProvider(MMItemTagProvider::new);
+        pack.addProvider(MMBlockTagProvider::new);
+        pack.addProvider(MMRecipeProvider::new);
+        pack.addProvider(MMBiomeTagProvider::new);
+        pack.addProvider(MMWorldgenProvider::new);
+        pack.addProvider(MMEnchantmentProvider::new);
     }
 
     @Override
     public void buildRegistry(RegistrySetBuilder registryBuilder) {
-        registryBuilder.add(Registries.ENCHANTMENT, EnchantmentProvider::bootstrap);
+        registryBuilder.add(Registries.ENCHANTMENT, MMEnchantmentProvider::bootstrap);
+        registryBuilder.add(Registries.CONFIGURED_FEATURE, MMConfiguredFeatures::configure);
+        registryBuilder.add(Registries.PLACED_FEATURE, MMPlacedFeatures::configure);
     }
 }

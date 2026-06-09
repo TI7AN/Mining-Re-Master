@@ -18,13 +18,9 @@ package org.infernalstudios.miningmaster.init;
 
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import org.infernalstudios.miningmaster.MiningMaster;
 import org.infernalstudios.miningmaster.MiningMaster;
 import org.infernalstudios.miningmaster.recipe.*;
 
@@ -39,10 +35,9 @@ public class MMRecipes {
     public static final RegistrySupplier<RecipeSerializer<ForgingRecipe>> FORGING_RECIPE = RECIPE_SERIALIZERS.register("forging_recipe", ForgingRecipe.ForgingRecipeSerializer::new);
 
     public static RecipeType<ForgingRecipe> FORGING_RECIPE_TYPE = new ForgingRecipe.ForgingRecipeType();
-//    public static RecipeBookType GEM_FORGE = RecipeBookType.create("GEM_FORGE");
 
     public static void init() {
-        MiningMaster.LOGGER.info("Recipes registered");
         RECIPE_SERIALIZERS.register();
+        MiningMaster.LOGGER.info("Recipes registered");
     };
 }

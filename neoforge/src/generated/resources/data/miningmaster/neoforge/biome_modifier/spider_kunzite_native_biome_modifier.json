@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#minecraft:is_forest",
+  "features": "miningmaster:ore_spider_kunzite_gem_placed",
+  "step": "underground_ores"
+}

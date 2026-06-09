@@ -19,7 +19,7 @@ dependencies {
 sourceSets {
     main {
         resources {
-            srcDirs += "./src/generated/resources"
+            srcDir rootProject.generatedResourcesCommon
         }
     }
 }

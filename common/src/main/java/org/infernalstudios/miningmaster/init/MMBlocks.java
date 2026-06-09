@@ -16,6 +16,7 @@
 
 package org.infernalstudios.miningmaster.init;
 
+import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.Registry;
@@ -28,6 +29,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.infernalstudios.miningmaster.MiningMaster;
+import org.infernalstudios.miningmaster.block.GemForgeBlock;
 import org.infernalstudios.miningmaster.block.GemOreBlock;
 //import org.infernalstudios.miningmaster.block.GemForgeBlock;
 //import org.infernalstudios.miningmaster.block.GemOreBlock;
@@ -47,7 +49,10 @@ public class MMBlocks {
     public static final RegistrySupplier<Block> DIVINE_BERYL_ORE = register("divine_beryl_ore",() -> new GemOreBlock(getProperties(Blocks.DIAMOND_ORE)), true);
     public static final RegistrySupplier<Block> SPIDER_KUNZITE_ORE = register("spider_kunzite_ore",() -> new GemOreBlock(getProperties(Blocks.DIAMOND_ORE)), true);
     public static final RegistrySupplier<Block> UNBREAKING_IOLITE_ORE = register("unbreaking_iolite_ore",() -> new GemOreBlock(getProperties(Blocks.DIAMOND_ORE)), true);
-
+    public static final RegistrySupplier<Block> HEART_RHODONITE_ORE = register("heart_rhodonite_ore",() -> new GemOreBlock(getProperties(Blocks.NETHER_GOLD_ORE)), true);
+    public static final RegistrySupplier<Block> POWER_PYRITE_ORE = register("power_pyrite_ore",() -> new GemOreBlock(getProperties(Blocks.NETHER_GOLD_ORE)), true);
+    public static final RegistrySupplier<Block> KINETIC_OPAL_ORE = register("kinetic_opal_ore",() -> new GemOreBlock(getProperties(Blocks.NETHER_GOLD_ORE)), true);
+    public static final RegistrySupplier<Block> AIR_MALACHITE_ORE = register("air_malachite_ore",() -> new GemOreBlock(getProperties(Blocks.NETHER_GOLD_ORE)), true);
 
     public static final RegistrySupplier<Block> DEEPSLATE_FIRE_RUBY_ORE = register("deepslate_fire_ruby_ore",() -> new GemOreBlock(getProperties(Blocks.DEEPSLATE_DIAMOND_ORE)), true);
     public static final RegistrySupplier<Block> DEEPSLATE_ICE_SAPPHIRE_ORE = register("deepslate_ice_sapphire_ore",() -> new GemOreBlock(getProperties(Blocks.DEEPSLATE_DIAMOND_ORE)), true);
@@ -59,10 +64,6 @@ public class MMBlocks {
     public static final RegistrySupplier<Block> DEEPSLATE_SPIDER_KUNZITE_ORE = register("deepslate_spider_kunzite_ore",() -> new GemOreBlock(getProperties(Blocks.DEEPSLATE_DIAMOND_ORE)), true);
     public static final RegistrySupplier<Block> DEEPSLATE_UNBREAKING_IOLITE_ORE = register("deepslate_unbreaking_iolite_ore",() -> new GemOreBlock(getProperties(Blocks.DEEPSLATE_DIAMOND_ORE)), true);
 
-    public static final RegistrySupplier<Block> HEART_RHODONITE_ORE = register("heart_rhodonite_ore",() -> new GemOreBlock(getProperties(Blocks.NETHER_GOLD_ORE)), true);
-    public static final RegistrySupplier<Block> POWER_PYRITE_ORE = register("power_pyrite_ore",() -> new GemOreBlock(getProperties(Blocks.NETHER_GOLD_ORE)), true);
-    public static final RegistrySupplier<Block> KINETIC_OPAL_ORE = register("kinetic_opal_ore",() -> new GemOreBlock(getProperties(Blocks.NETHER_GOLD_ORE)), true);
-    public static final RegistrySupplier<Block> AIR_MALACHITE_ORE = register("air_malachite_ore",() -> new GemOreBlock(getProperties(Blocks.NETHER_GOLD_ORE)), true);
 
     // GEM BLOCKS
     public static final RegistrySupplier<Block> FIRE_RUBY_BLOCK = register("fire_ruby_block",() -> new Block(getProperties(Blocks.DIAMOND_BLOCK)), true);
@@ -82,9 +83,10 @@ public class MMBlocks {
     //MISC BLOCKS
     public static final RegistrySupplier<Block> MALACORE = register("malacore", () -> new Block(getProperties(Blocks.END_STONE)), true);
     public static final RegistrySupplier<Block> MALACRUST = register("malacrust", () -> new Block(getProperties(Blocks.DEEPSLATE).strength(22.5F)), true);
-//    public static final RegistrySupplier<Block> GEM_FORGE = register("gem_forge", () -> new GemForgeBlock(getProperties(Blocks.FURNACE)), true);
+    public static final RegistrySupplier<Block> GEM_FORGE = register("gem_forge", () -> new GemForgeBlock(getProperties(Blocks.FURNACE)), true);
 
     public static void init() {
+        BLOCKS.register();
         MiningMaster.LOGGER.info("Blocks registered");
     };
 
@@ -92,26 +94,15 @@ public class MMBlocks {
         return BlockBehaviour.Properties.ofFullCopy(block);
     }
 
-//    public static Block register(String name, Block block, boolean shouldRegisterItem) {
-//
-//        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, name);
-//
-//        if (shouldRegisterItem) {
-//            BlockItem blockItem = new BlockItem(block, new Item.Properties());
-//            Registry.register(BuiltInRegistries.ITEM, id, blockItem);
-//        }
-//
-//        return Registry.register(BuiltInRegistries.BLOCK, id, block);
-//    }
+    public static <T extends Block> RegistrySupplier<T> register(String name, Supplier<T> block, boolean shouldRegisterItem) {
 
-    public static RegistrySupplier<Block> register(String name, Supplier<Block> block, boolean shouldRegisterItem) {
-
-        RegistrySupplier<Block> block_supplier = BLOCKS.register(name, block);
+        var blockSupplier = BLOCKS.register(name, block);
 
         if (shouldRegisterItem) {
-            MMItems.ITEMS.register(name,() -> new BlockItem(block_supplier.get(), new Item.Properties()));
+            var itemSupplier = MMItems.ITEMS.register(name,() -> new BlockItem(blockSupplier.get(), new Item.Properties()));
+            CreativeTabRegistry.append(MMTabs.MM_TAB, itemSupplier);
         }
 
-        return block_supplier;
+        return blockSupplier;
     }
 }

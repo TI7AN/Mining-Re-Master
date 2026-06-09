@@ -8,10 +8,16 @@ architectury {
 }
 
 loom {
-    def aw = project(":common").file("src/main/resources/${mod_id}.accesswidener")
+//    def aw = project(":common").file("src/main/resources/${mod_id}.accesswidener")
+//
+//    if (aw.exists()) {
+//        accessWidenerPath.set(aw)
+//    }
 
-    if (aw.exists()) {
-        accessWidenerPath.set(aw)
+    def ct = project(":fabric").file("src/main/resources/${mod_id}.classtweaker")
+
+    if (ct.exists()) {
+        accessWidenerPath.set(ct)
     }
 
     runs {

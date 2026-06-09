@@ -35,6 +35,7 @@ public class MMSounds {
     public static final RegistrySupplier<SoundEvent> GEM_FORGE_COMPLETE = registerSound("gemforge.complete");
 
     public static void init() {
+        SOUNDS.register();
         MiningMaster.LOGGER.info("Sounds registered");
     };
 
