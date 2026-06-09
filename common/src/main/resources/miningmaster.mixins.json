@@ -3,14 +3,18 @@
   "package": "org.infernalstudios.miningmaster.mixin",
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
+  "mixinextras": {
+    "minVersion": "0.5.3"
+  },
   "client": [
     "ClientRecipeBookMixin",
     "RecipeBookCategoriesMixin"
   ],
   "mixins": [
-    "MixinPowderSnowBlock",
+    "PlayerMixin",
     "RecipeBookSettingsMixin",
     "SmithingMenuMixin",
+    "SnowpiercerMixinPowderSnowBlock",
     "accessor.RecipeBookComponentAccessor"
   ],
   "injectors": {

@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "org.infernalstudios.neoforge.miningmaster.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "mixinextras": {"minVersion": "0.5.3"},
+  "client": [
+  ],
+  "mixins": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

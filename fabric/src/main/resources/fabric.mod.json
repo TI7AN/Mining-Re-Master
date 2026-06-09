@@ -27,7 +27,8 @@
   },
   "accessWidener": "miningmaster.classtweaker",
   "mixins": [
-    "miningmaster.mixins.json"
+    "miningmaster.mixins.json",
+    "miningmaster.fabric.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.19.2",

@@ -2,6 +2,9 @@
   "required": true,
   "package": "org.infernalstudios.fabric.miningmaster.mixin",
   "compatibilityLevel": "JAVA_25",
+  "mixinextras": {"minVersion": "0.5.3"},
+  "client": [
+  ],
   "mixins": [
   ],
   "injectors": {

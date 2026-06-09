@@ -37,3 +37,6 @@ side = "BOTH"
 
 [[mixins]]
 config = "miningmaster.mixins.json"
+
+[[mixins]]
+config = "miningmaster.neoforge.mixins.json"
