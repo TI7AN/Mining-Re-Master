@@ -1,0 +1,46 @@
+{
+  "entries": [
+    {
+      "enum": "net/minecraft/world/inventory/RecipeBookType",
+      "name": "MININGMASTER_GEM_FORGING",
+      "constructor": "()V",
+      "parameters": []
+    },
+    {
+      "enum": "net/minecraft/client/RecipeBookCategories",
+      "name": "MININGMASTER_GEM_FORGING_SEARCH",
+      "constructor": "(Ljava/util/function/Supplier;)V",
+      "parameters": {
+        "class": "org/infernalstudios/neoforge/miningmaster/EnumParameters",
+        "field": "PROXY_GEM_FORGING_SEARCH"
+      }
+    },
+    {
+      "enum": "net/minecraft/client/RecipeBookCategories",
+      "name": "MININGMASTER_GEM_FORGING_WEAPONS",
+      "constructor": "(Ljava/util/function/Supplier;)V",
+      "parameters": {
+        "class": "org/infernalstudios/neoforge/miningmaster/EnumParameters",
+        "field": "PROXY_GEM_FORGING_WEAPONS"
+      }
+    },
+    {
+      "enum": "net/minecraft/client/RecipeBookCategories",
+      "name": "MININGMASTER_GEM_FORGING_TOOLS",
+      "constructor": "(Ljava/util/function/Supplier;)V",
+      "parameters": {
+        "class": "org/infernalstudios/neoforge/miningmaster/EnumParameters",
+        "field": "PROXY_GEM_FORGING_TOOLS"
+      }
+    },
+    {
+      "enum": "net/minecraft/client/RecipeBookCategories",
+      "name": "MININGMASTER_GEM_FORGING_ARMOR",
+      "constructor": "(Ljava/util/function/Supplier;)V",
+      "parameters": {
+        "class": "org/infernalstudios/neoforge/miningmaster/EnumParameters",
+        "field": "PROXY_GEM_FORGING_ARMOR"
+      }
+    }
+  ]
+}

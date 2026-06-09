@@ -25,6 +25,7 @@
       "org.infernalstudios.fabric.miningmaster.datagen.MMDataGenerator"
     ]
   },
+  "accessWidener": "miningmaster.classtweaker",
   "mixins": [
     "miningmaster.mixins.json"
   ],

@@ -187,7 +187,7 @@ public class ForgingRecipe implements IForgingRecipe {
                 RecordCodecBuilder.create(instance -> instance.group(
                         Enchantment.CODEC.fieldOf("enchantment")
                                 .forGetter(Pair::getFirst),
-                        Codec.INT.fieldOf("level")
+                        Codec.INT.fieldOf("lvl")
                                 .forGetter(Pair::getSecond)
                 ).apply(instance, Pair::of));
 

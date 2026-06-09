@@ -11,6 +11,7 @@ authors = "Me!"
 description = '''
 This is an example description! Tell everyone what your mod is about!
 '''
+enumExtensions="META-INF/enumextensions.json"
 #logoFile = ""
 
 [[dependencies.miningmaster]]

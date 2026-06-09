@@ -4,9 +4,13 @@
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
   "client": [
+    "ClientRecipeBookMixin",
+    "RecipeBookCategoriesMixin"
   ],
   "mixins": [
-    "SmithingMenuMixin"
+    "RecipeBookSettingsMixin",
+    "SmithingMenuMixin",
+    "accessor.RecipeBookComponentAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

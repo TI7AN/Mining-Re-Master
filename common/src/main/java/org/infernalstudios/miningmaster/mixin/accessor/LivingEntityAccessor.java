@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.infernalstudios.miningmaster.access;
+package org.infernalstudios.miningmaster.mixin.accessor;
 
-public interface LivingEntityAccess {
+public interface LivingEntityAccessor {
     void setGraceRecharged(boolean isGraceRecharged);
 
     boolean getGraceRecharged();
