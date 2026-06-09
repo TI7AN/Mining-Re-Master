@@ -2,6 +2,9 @@ package org.infernalstudios.miningmaster.init.client;
 
 import dev.architectury.event.events.client.ClientLifecycleEvent;
 import dev.architectury.event.events.common.EntityEvent;
+import dev.architectury.injectables.annotations.PlatformOnly;
+import dev.architectury.injectables.targets.ArchitecturyTarget;
+import dev.architectury.platform.Platform;
 import dev.architectury.registry.menu.MenuRegistry;
 import org.infernalstudios.miningmaster.client.gui.screen.inventory.GemForgeScreen;
 import org.infernalstudios.miningmaster.init.MMMenuTypes;
@@ -9,10 +12,12 @@ import org.infernalstudios.miningmaster.init.MMMenuTypes;
 public class MMScreens {
 
     public static void init() {
-        //This does not work on neoforge 1.21.1, TODO check compatibility on newer versions
-//        MenuRegistry.registerScreenFactory(
-//                MMMenuTypes.GEM_FORGE_MENU.get(),
-//                GemForgeScreen::new
-//        );
+        if (ArchitecturyTarget.getCurrentTarget().equals(PlatformOnly.FABRIC)) {
+            //This does not work on neoforge 1.21.1, TODO check compatibility on newer versions
+            MenuRegistry.registerScreenFactory(
+                    MMMenuTypes.GEM_FORGE_MENU.get(),
+                    GemForgeScreen::new
+            );
+        }
     }
 }
