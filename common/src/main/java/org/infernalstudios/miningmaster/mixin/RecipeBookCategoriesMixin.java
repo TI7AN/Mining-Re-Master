@@ -17,22 +17,22 @@ import java.util.List;
 
 @Mixin(RecipeBookCategories.class)
 public class RecipeBookCategoriesMixin {
-    @Unique
-    private static final List<RecipeBookCategories> MININGMASTER_GEM_FORGING_CATEGORIES = ImmutableList.of(
-            MMRecipeCategories.GEM_FORGING_SEARCH,
-            MMRecipeCategories.GEM_FORGING_WEAPONS,
-            MMRecipeCategories.GEM_FORGING_TOOLS,
-            MMRecipeCategories.GEM_FORGING_ARMOR
-    );
-
-//    @Shadow
-//    RecipeBookCategoriesMixin(ItemStack... itemIcons) {
+//    @Unique
+//    private static final List<RecipeBookCategories> MININGMASTER_GEM_FORGING_CATEGORIES = ImmutableList.of(
+//            MMRecipeCategories.GEM_FORGING_SEARCH,
+//            MMRecipeCategories.GEM_FORGING_WEAPONS,
+//            MMRecipeCategories.GEM_FORGING_TOOLS,
+//            MMRecipeCategories.GEM_FORGING_ARMOR
+//    );
+//
+////    @Shadow
+////    RecipeBookCategoriesMixin(ItemStack... itemIcons) {
+////    }
+//
+//    @Inject(method = "getCategories", at = @At("TAIL"), cancellable = true)
+//    private static void MM$getCustomCategories(RecipeBookType recipeBookType, CallbackInfoReturnable<List<RecipeBookCategories>> cir){
+//        if (recipeBookType == MMRecipeBookType.GEM_FORGING) {
+//            cir.setReturnValue(MININGMASTER_GEM_FORGING_CATEGORIES);
+//        }
 //    }
-
-    @Inject(method = "getCategories", at = @At("TAIL"), cancellable = true)
-    private static void MM$getCustomCategories(RecipeBookType recipeBookType, CallbackInfoReturnable<List<RecipeBookCategories>> cir){
-        if (recipeBookType == MMRecipeBookType.GEM_FORGING) {
-            cir.setReturnValue(MININGMASTER_GEM_FORGING_CATEGORIES);
-        }
-    }
 }

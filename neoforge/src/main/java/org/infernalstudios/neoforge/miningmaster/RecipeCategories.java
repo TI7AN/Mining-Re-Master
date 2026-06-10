@@ -1,11 +1,6 @@
 package org.infernalstudios.neoforge.miningmaster;
 
-import com.google.common.collect.ImmutableList;
-import net.minecraft.client.RecipeBookCategories;
-import net.minecraft.world.inventory.RecipeBookType;
 import net.neoforged.neoforge.client.event.RegisterRecipeBookCategoriesEvent;
-import org.infernalstudios.miningmaster.init.MMRecipes;
-import org.infernalstudios.miningmaster.recipe.ForgingRecipe;
 
 public class RecipeCategories {
 

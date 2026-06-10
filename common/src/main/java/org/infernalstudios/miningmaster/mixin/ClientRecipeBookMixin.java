@@ -21,31 +21,31 @@ import java.util.stream.Stream;
 
 @Mixin(ClientRecipeBook.class)
 public class ClientRecipeBookMixin {
-    @Inject(method = "setupCollections", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMap;copyOf(Ljava/util/Map;)Lcom/google/common/collect/ImmutableMap;"))
-    private void MM$setupAggregateCategories(Iterable<RecipeHolder<?>> iterable, RegistryAccess registryAccess, CallbackInfo ci, @Local(ordinal = 1) Map<RecipeBookCategories, List<RecipeCollection>> aggregateCategories) {
-        aggregateCategories.put(
-                MMRecipeCategories.GEM_FORGING_SEARCH,
-                Stream.of(
-                    MMRecipeCategories.GEM_FORGING_WEAPONS,
-                    MMRecipeCategories.GEM_FORGING_TOOLS,
-                    MMRecipeCategories.GEM_FORGING_ARMOR
-                        )
-                .flatMap(categories -> aggregateCategories.getOrDefault(categories, List.of()).stream())
-                .toList()
-        );
-    }
-
-    @Inject(method = "getCategory", at = @At(value = "INVOKE", target = "Lcom/mojang/logging/LogUtils;defer(Ljava/util/function/Supplier;)Ljava/lang/Object;", ordinal = 0), cancellable = true)
-    private static void fdrf$getCustomRecipeCategory(RecipeHolder<?> recipe, CallbackInfoReturnable<RecipeBookCategories> cir) {
-//        if (recipe.value() instanceof CookingPotRecipe cookingRecipe) {
-//            CookingPotRecipeBookTab tab = cookingRecipe.getRecipeBookTab();
-//            if (tab != null) {
-//                cir.setReturnValue(switch (tab) {
-//                    case MEALS -> FDRecipeCategories.COOKING_MEALS;
-//                    case DRINKS -> FDRecipeCategories.COOKING_DRINKS;
-//                    case MISC -> FDRecipeCategories.COOKING_MISC;
-//                });
-//            }
-//        }
-    }
+//    @Inject(method = "setupCollections", at = @At(value = "INVOKE", target = "Lcom/google/common/collect/ImmutableMap;copyOf(Ljava/util/Map;)Lcom/google/common/collect/ImmutableMap;"))
+//    private void MM$setupAggregateCategories(Iterable<RecipeHolder<?>> iterable, RegistryAccess registryAccess, CallbackInfo ci, @Local(ordinal = 1) Map<RecipeBookCategories, List<RecipeCollection>> aggregateCategories) {
+//        aggregateCategories.put(
+//                MMRecipeCategories.GEM_FORGING_SEARCH,
+//                Stream.of(
+//                    MMRecipeCategories.GEM_FORGING_WEAPONS,
+//                    MMRecipeCategories.GEM_FORGING_TOOLS,
+//                    MMRecipeCategories.GEM_FORGING_ARMOR
+//                        )
+//                .flatMap(categories -> aggregateCategories.getOrDefault(categories, List.of()).stream())
+//                .toList()
+//        );
+//    }
+//
+//    @Inject(method = "getCategory", at = @At(value = "INVOKE", target = "Lcom/mojang/logging/LogUtils;defer(Ljava/util/function/Supplier;)Ljava/lang/Object;", ordinal = 0), cancellable = true)
+//    private static void fdrf$getCustomRecipeCategory(RecipeHolder<?> recipe, CallbackInfoReturnable<RecipeBookCategories> cir) {
+////        if (recipe.value() instanceof CookingPotRecipe cookingRecipe) {
+////            CookingPotRecipeBookTab tab = cookingRecipe.getRecipeBookTab();
+////            if (tab != null) {
+////                cir.setReturnValue(switch (tab) {
+////                    case MEALS -> FDRecipeCategories.COOKING_MEALS;
+////                    case DRINKS -> FDRecipeCategories.COOKING_DRINKS;
+////                    case MISC -> FDRecipeCategories.COOKING_MISC;
+////                });
+////            }
+////        }
+//    }
 }
