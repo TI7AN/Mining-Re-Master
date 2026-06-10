@@ -53,8 +53,8 @@ import org.infernalstudios.miningmaster.init.MMBlockEntities;
 import org.infernalstudios.miningmaster.init.MMRecipes;
 import org.infernalstudios.miningmaster.init.MMSounds;
 import org.infernalstudios.miningmaster.init.MMTags;
-import org.infernalstudios.miningmaster.recipe.ForgingRecipe;
-import org.infernalstudios.miningmaster.recipe.ForgingRecipeInput;
+import org.infernalstudios.miningmaster.recipe.GemForgingRecipe;
+import org.infernalstudios.miningmaster.recipe.GemForgingRecipeInput;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -122,10 +122,10 @@ public class GemForgeBlockEntity extends BaseContainerBlockEntity implements Wor
         }
 
         if (!level.isClientSide) {
-            RecipeHolder<ForgingRecipe> recipe = level.getRecipeManager()
+            RecipeHolder<GemForgingRecipe> recipe = level.getRecipeManager()
                     .getRecipeFor(
                             MMRecipes.FORGING_RECIPE_TYPE,
-                            new ForgingRecipeInput(gemForge.inventory),
+                            new GemForgingRecipeInput(gemForge.inventory),
                             level)
                     .orElse(null);
 
@@ -242,7 +242,7 @@ public class GemForgeBlockEntity extends BaseContainerBlockEntity implements Wor
         return this.customName;
     }
 
-    protected boolean canForge(@Nullable RecipeHolder<ForgingRecipe> recipe) {
+    protected boolean canForge(@Nullable RecipeHolder<GemForgingRecipe> recipe) {
         if (recipe != null) {
             ItemStack result = recipe.value().assemble(
                     this.asRecipeInput(),
@@ -254,7 +254,7 @@ public class GemForgeBlockEntity extends BaseContainerBlockEntity implements Wor
         }
     }
 
-    private void forge(@Nullable RecipeHolder<ForgingRecipe> recipe) {
+    private void forge(@Nullable RecipeHolder<GemForgingRecipe> recipe) {
         if (recipe != null && this.canForge(recipe)) {
             ItemStack result = recipe.value().assemble(
                     this.asRecipeInput(),
@@ -400,8 +400,8 @@ public class GemForgeBlockEntity extends BaseContainerBlockEntity implements Wor
     }
 
     @Override
-    public ForgingRecipeInput asRecipeInput() {
-        return new ForgingRecipeInput(
+    public GemForgingRecipeInput asRecipeInput() {
+        return new GemForgingRecipeInput(
                 this.inventory
         );
     }

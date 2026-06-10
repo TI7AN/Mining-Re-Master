@@ -32,9 +32,9 @@ public class MMRecipes {
             GemSmithingRecipe.GemSmithingRecipeSerializer::new
     );
 
-    public static final RegistrySupplier<RecipeSerializer<ForgingRecipe>> FORGING_RECIPE = RECIPE_SERIALIZERS.register("forging_recipe", ForgingRecipe.ForgingRecipeSerializer::new);
+    public static final RegistrySupplier<RecipeSerializer<GemForgingRecipe>> FORGING_RECIPE = RECIPE_SERIALIZERS.register("forging_recipe", GemForgingRecipe.ForgingRecipeSerializer::new);
 
-    public static RecipeType<ForgingRecipe> FORGING_RECIPE_TYPE = new ForgingRecipe.ForgingRecipeType();
+    public static RecipeType<GemForgingRecipe> FORGING_RECIPE_TYPE = new GemForgingRecipe.ForgingRecipeType();
 
     public static void init() {
         RECIPE_SERIALIZERS.register();

@@ -1,7 +1,7 @@
 package org.infernalstudios.miningmaster.container;
 
 import net.minecraft.world.SimpleContainer;
-import org.infernalstudios.miningmaster.recipe.ForgingRecipeInput;
+import org.infernalstudios.miningmaster.recipe.GemForgingRecipeInput;
 
 public class SimpleGemForgeContainer extends SimpleContainer implements IGemForgeContainer {
 
@@ -10,7 +10,7 @@ public class SimpleGemForgeContainer extends SimpleContainer implements IGemForg
     }
 
     @Override
-    public ForgingRecipeInput asRecipeInput() {
-        return new ForgingRecipeInput(this.getItems())  ;
+    public GemForgingRecipeInput asRecipeInput() {
+        return new GemForgingRecipeInput(this.getItems())  ;
     }
 }

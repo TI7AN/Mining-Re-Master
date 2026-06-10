@@ -18,6 +18,7 @@ package org.infernalstudios.miningmaster.recipe;
 
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.DataResult;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.Holder;
@@ -39,20 +40,20 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ForgingRecipe implements IForgingRecipe {
-    private final Ingredient catalyst;
-    private final NonNullList<Ingredient> gems;
-    private final NonNullList<Pair<Holder<Enchantment>,Integer>> enchantments;
-    private final ItemStack result;
+public class GemForgingRecipe implements IForgingRecipe {
+    final Ingredient catalyst;
+    final NonNullList<Ingredient> gems;
+    final List<Pair<Holder<Enchantment>,Integer>> enchantments;
+    final ItemStack result;
 
-    public ForgingRecipe(Ingredient catalyst, NonNullList<Ingredient> gems, NonNullList<Pair<Holder<Enchantment>,Integer>> enchantments, ItemStack result) {
+    public GemForgingRecipe(Ingredient catalyst, NonNullList<Ingredient> gems, List<Pair<Holder<Enchantment>,Integer>> enchantments, ItemStack result) {
         this.catalyst = catalyst;
         this.gems = gems;
         this.enchantments = enchantments;
         this.result = result;
     }
 
-    public boolean matches(ForgingRecipeInput recipeInput, Level level) {
+    public boolean matches(GemForgingRecipeInput recipeInput, Level level) {
         boolean catalystMatches = this.catalyst.test(recipeInput.getItem(9));
 
         List<ItemStack> inputs = new ArrayList<>();
@@ -119,7 +120,7 @@ public class ForgingRecipe implements IForgingRecipe {
     }
 
     @Override
-    public ItemStack assemble(ForgingRecipeInput recipeInput, HolderLookup.Provider provider) {
+    public ItemStack assemble(GemForgingRecipeInput recipeInput, HolderLookup.Provider provider) {
         ItemStack source = recipeInput.getItem(9);
         ItemStack itemstack = this.result.copy();
 
@@ -175,14 +176,14 @@ public class ForgingRecipe implements IForgingRecipe {
         return MMRecipes.FORGING_RECIPE_TYPE;
     }
 
-    public static class ForgingRecipeType implements RecipeType<ForgingRecipe> {
+    public static class ForgingRecipeType implements RecipeType<GemForgingRecipe> {
         @Override
         public String toString() {
-            return ForgingRecipe.TYPE_ID.toString();
+            return GemForgingRecipe.TYPE_ID.toString();
         }
     }
 
-    public static class ForgingRecipeSerializer implements RecipeSerializer<ForgingRecipe> {
+    public static class ForgingRecipeSerializer implements RecipeSerializer<GemForgingRecipe> {
         public static final Codec<Pair<Holder<Enchantment>, Integer>> ENCHANTMENT_CODEC =
                 RecordCodecBuilder.create(instance -> instance.group(
                         Enchantment.CODEC.fieldOf("enchantment")
@@ -203,33 +204,47 @@ public class ForgingRecipe implements IForgingRecipe {
                         Pair::of
                 );
 
-        public static final MapCodec<ForgingRecipe> CODEC =
+        public static final MapCodec<GemForgingRecipe> CODEC =
                 RecordCodecBuilder.mapCodec(instance ->
                         instance.group(
-                                Ingredient.CODEC.fieldOf("catalyst")
+                                Ingredient.CODEC_NONEMPTY.fieldOf("catalyst")
                                         .forGetter(r -> r.catalyst),
 
-                                Ingredient.CODEC.listOf().fieldOf("gems")
-                                        .forGetter(r -> List.copyOf(r.gems)),
+                                Ingredient.CODEC_NONEMPTY.listOf().fieldOf("gems")
+                                        .flatXmap(list -> {
+                                            Ingredient[] ingredients = (Ingredient[])list.stream().filter(ingredient -> !ingredient.isEmpty()).toArray(Ingredient[]::new);
+                                                if (ingredients.length == 0) {
+                                                    return DataResult.error(() -> "No gems for gem forging recipe");
+                                                } else {
+                                                    return ingredients.length > 9
+                                                            ? DataResult.error(() -> "Too many gems for gem forging recipe")
+                                                            : DataResult.success(NonNullList.of(Ingredient.EMPTY, ingredients));
+                                                }
+                                            },
+                                            DataResult::success
+                                        )
+                                        .forGetter(r -> r.gems),
 
                                 ENCHANTMENT_CODEC.listOf().fieldOf("enchantments")
+                                        .flatXmap(list -> {
+                                                    Pair<Holder<Enchantment>, Integer>[] enchantments = (Pair<Holder<Enchantment>, Integer>[])list.toArray(Pair[]::new);
+                                                    if (enchantments.length == 0) {
+                                                        return DataResult.error(() -> "No gems for gem forging recipe");
+                                                    } else {
+                                                        return DataResult.success(List.of(enchantments));
+                                                    }
+                                                },
+                                                DataResult::success
+                                        )
                                         .forGetter(r -> List.copyOf(r.enchantments)),
 
                                 ItemStack.CODEC.fieldOf("result")
                                         .forGetter(r -> r.result)
                         ).apply(
-                                instance,
-                                (catalyst, gems, enchantments, result) -> {
-                                    NonNullList<Ingredient> NN_gems_List = NonNullList.create();
-                                    NN_gems_List.addAll(gems);
-                                    NonNullList<Pair<Holder<Enchantment>, Integer>> NN_enchantment_List = NonNullList.create();
-                                    NN_enchantment_List.addAll(enchantments);
-                                    return new ForgingRecipe(catalyst, NN_gems_List, NN_enchantment_List, result);
-                                }
-                            )
+                                instance, GemForgingRecipe::new)
                 );
 
-        public static final StreamCodec<RegistryFriendlyByteBuf, ForgingRecipe> STREAM_CODEC =
+        public static final StreamCodec<RegistryFriendlyByteBuf, GemForgingRecipe> STREAM_CODEC =
                 StreamCodec.composite(
                         Ingredient.CONTENTS_STREAM_CODEC,
                         r -> r.catalyst,
@@ -251,7 +266,7 @@ public class ForgingRecipe implements IForgingRecipe {
                                     NonNullList.create();
                             enchantmentList.addAll(enchantments);
 
-                            return new ForgingRecipe(
+                            return new GemForgingRecipe(
                                     catalyst,
                                     gemList,
                                     enchantmentList,
@@ -261,12 +276,12 @@ public class ForgingRecipe implements IForgingRecipe {
                 );
 
         @Override
-        public @NotNull MapCodec<ForgingRecipe> codec() {
+        public @NotNull MapCodec<GemForgingRecipe> codec() {
             return CODEC;
         }
 
         @Override
-        public @NotNull StreamCodec<RegistryFriendlyByteBuf, ForgingRecipe> streamCodec() {
+        public @NotNull StreamCodec<RegistryFriendlyByteBuf, GemForgingRecipe> streamCodec() {
             return STREAM_CODEC;
         }
     }

@@ -21,13 +21,12 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import org.infernalstudios.miningmaster.MiningMaster;
 import org.infernalstudios.miningmaster.init.MMRecipes;
-import org.jetbrains.annotations.NotNull;
 
-public interface IForgingRecipe extends Recipe<ForgingRecipeInput> {
+public interface IForgingRecipe extends Recipe<GemForgingRecipeInput> {
     ResourceLocation TYPE_ID = ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "forging");
 
-//    @Override
-//    default @NotNull RecipeType<?> getType() {
-//        return MMRecipes.FORGING_RECIPE_TYPE;
-//    }
+    @Override
+    default RecipeType<?> getType() {
+        return MMRecipes.FORGING_RECIPE_TYPE;
+    }
 }

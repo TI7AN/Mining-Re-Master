@@ -37,12 +37,12 @@ import net.minecraft.world.level.Level;
 import org.infernalstudios.miningmaster.MiningMaster;
 import org.infernalstudios.miningmaster.init.MMMenuTypes;
 import org.infernalstudios.miningmaster.init.MMRecipeBookType;
-import org.infernalstudios.miningmaster.recipe.ForgingRecipe;
-import org.infernalstudios.miningmaster.recipe.ForgingRecipeInput;
+import org.infernalstudios.miningmaster.recipe.GemForgingRecipe;
+import org.infernalstudios.miningmaster.recipe.GemForgingRecipeInput;
 import org.infernalstudios.miningmaster.recipe.GemForgeServerRecipePlacer;
 //import org.infernalstudios.miningmaster.recipes.GemForgeServerRecipePlacer;
 
-public class GemForgeMenu extends RecipeBookMenu<ForgingRecipeInput, ForgingRecipe> {
+public class GemForgeMenu extends RecipeBookMenu<GemForgingRecipeInput, GemForgingRecipe> {
 
     private static final int SLOT_COUNT = 10;
 
@@ -106,7 +106,7 @@ public class GemForgeMenu extends RecipeBookMenu<ForgingRecipeInput, ForgingReci
     @SuppressWarnings("unchecked")
     @Override
     public void handlePlacement(boolean placeAll, RecipeHolder<?> recipe, ServerPlayer player) {
-        (new GemForgeServerRecipePlacer<>(this)).place(player, (RecipeHolder<ForgingRecipe>) recipe, placeAll);
+        (new GemForgeServerRecipePlacer<>(this)).place(player, (RecipeHolder<GemForgingRecipe>) recipe, placeAll);
     }
 
     public boolean stillValid(Player playerIn) {
@@ -131,7 +131,7 @@ public class GemForgeMenu extends RecipeBookMenu<ForgingRecipeInput, ForgingReci
     }
 
     @Override
-    public boolean recipeMatches(RecipeHolder<ForgingRecipe> recipe) {
+    public boolean recipeMatches(RecipeHolder<GemForgingRecipe> recipe) {
 //        SimpleContainer inventory = new SimpleContainer(10);
 //        for(int i = 0; i < inventory.getContainerSize(); i++) {
 //            inventory.setItem(i, this.forgeInventory.getItem(i));
