@@ -28,7 +28,7 @@ public class MMGemSmithingRecipeBuilder {
     private final RecipeCategory category;
     private final Map<String, Criterion<?>> criteria = new LinkedHashMap();
 
-    public MMGemSmithingRecipeBuilder(RecipeCategory category, Ingredient blacklist, Ingredient gem, List<Holder<Enchantment>> enchantments){
+    private MMGemSmithingRecipeBuilder(RecipeCategory category, Ingredient blacklist, Ingredient gem, List<Holder<Enchantment>> enchantments){
         this.blacklist = blacklist;
         this.gem = gem;
         this.enchantments = enchantments;
@@ -46,10 +46,6 @@ public class MMGemSmithingRecipeBuilder {
     }
 
     public void save(RecipeOutput recipeOutput) {
-//        ResourceLocation resourceLocation = RecipeBuilder.getDefaultRecipeId(
-//                Arrays.stream(this.gem.getItems()).findFirst().get().getItem())
-//                .withSuffix("_gem_smithing"
-//        );
 
         ResourceLocation itemId = BuiltInRegistries.ITEM.getKey(
                 Arrays.stream(this.gem.getItems())

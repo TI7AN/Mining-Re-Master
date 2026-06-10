@@ -1,0 +1,33 @@
+{
+  "type": "miningmaster:forging_recipe",
+  "catalyst": {
+    "item": "minecraft:diamond_sword"
+  },
+  "enchantments": [
+    {
+      "enchantment": "minecraft:unbreaking",
+      "lvl": 4
+    }
+  ],
+  "gems": [
+    {
+      "item": "miningmaster:unbreaking_iolite"
+    },
+    {
+      "item": "miningmaster:unbreaking_iolite"
+    },
+    {
+      "item": "miningmaster:unbreaking_iolite"
+    },
+    {
+      "item": "miningmaster:unbreaking_iolite"
+    },
+    {
+      "item": "miningmaster:unbreaking_iolite"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "miningmaster:unbreaking_iolite_pickaxe"
+  }
+}

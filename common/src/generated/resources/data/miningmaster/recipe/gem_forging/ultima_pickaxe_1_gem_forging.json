@@ -1,0 +1,54 @@
+{
+  "type": "miningmaster:forging_recipe",
+  "catalyst": {
+    "item": "minecraft:diamond_pickaxe"
+  },
+  "enchantments": [
+    {
+      "enchantment": "minecraft:efficiency",
+      "lvl": 6
+    },
+    {
+      "enchantment": "minecraft:fortune",
+      "lvl": 4
+    },
+    {
+      "enchantment": "minecraft:unbreaking",
+      "lvl": 3
+    },
+    {
+      "enchantment": "miningmaster:smelting",
+      "lvl": 1
+    }
+  ],
+  "gems": [
+    {
+      "item": "miningmaster:unbreaking_iolite"
+    },
+    {
+      "item": "miningmaster:unbreaking_iolite"
+    },
+    {
+      "item": "miningmaster:lucky_citrine"
+    },
+    {
+      "item": "miningmaster:lucky_citrine"
+    },
+    {
+      "item": "miningmaster:haste_peridot"
+    },
+    {
+      "item": "miningmaster:haste_peridot"
+    },
+    {
+      "item": "miningmaster:haste_peridot"
+    },
+    {
+      "item": "miningmaster:haste_peridot"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "miningmaster:ultima_pickaxe"
+  }
+}

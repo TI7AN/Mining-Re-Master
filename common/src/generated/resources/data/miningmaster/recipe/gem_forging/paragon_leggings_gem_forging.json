@@ -1,0 +1,34 @@
+{
+  "type": "miningmaster:forging_recipe",
+  "catalyst": {
+    "item": "minecraft:diamond_leggings"
+  },
+  "enchantments": [
+    {
+      "enchantment": "miningmaster:knight_jump",
+      "lvl": 4
+    },
+    {
+      "enchantment": "miningmaster:snowpiercer",
+      "lvl": 1
+    }
+  ],
+  "gems": [
+    {
+      "item": "miningmaster:air_malachite"
+    },
+    {
+      "item": "miningmaster:air_malachite"
+    },
+    {
+      "item": "miningmaster:air_malachite"
+    },
+    {
+      "item": "miningmaster:ice_sapphire"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "miningmaster:paragon_leggings"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_haste_peridot": {
+      "conditions": {
+        "items": [
+          {
+            "items": "miningmaster:haste_peridot"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_kinetic_opal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "miningmaster:kinetic_opal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_power_pyrite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "miningmaster:power_pyrite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "miningmaster:gem_forging/ultima_axe_1_gem_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_power_pyrite",
+      "has_haste_peridot",
+      "has_kinetic_opal"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "miningmaster:gem_forging/ultima_axe_1_gem_forging"
+    ]
+  }
+}

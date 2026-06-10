@@ -1,8 +1,10 @@
 package org.infernalstudios.fabric.miningmaster.datagen;
 
+import com.mojang.datafixers.util.Pair;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
@@ -11,6 +13,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
 import org.infernalstudios.miningmaster.MiningMaster;
+import org.infernalstudios.miningmaster.datagen.builder.MMGemForgingRecipeBuilder;
 import org.infernalstudios.miningmaster.datagen.builder.MMGemSmithingRecipeBuilder;
 import org.infernalstudios.miningmaster.init.MMBlocks;
 import org.infernalstudios.miningmaster.init.MMEnchantments;
@@ -450,6 +453,314 @@ public class MMRecipeProvider extends FabricRecipeProvider {
                 .save(recipeExporter)
         ;
         //</editor-fold>
+
+//        TODO: Enable this recipe when AIR_MALACHITE_BOW has been implemented
+//        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.BOW), MMItems.AIR_MALACHITE_BOW.get())
+//                .requires(MMItems.AIR_MALACHITE.get(), 5)
+//                .unlocks(getHasName(MMItems.AIR_MALACHITE.get()), has(MMItems.AIR_MALACHITE.get()))
+//                .withEnchantment(enchantments.getOrThrow(MMEnchantments.FLOATATION),5)
+//                .save(recipeExporter)
+//        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_SWORD), MMItems.FIRE_RUBY_SWORD.get())
+                .requires(MMItems.FIRE_RUBY.get(), 3)
+                .unlocks(getHasName(MMItems.FIRE_RUBY.get()), has(MMItems.FIRE_RUBY.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FIRE_ASPECT),3)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_AXE), MMItems.HASTE_PERIDOT_AXE.get())
+                .requires(MMItems.HASTE_PERIDOT.get(), 5)
+                .unlocks(getHasName(MMItems.HASTE_PERIDOT.get()), has(MMItems.HASTE_PERIDOT.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.EFFICIENCY),6)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_PICKAXE), MMItems.HASTE_PERIDOT_PICKAXE.get())
+                .requires(MMItems.HASTE_PERIDOT.get(), 3)
+                .unlocks(getHasName(MMItems.HASTE_PERIDOT.get()), has(MMItems.HASTE_PERIDOT.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.EFFICIENCY),6)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_SWORD), MMItems.ICE_SAPPHIRE_SWORD.get())
+                .requires(MMItems.ICE_SAPPHIRE.get(), 3)
+                .unlocks(getHasName(MMItems.ICE_SAPPHIRE.get()), has(MMItems.ICE_SAPPHIRE.get()))
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.FREEZING),3)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_AXE), MMItems.KINETIC_OPAL_AXE.get())
+                .requires(MMItems.KINETIC_OPAL.get(), 3)
+                .unlocks(getHasName(MMItems.KINETIC_OPAL.get()), has(MMItems.KINETIC_OPAL.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.KNOCKBACK),3)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_PICKAXE), MMItems.LUCKY_CITRINE_PICKAXE.get())
+                .requires(MMItems.LUCKY_CITRINE.get(), 3)
+                .unlocks(getHasName(MMItems.LUCKY_CITRINE.get()), has(MMItems.LUCKY_CITRINE.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FORTUNE),4)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_SWORD), MMItems.LUCKY_CITRINE_SWORD.get())
+                .requires(MMItems.LUCKY_CITRINE.get(), 3)
+                .unlocks(getHasName(MMItems.LUCKY_CITRINE.get()), has(MMItems.LUCKY_CITRINE.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.LOOTING),4)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_BOOTS), MMItems.PARAGON_BOOTS.get())
+                .requires(MMItems.KINETIC_OPAL.get(), 2)
+                .requires(MMItems.ICE_SAPPHIRE.get(), 2)
+                .requires(MMItems.AIR_MALACHITE.get(), 2)
+                .unlocks(getHasName(MMItems.KINETIC_OPAL.get()), has(MMItems.KINETIC_OPAL.get()))
+                .unlocks(getHasName(MMItems.ICE_SAPPHIRE.get()), has(MMItems.ICE_SAPPHIRE.get()))
+                .unlocks(getHasName(MMItems.AIR_MALACHITE.get()), has(MMItems.AIR_MALACHITE.get()))
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.RUNNER),3)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FEATHER_FALLING),5)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FROST_WALKER),2)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_CHESTPLATE), MMItems.PARAGON_CHESTPLATE.get())
+                .requires(MMItems.DIVE_AQUAMARINE.get(), 4)
+                .requires(MMItems.HEART_RHODONITE.get(), 4)
+                .unlocks(getHasName(MMItems.DIVE_AQUAMARINE.get()), has(MMItems.DIVE_AQUAMARINE.get()))
+                .unlocks(getHasName(MMItems.HEART_RHODONITE.get()), has(MMItems.HEART_RHODONITE.get()))
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.GRACE),5)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.HEARTFELT),4)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_HELMET), MMItems.PARAGON_HELMET.get())
+                .requires(MMItems.FIRE_RUBY.get(), 2)
+                .requires(MMItems.KINETIC_OPAL.get(), 2)
+                .requires(MMItems.SPIRIT_GARNET.get(), 2)
+                .unlocks(getHasName(MMItems.FIRE_RUBY.get()), has(MMItems.FIRE_RUBY.get()))
+                .unlocks(getHasName(MMItems.KINETIC_OPAL.get()), has(MMItems.KINETIC_OPAL.get()))
+                .unlocks(getHasName(MMItems.SPIRIT_GARNET.get()), has(MMItems.SPIRIT_GARNET.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.THORNS),3)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FIRE_PROTECTION),4)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.BLAST_PROTECTION),4)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_LEGGINGS), MMItems.PARAGON_LEGGINGS.get())
+                .requires(MMItems.AIR_MALACHITE.get(), 3)
+                .requires(MMItems.ICE_SAPPHIRE.get(), 1)
+                .unlocks(getHasName(MMItems.AIR_MALACHITE.get()), has(MMItems.AIR_MALACHITE.get()))
+                .unlocks(getHasName(MMItems.ICE_SAPPHIRE.get()), has(MMItems.ICE_SAPPHIRE.get()))
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.KNIGHT_JUMP),4)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.SNOWPIERCER),1)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_AXE), MMItems.POWER_PYRITE_AXE.get())
+                .requires(MMItems.POWER_PYRITE.get(), 5)
+                .unlocks(getHasName(MMItems.POWER_PYRITE.get()), has(MMItems.POWER_PYRITE.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.SHARPNESS),6)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_SWORD), MMItems.POWER_PYRITE_SWORD.get())
+                .requires(MMItems.POWER_PYRITE.get(), 5)
+                .unlocks(getHasName(MMItems.POWER_PYRITE.get()), has(MMItems.POWER_PYRITE.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.SHARPNESS),6)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_SWORD), MMItems.UNBREAKING_IOLITE_PICKAXE.get())
+                .requires(MMItems.UNBREAKING_IOLITE.get(), 5)
+                .unlocks(getHasName(MMItems.UNBREAKING_IOLITE.get()), has(MMItems.UNBREAKING_IOLITE.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.UNBREAKING),4)
+                .save(recipeExporter)
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_AXE), MMItems.ULTIMA_AXE.get())
+                .requires(MMItems.POWER_PYRITE.get(), 3)
+                .requires(MMItems.HASTE_PERIDOT.get(), 3)
+                .requires(MMItems.KINETIC_OPAL.get(), 2)
+                .unlocks(getHasName(MMItems.POWER_PYRITE.get()), has(MMItems.POWER_PYRITE.get()))
+                .unlocks(getHasName(MMItems.HASTE_PERIDOT.get()), has(MMItems.HASTE_PERIDOT.get()))
+                .unlocks(getHasName(MMItems.KINETIC_OPAL.get()), has(MMItems.KINETIC_OPAL.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.SHARPNESS),6)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.EFFICIENCY),6)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.KNOCKBACK),3)
+                .save(recipeExporter, "ultima_axe_1")
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(MMItems.POWER_PYRITE_AXE.get()), MMItems.ULTIMA_AXE.get())
+                .requires(MMItems.HASTE_PERIDOT.get(), 3)
+                .requires(MMItems.KINETIC_OPAL.get(), 2)
+                .unlocks(getHasName(MMItems.HASTE_PERIDOT.get()), has(MMItems.HASTE_PERIDOT.get()))
+                .unlocks(getHasName(MMItems.KINETIC_OPAL.get()), has(MMItems.KINETIC_OPAL.get()))
+                .unlocks(getHasName(MMItems.POWER_PYRITE_AXE.get()), has(MMItems.POWER_PYRITE_AXE.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.SHARPNESS),6)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.EFFICIENCY),6)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.KNOCKBACK),3)
+                .save(recipeExporter, "ultima_axe_2")
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(MMItems.HASTE_PERIDOT_AXE.get()), MMItems.ULTIMA_AXE.get())
+                .requires(MMItems.POWER_PYRITE.get(), 3)
+                .requires(MMItems.KINETIC_OPAL.get(), 2)
+                .unlocks(getHasName(MMItems.POWER_PYRITE.get()), has(MMItems.POWER_PYRITE.get()))
+                .unlocks(getHasName(MMItems.KINETIC_OPAL.get()), has(MMItems.KINETIC_OPAL.get()))
+                .unlocks(getHasName(MMItems.HASTE_PERIDOT_AXE.get()), has(MMItems.HASTE_PERIDOT_AXE.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.SHARPNESS),6)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.EFFICIENCY),6)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.KNOCKBACK),3)
+                .save(recipeExporter, "ultima_axe_3")
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(MMItems.KINETIC_OPAL_AXE.get()), MMItems.ULTIMA_AXE.get())
+                .requires(MMItems.POWER_PYRITE.get(), 3)
+                .requires(MMItems.HASTE_PERIDOT.get(), 3)
+                .unlocks(getHasName(MMItems.POWER_PYRITE.get()), has(MMItems.POWER_PYRITE.get()))
+                .unlocks(getHasName(MMItems.HASTE_PERIDOT.get()), has(MMItems.HASTE_PERIDOT.get()))
+                .unlocks(getHasName(MMItems.KINETIC_OPAL_AXE.get()), has(MMItems.KINETIC_OPAL_AXE.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.SHARPNESS),6)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.EFFICIENCY),6)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.KNOCKBACK),3)
+                .save(recipeExporter, "ultima_axe_4")
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_PICKAXE), MMItems.ULTIMA_PICKAXE.get())
+                .requires(MMItems.UNBREAKING_IOLITE.get(), 2)
+                .requires(MMItems.LUCKY_CITRINE.get(), 2)
+                .requires(MMItems.HASTE_PERIDOT.get(), 4)
+                .unlocks(getHasName(MMItems.UNBREAKING_IOLITE.get()), has(MMItems.UNBREAKING_IOLITE.get()))
+                .unlocks(getHasName(MMItems.LUCKY_CITRINE.get()), has(MMItems.LUCKY_CITRINE.get()))
+                .unlocks(getHasName(MMItems.HASTE_PERIDOT.get()), has(MMItems.HASTE_PERIDOT.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.EFFICIENCY),6)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FORTUNE),4)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.UNBREAKING),3)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.SMELTING),1)
+                .save(recipeExporter, "ultima_pickaxe_1")
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(MMItems.LUCKY_CITRINE_PICKAXE.get()), MMItems.ULTIMA_PICKAXE.get())
+                .requires(MMItems.UNBREAKING_IOLITE.get(), 2)
+                .requires(MMItems.FIRE_RUBY.get(), 1)
+                .requires(MMItems.HASTE_PERIDOT.get(), 4)
+                .unlocks(getHasName(MMItems.UNBREAKING_IOLITE.get()), has(MMItems.UNBREAKING_IOLITE.get()))
+                .unlocks(getHasName(MMItems.FIRE_RUBY.get()), has(MMItems.FIRE_RUBY.get()))
+                .unlocks(getHasName(MMItems.HASTE_PERIDOT.get()), has(MMItems.HASTE_PERIDOT.get()))
+                .unlocks(getHasName(MMItems.LUCKY_CITRINE_PICKAXE.get()), has(MMItems.LUCKY_CITRINE_PICKAXE.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.EFFICIENCY),6)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FORTUNE),4)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.UNBREAKING),3)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.SMELTING),1)
+                .save(recipeExporter, "ultima_pickaxe_2")
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(MMItems.HASTE_PERIDOT_PICKAXE.get()), MMItems.ULTIMA_PICKAXE.get())
+                .requires(MMItems.UNBREAKING_IOLITE.get(), 2)
+                .requires(MMItems.LUCKY_CITRINE.get(), 2)
+                .requires(MMItems.FIRE_RUBY.get(), 1)
+                .unlocks(getHasName(MMItems.UNBREAKING_IOLITE.get()), has(MMItems.UNBREAKING_IOLITE.get()))
+                .unlocks(getHasName(MMItems.LUCKY_CITRINE.get()), has(MMItems.LUCKY_CITRINE.get()))
+                .unlocks(getHasName(MMItems.FIRE_RUBY.get()), has(MMItems.FIRE_RUBY.get()))
+                .unlocks(getHasName(MMItems.HASTE_PERIDOT_PICKAXE.get()), has(MMItems.HASTE_PERIDOT_PICKAXE.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.EFFICIENCY),6)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FORTUNE),4)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.UNBREAKING),3)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.SMELTING),1)
+                .save(recipeExporter, "ultima_pickaxe_3")
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(MMItems.UNBREAKING_IOLITE_PICKAXE.get()), MMItems.ULTIMA_PICKAXE.get())
+                .requires(MMItems.FIRE_RUBY.get(), 1)
+                .requires(MMItems.LUCKY_CITRINE.get(), 2)
+                .requires(MMItems.HASTE_PERIDOT.get(), 4)
+                .unlocks(getHasName(MMItems.FIRE_RUBY.get()), has(MMItems.FIRE_RUBY.get()))
+                .unlocks(getHasName(MMItems.LUCKY_CITRINE.get()), has(MMItems.LUCKY_CITRINE.get()))
+                .unlocks(getHasName(MMItems.HASTE_PERIDOT.get()), has(MMItems.HASTE_PERIDOT.get()))
+                .unlocks(getHasName(MMItems.UNBREAKING_IOLITE_PICKAXE.get()), has(MMItems.UNBREAKING_IOLITE_PICKAXE.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.EFFICIENCY),6)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FORTUNE),4)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.UNBREAKING),3)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.SMELTING),1)
+                .save(recipeExporter, "ultima_pickaxe_4")
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_SWORD), MMItems.ULTIMA_SWORD.get())
+                .requires(MMItems.FIRE_RUBY.get(), 3)
+                .requires(MMItems.ICE_SAPPHIRE.get(), 3)
+                .requires(MMItems.SPIRIT_GARNET.get(), 2)
+                .requires(MMItems.LUCKY_CITRINE.get(), 1)
+                .unlocks(getHasName(MMItems.FIRE_RUBY.get()), has(MMItems.FIRE_RUBY.get()))
+                .unlocks(getHasName(MMItems.ICE_SAPPHIRE.get()), has(MMItems.ICE_SAPPHIRE.get()))
+                .unlocks(getHasName(MMItems.SPIRIT_GARNET.get()), has(MMItems.SPIRIT_GARNET.get()))
+                .unlocks(getHasName(MMItems.LUCKY_CITRINE.get()), has(MMItems.LUCKY_CITRINE.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FIRE_ASPECT),3)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.FREEZING),3)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.LOOTING),4)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.LEECHING),1)
+                .save(recipeExporter, "ultima_sword_1")
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(MMItems.FIRE_RUBY_SWORD.get()), MMItems.ULTIMA_SWORD.get())
+                .requires(MMItems.ICE_SAPPHIRE.get(), 3)
+                .requires(MMItems.SPIRIT_GARNET.get(), 2)
+                .requires(MMItems.LUCKY_CITRINE.get(), 1)
+                .unlocks(getHasName(MMItems.ICE_SAPPHIRE.get()), has(MMItems.ICE_SAPPHIRE.get()))
+                .unlocks(getHasName(MMItems.SPIRIT_GARNET.get()), has(MMItems.SPIRIT_GARNET.get()))
+                .unlocks(getHasName(MMItems.LUCKY_CITRINE.get()), has(MMItems.LUCKY_CITRINE.get()))
+                .unlocks(getHasName(MMItems.FIRE_RUBY_SWORD.get()), has(MMItems.FIRE_RUBY_SWORD.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FIRE_ASPECT),3)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.FREEZING),3)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.LOOTING),4)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.LEECHING),1)
+                .save(recipeExporter, "ultima_sword_2")
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(MMItems.ICE_SAPPHIRE_SWORD.get()), MMItems.ULTIMA_SWORD.get())
+                .requires(MMItems.FIRE_RUBY.get(), 3)
+                .requires(MMItems.SPIRIT_GARNET.get(), 2)
+                .requires(MMItems.LUCKY_CITRINE.get(), 1)
+                .unlocks(getHasName(MMItems.FIRE_RUBY.get()), has(MMItems.FIRE_RUBY.get()))
+                .unlocks(getHasName(MMItems.SPIRIT_GARNET.get()), has(MMItems.SPIRIT_GARNET.get()))
+                .unlocks(getHasName(MMItems.LUCKY_CITRINE.get()), has(MMItems.LUCKY_CITRINE.get()))
+                .unlocks(getHasName(MMItems.ICE_SAPPHIRE_SWORD.get()), has(MMItems.ICE_SAPPHIRE_SWORD.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FIRE_ASPECT),3)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.FREEZING),3)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.LOOTING),4)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.LEECHING),1)
+                .save(recipeExporter, "ultima_sword_3")
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(MMItems.SPIRIT_GARNET_SWORD.get()), MMItems.ULTIMA_SWORD.get())
+                .requires(MMItems.FIRE_RUBY.get(), 3)
+                .requires(MMItems.ICE_SAPPHIRE.get(), 3)
+                .requires(MMItems.LUCKY_CITRINE.get(), 1)
+                .unlocks(getHasName(MMItems.FIRE_RUBY.get()), has(MMItems.FIRE_RUBY.get()))
+                .unlocks(getHasName(MMItems.ICE_SAPPHIRE.get()), has(MMItems.ICE_SAPPHIRE.get()))
+                .unlocks(getHasName(MMItems.LUCKY_CITRINE.get()), has(MMItems.LUCKY_CITRINE.get()))
+                .unlocks(getHasName(MMItems.SPIRIT_GARNET_SWORD.get()), has(MMItems.SPIRIT_GARNET_SWORD.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FIRE_ASPECT),3)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.FREEZING),3)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.LOOTING),4)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.LEECHING),1)
+                .save(recipeExporter, "ultima_sword_4")
+        ;
+
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(MMItems.LUCKY_CITRINE_SWORD.get()), MMItems.ULTIMA_SWORD.get())
+                .requires(MMItems.FIRE_RUBY.get(), 3)
+                .requires(MMItems.ICE_SAPPHIRE.get(), 3)
+                .requires(MMItems.SPIRIT_GARNET.get(), 2)
+                .unlocks(getHasName(MMItems.FIRE_RUBY.get()), has(MMItems.FIRE_RUBY.get()))
+                .unlocks(getHasName(MMItems.ICE_SAPPHIRE.get()), has(MMItems.ICE_SAPPHIRE.get()))
+                .unlocks(getHasName(MMItems.SPIRIT_GARNET.get()), has(MMItems.SPIRIT_GARNET.get()))
+                .unlocks(getHasName(MMItems.LUCKY_CITRINE_SWORD.get()), has(MMItems.LUCKY_CITRINE_SWORD.get()))
+                .withEnchantment(enchantments.getOrThrow(Enchantments.FIRE_ASPECT),3)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.FREEZING),3)
+                .withEnchantment(enchantments.getOrThrow(Enchantments.LOOTING),4)
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.LEECHING),1)
+                .save(recipeExporter, "ultima_sword_5")
+        ;
 
     }
 }

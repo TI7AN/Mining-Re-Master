@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "miningmaster:gem_forging/unbreaking_iolite_pickaxe_gem_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_unbreaking_iolite": {
+      "conditions": {
+        "items": [
+          {
+            "items": "miningmaster:unbreaking_iolite"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_unbreaking_iolite"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "miningmaster:gem_forging/unbreaking_iolite_pickaxe_gem_forging"
+    ]
+  }
+}

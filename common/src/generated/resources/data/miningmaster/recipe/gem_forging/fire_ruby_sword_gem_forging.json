@@ -1,0 +1,27 @@
+{
+  "type": "miningmaster:forging_recipe",
+  "catalyst": {
+    "item": "minecraft:diamond_sword"
+  },
+  "enchantments": [
+    {
+      "enchantment": "minecraft:fire_aspect",
+      "lvl": 3
+    }
+  ],
+  "gems": [
+    {
+      "item": "miningmaster:fire_ruby"
+    },
+    {
+      "item": "miningmaster:fire_ruby"
+    },
+    {
+      "item": "miningmaster:fire_ruby"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "miningmaster:fire_ruby_sword"
+  }
+}

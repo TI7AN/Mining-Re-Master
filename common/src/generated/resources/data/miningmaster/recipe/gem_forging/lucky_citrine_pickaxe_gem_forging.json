@@ -1,0 +1,27 @@
+{
+  "type": "miningmaster:forging_recipe",
+  "catalyst": {
+    "item": "minecraft:diamond_pickaxe"
+  },
+  "enchantments": [
+    {
+      "enchantment": "minecraft:fortune",
+      "lvl": 4
+    }
+  ],
+  "gems": [
+    {
+      "item": "miningmaster:lucky_citrine"
+    },
+    {
+      "item": "miningmaster:lucky_citrine"
+    },
+    {
+      "item": "miningmaster:lucky_citrine"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "miningmaster:lucky_citrine_pickaxe"
+  }
+}

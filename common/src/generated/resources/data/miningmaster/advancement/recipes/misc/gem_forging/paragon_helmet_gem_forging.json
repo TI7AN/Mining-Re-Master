@@ -1,0 +1,54 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fire_ruby": {
+      "conditions": {
+        "items": [
+          {
+            "items": "miningmaster:fire_ruby"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_kinetic_opal": {
+      "conditions": {
+        "items": [
+          {
+            "items": "miningmaster:kinetic_opal"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_spirit_garnet": {
+      "conditions": {
+        "items": [
+          {
+            "items": "miningmaster:spirit_garnet"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "miningmaster:gem_forging/paragon_helmet_gem_forging"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fire_ruby",
+      "has_kinetic_opal",
+      "has_spirit_garnet"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "miningmaster:gem_forging/paragon_helmet_gem_forging"
+    ]
+  }
+}
