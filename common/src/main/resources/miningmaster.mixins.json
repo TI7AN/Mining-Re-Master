@@ -11,7 +11,9 @@
     "RecipeBookCategoriesMixin"
   ],
   "mixins": [
-    "PlayerMixin",
+    "HeartfeltLivingEntityMixin",
+    "MixinAbstractArrow",
+    "MixinLivingEntity",
     "RecipeBookSettingsMixin",
     "SmithingMenuMixin",
     "SnowpiercerMixinPowderSnowBlock",

@@ -30,7 +30,7 @@ import org.infernalstudios.miningmaster.container.GemForgeMenu;
 import java.util.function.Supplier;
 
 public record UpdateGemForgePacket(boolean isActive) implements CustomPacketPayload {
-    public static final Type<UpdateGemForgePacket> TYPE = new Type<>(MiningMaster.prefix("gem_forge"));
+    public static final Type<UpdateGemForgePacket> TYPE = new Type<>(MiningMaster.prefix("update_gem_forge"));
 
     public static final StreamCodec<RegistryFriendlyByteBuf, UpdateGemForgePacket> STREAM_CODEC = StreamCodec.composite(
             ByteBufCodecs.BOOL,

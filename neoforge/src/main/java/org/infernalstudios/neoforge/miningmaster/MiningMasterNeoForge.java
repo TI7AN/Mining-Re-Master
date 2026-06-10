@@ -49,10 +49,10 @@ public final class MiningMasterNeoForge {
         //</editor-fold>
     }
 
-    @SubscribeEvent
-    public void modCommonInit(FMLCommonSetupEvent event) {
-        MMCommonSetup.init();
-    }
+//    @SubscribeEvent
+//    public void modCommonInit(FMLCommonSetupEvent event) {
+//        MMCommonSetup.init();
+//    }
 
 //    @SubscribeEvent // on the mod event bus only on the physical client
 //    public static void registerScreens(RegisterMenuScreensEvent event) {

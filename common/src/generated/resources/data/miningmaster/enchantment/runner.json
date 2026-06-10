@@ -3,6 +3,20 @@
   "description": {
     "translate": "enchantment.miningmaster.runner"
   },
+  "effects": {
+    "minecraft:attributes": [
+      {
+        "amount": {
+          "type": "minecraft:linear",
+          "base": 0.0405,
+          "per_level_above_first": 0.0105
+        },
+        "attribute": "minecraft:generic.movement_speed",
+        "id": "miningmaster:runner",
+        "operation": "add_value"
+      }
+    ]
+  },
   "max_cost": {
     "base": 50,
     "per_level_above_first": 0

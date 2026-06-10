@@ -37,6 +37,8 @@ import java.util.List;
 //import org.infernalstudios.miningmaster.enchantments.StonebreakerEnchantment;
 
 public class MMEnchantments {
+    //TODO add exclusive sets tags
+
     public static final ResourceKey<Enchantment> FREEZING = of("freezing");
     public static final ResourceKey<Enchantment> LEECHING = of("leeching");
     public static final ResourceKey<Enchantment> SMELTING = of("smelting");

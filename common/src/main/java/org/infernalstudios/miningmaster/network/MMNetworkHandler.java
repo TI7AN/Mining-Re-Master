@@ -26,11 +26,6 @@ import net.minecraft.server.level.ServerPlayer;
 import org.infernalstudios.miningmaster.MiningMaster;
 
 public class MMNetworkHandler {
-    public static final ResourceLocation UPDATE_GEM_FORGE =
-            ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "update_gem_forge");
-
-    public static final ResourceLocation DAMAGE_KNIGHT_JUMP =
-            ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "damage_knight_jump");
 
     public static void init() {
 
@@ -41,33 +36,14 @@ public class MMNetworkHandler {
                 UpdateGemForgePacket::handle
         );
 
-//        NetworkManager.registerReceiver(
-//                NetworkManager.Side.C2S,
-//                DAMAGE_KNIGHT_JUMP,
-//                DamageKnightJumpPacket::handle
-//        );
+        NetworkManager.registerReceiver(
+                NetworkManager.Side.C2S,
+                DamageKnightJumpPacket.TYPE,
+                DamageKnightJumpPacket.STREAM_CODEC,
+                DamageKnightJumpPacket::handle
+        );
     }
 
-//    private static final String PROTOCOL_VERSION = "1";
-//    public static final SimpleChannel INSTANCE = NetworkRegistry.newSimpleChannel(
-//            ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "main"),
-//            () -> PROTOCOL_VERSION,
-//            PROTOCOL_VERSION::equals,
-//            PROTOCOL_VERSION::equals
-//    );
-//
-//    private static int index;
-//
-//    public static synchronized void register() {
-//        INSTANCE.messageBuilder(UpdateGemForgePacket.class, index++)
-//                .encoder(UpdateGemForgePacket::encode)
-//                .decoder(UpdateGemForgePacket::decode)
-//                .consumerMainThread(UpdateGemForgePacket::handle).add();
-//        INSTANCE.messageBuilder(DamageKnightJumpPacket.class, index++)
-//                .encoder(DamageKnightJumpPacket::encode)
-//                .decoder(DamageKnightJumpPacket::decode)
-//                .consumerMainThread(DamageKnightJumpPacket::handle).add();
-//    }
 //
 //    public static <MSG> void sendToPlayer(MSG message, ServerPlayer player) {
 //        INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), message);

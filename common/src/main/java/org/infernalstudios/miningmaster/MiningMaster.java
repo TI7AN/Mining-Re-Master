@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.infernalstudios.miningmaster.client.gui.screen.inventory.GemForgeScreen;
 import org.infernalstudios.miningmaster.init.*;
 import org.infernalstudios.miningmaster.network.MMNetworkHandler;
+import org.infernalstudios.miningmaster.setup.MMCommonSetup;
 import org.infernalstudios.miningmaster.setup.MMRegistration;
 
 import java.util.Locale;
@@ -20,6 +21,7 @@ public final class MiningMaster {
 
     public static void init() {
         MMRegistration.init();
+        MMCommonSetup.init();
     }
 
     public static ResourceLocation prefix(String name) {

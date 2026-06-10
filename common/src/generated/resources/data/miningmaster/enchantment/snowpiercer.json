@@ -3,6 +3,34 @@
   "description": {
     "translate": "enchantment.miningmaster.snowpiercer"
   },
+  "effects": {
+    "minecraft:location_changed": [
+      {
+        "effect": {
+          "type": "minecraft:attribute",
+          "amount": {
+            "type": "minecraft:linear",
+            "base": 0.0405,
+            "per_level_above_first": 0.0105
+          },
+          "attribute": "minecraft:generic.movement_speed",
+          "id": "miningmaster:snowpiercer",
+          "operation": "add_value"
+        },
+        "requirements": {
+          "condition": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "movement_affected_by": {
+              "block": {
+                "blocks": "#miningmaster:snowpiercer_blocks"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
   "max_cost": {
     "base": 50,
     "per_level_above_first": 0
