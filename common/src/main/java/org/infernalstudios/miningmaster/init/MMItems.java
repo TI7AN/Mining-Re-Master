@@ -89,7 +89,7 @@ public class MMItems {
     public static final RegistrySupplier<GemPickaxeItem> UNBREAKING_IOLITE_PICKAXE = register("unbreaking_iolite_pickaxe",() -> new GemPickaxeItem(MMItemTiers.SUPRA, Ingredient.of(UNBREAKING_IOLITE.get()), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.UNBREAKING, 4)), true);
     public static final RegistrySupplier<GemPickaxeItem> ULTIMA_PICKAXE = register("ultima_pickaxe",() -> new GemPickaxeItem(MMItemTiers.ULTIMA, Ingredient.of(KINETIC_OPAL.get(), LUCKY_CITRINE.get(), HASTE_PERIDOT.get(), UNBREAKING_IOLITE.get()), 1, -2.8F, new Item.Properties(), new Pair<>(Enchantments.EFFICIENCY, 6), new Pair<>(Enchantments.FORTUNE, 3), new Pair<>(Enchantments.UNBREAKING, 3), new Pair<>(MMEnchantments.SMELTING, 1)), true);
 
-//    public static final GemBowItem AIR_MALACHITE_BOW = (GemBowItem) register("air_malachite_bow", new GemBowItem(new Item.Properties().durability(753), new Pair<>(MMEnchantments.FLOATATION, 5)), true);
+    public static final RegistrySupplier<GemBowItem> AIR_MALACHITE_BOW = register("air_malachite_bow",() -> new GemBowItem(new Item.Properties().durability(753), new Pair<>(MMEnchantments.FLOATATION, 5)), true);
 
     // ARMOR
     public static final RegistrySupplier<GemArmorItem> PARAGON_HELMET = register("paragon_helmet",() -> new GemArmorItem(MMArmorMaterials.PARAGON, Ingredient.of(FIRE_RUBY.get(), KINETIC_OPAL.get(), SPIRIT_GARNET.get()), ArmorItem.Type.HELMET, new Item.Properties(), new Pair<>(Enchantments.THORNS, 3), new Pair<>(Enchantments.FIRE_PROTECTION, 3), new Pair<>(Enchantments.BLAST_PROTECTION, 3)), true);

@@ -1,7 +1,6 @@
 package org.infernalstudios.miningmaster.init;
 
 import org.infernalstudios.miningmaster.events.GracePlayerTickEvent;
-import org.infernalstudios.miningmaster.events.KnightJumpClientTickEvent;
 import org.infernalstudios.miningmaster.events.RunnerPlayerTickEvent;
 import org.infernalstudios.miningmaster.init.client.MMClientEvents;
 

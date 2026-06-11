@@ -50,19 +50,6 @@ public class MMEnchantments {
     public static final ResourceKey<Enchantment> SNOWPIERCER = of( "snowpiercer");
     public static final ResourceKey<Enchantment> GRACE = of( "grace");
 
-    public static final List<ResourceKey<Enchantment>> ENCHANTMENTS_LIST = List.of(
-            FREEZING,
-            LEECHING,
-            SMELTING,
-            STONEBREAKER,
-            RUNNER,
-            HEARTFELT,
-            FLOATATION,
-            KNIGHT_JUMP,
-            SNOWPIERCER,
-            GRACE
-    );
-
     public static void init() {
         MiningMaster.LOGGER.info("Enchantments registered");
     };

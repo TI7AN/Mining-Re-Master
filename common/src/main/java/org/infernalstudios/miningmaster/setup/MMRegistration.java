@@ -20,6 +20,8 @@ public class MMRegistration {
         MMRecipes.init();
         MMFeatures.init();
         MMSounds.init();
+        MMLootFunctions.init();
+        MMItemProperties.init();
         MMNetworkHandler.init();
     }
 }

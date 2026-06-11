@@ -455,12 +455,12 @@ public class MMRecipeProvider extends FabricRecipeProvider {
         //</editor-fold>
 
 //        TODO: Enable this recipe when AIR_MALACHITE_BOW has been implemented
-//        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.BOW), MMItems.AIR_MALACHITE_BOW.get())
-//                .requires(MMItems.AIR_MALACHITE.get(), 5)
-//                .unlocks(getHasName(MMItems.AIR_MALACHITE.get()), has(MMItems.AIR_MALACHITE.get()))
-//                .withEnchantment(enchantments.getOrThrow(MMEnchantments.FLOATATION),5)
-//                .save(recipeExporter)
-//        ;
+        MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.BOW), MMItems.AIR_MALACHITE_BOW.get())
+                .requires(MMItems.AIR_MALACHITE.get(), 5)
+                .unlocks(getHasName(MMItems.AIR_MALACHITE.get()), has(MMItems.AIR_MALACHITE.get()))
+                .withEnchantment(enchantments.getOrThrow(MMEnchantments.FLOATATION),5)
+                .save(recipeExporter)
+        ;
 
         MMGemForgingRecipeBuilder.forging(RecipeCategory.MISC, Ingredient.of(Items.DIAMOND_SWORD), MMItems.FIRE_RUBY_SWORD.get())
                 .requires(MMItems.FIRE_RUBY.get(), 3)

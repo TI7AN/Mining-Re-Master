@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:item/bow",
+  "parent": "miningmaster:item/air_malachite_bow",
   "textures": {
     "layer0": "miningmaster:item/air_malachite_bow_pulling_0"
   }
