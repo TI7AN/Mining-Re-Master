@@ -15,7 +15,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.infernalstudios.miningmaster.MiningMaster;
 import org.infernalstudios.miningmaster.init.MMBlocks;
-import org.infernalstudios.miningmaster.init.MMRecipes;
 import org.infernalstudios.miningmaster.recipe.GemForgingRecipe;
 
 import mezz.jei.api.constants.VanillaTypes;
@@ -76,7 +75,7 @@ public class GemForgeRecipeCategory implements IRecipeCategory<GemForgingRecipe>
   @Override
   public void setRecipe(IRecipeLayoutBuilder builder, GemForgingRecipe recipe, IFocusGroup focusGroup) {
     NonNullList<Ingredient> recipeIngredients = recipe.getIngredients();
-    Ingredient catalyst = recipeIngredients.remove(recipeIngredients.size() - 1);
+    Ingredient catalyst = recipeIngredients.removeLast();
     ItemStack output = recipe.getDefaultedOutput();
 
     for (int i = 0; i < Math.min(recipeIngredients.size(), 9); i++) {

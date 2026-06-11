@@ -25,7 +25,7 @@ public class MMConfiguredFeatures {
         RuleTest deepslateReplaceableRule = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
         RuleTest netherrackReplaceableRule = new TagMatchTest(BlockTags.BASE_STONE_NETHER);
 
-        int size = 64;
+        int size = 3;
 
         List<OreConfiguration.TargetBlockState> fireRubyOreConfig =
                 List.of(

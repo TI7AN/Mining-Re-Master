@@ -39,7 +39,7 @@ import org.infernalstudios.miningmaster.init.MMMenuTypes;
 import org.infernalstudios.miningmaster.init.MMRecipeBookType;
 import org.infernalstudios.miningmaster.recipe.GemForgingRecipe;
 import org.infernalstudios.miningmaster.recipe.GemForgingRecipeInput;
-import org.infernalstudios.miningmaster.recipe.GemForgeServerRecipePlacer;
+//import org.infernalstudios.miningmaster.recipe.GemForgeServerRecipePlacer;
 //import org.infernalstudios.miningmaster.recipes.GemForgeServerRecipePlacer;
 
 public class GemForgeMenu extends RecipeBookMenu<GemForgingRecipeInput, GemForgingRecipe> {
@@ -96,18 +96,19 @@ public class GemForgeMenu extends RecipeBookMenu<GemForgingRecipeInput, GemForgi
 
     @Override
     public RecipeBookType getRecipeBookType() {
-        return MMRecipeBookType.GEM_FORGING;
+//        return MMRecipeBookType.GEM_FORGING;
+        return RecipeBookType.CRAFTING;
     }
 
 //    public List<RecipeBookCategories> getRecipeBookCategories() {
 //        return List.of(RecipeBookCategories.valueOf("MININGMASTER_GEM_FORGING_CATEGORY"));
 //    }
 
-    @SuppressWarnings("unchecked")
-    @Override
-    public void handlePlacement(boolean placeAll, RecipeHolder<?> recipe, ServerPlayer player) {
-        (new GemForgeServerRecipePlacer<>(this)).place(player, (RecipeHolder<GemForgingRecipe>) recipe, placeAll);
-    }
+//    @SuppressWarnings("unchecked")
+//    @Override
+//    public void handlePlacement(boolean placeAll, RecipeHolder<?> recipe, ServerPlayer player) {
+//        (new GemForgeServerRecipePlacer<>(this)).place(player, (RecipeHolder<GemForgingRecipe>) recipe, placeAll);
+//    }
 
     public boolean stillValid(Player playerIn) {
         return true;

@@ -70,27 +70,27 @@ public class GemForgeScreen extends AbstractContainerScreen<GemForgeMenu> implem
         this.recipeGui.init(this.width, this.height, this.minecraft, this.widthTooNarrowIn, this.menu);
         this.leftPos = this.recipeGui.updateScreenPosition(this.width, this.imageWidth);
         this.addRenderableWidget(new ConfirmButton(142, 33, this));
-        this.addRenderableWidget(new ImageButton(
-                this.leftPos + 15,
-                this.height / 2 - 49,
-                20,
-                18,
-                RECIPE_BUTTON_SPRITES,
-                button -> {
-                    this.recipeGui.initVisuals();
-                    this.recipeGui.toggleVisibility();
-
-                    this.leftPos = this.recipeGui.updateScreenPosition(
-                            this.width,
-                            this.imageWidth
-                    );
-
-                    button.setPosition(
-                            this.leftPos + 15,
-                            this.height / 2 - 49
-                    );
-                }
-        ));
+//        this.addRenderableWidget(new ImageButton(
+//                this.leftPos + 15,
+//                this.height / 2 - 49,
+//                20,
+//                18,
+//                RECIPE_BUTTON_SPRITES,
+//                button -> {
+//                    this.recipeGui.initVisuals();
+//                    this.recipeGui.toggleVisibility();
+//
+//                    this.leftPos = this.recipeGui.updateScreenPosition(
+//                            this.width,
+//                            this.imageWidth
+//                    );
+//
+//                    button.setPosition(
+//                            this.leftPos + 15,
+//                            this.height / 2 - 49
+//                    );
+//                }
+//        ));
 
         this.titleLabelX = (this.imageWidth - this.font.width(this.title)) / 2;
     }

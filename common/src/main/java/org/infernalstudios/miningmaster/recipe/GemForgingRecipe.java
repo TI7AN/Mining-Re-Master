@@ -183,7 +183,7 @@ public class GemForgingRecipe implements IForgingRecipe {
         }
     }
 
-    public static class ForgingRecipeSerializer implements RecipeSerializer<GemForgingRecipe> {
+    public static class GemForgingRecipeSerializer implements RecipeSerializer<GemForgingRecipe> {
         public static final Codec<Pair<Holder<Enchantment>, Integer>> ENCHANTMENT_CODEC =
                 RecordCodecBuilder.create(instance -> instance.group(
                         Enchantment.CODEC.fieldOf("enchantment")
