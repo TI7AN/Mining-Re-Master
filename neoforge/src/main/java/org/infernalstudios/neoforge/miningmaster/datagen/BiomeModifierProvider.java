@@ -28,19 +28,21 @@ public class BiomeModifierProvider extends DataMapProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
             .add(NeoForgeRegistries.Keys.BIOME_MODIFIERS, BiomeModifierProvider::bootstrap);
 
-    public static final ResourceKey<BiomeModifier> DIVE_AQUAMARINE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "dive_aquamarine_native_biome_modifier"));
-    public static final ResourceKey<BiomeModifier> DIVINE_BERYL_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "divine_beryl_native_biome_modifier"));
-    public static final ResourceKey<BiomeModifier> FIRE_RUBY_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "fire_ruby_native_biome_modifier"));
-    public static final ResourceKey<BiomeModifier> HASTE_PERIDOT_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "haste_peridot_native_biome_modifier"));
-    public static final ResourceKey<BiomeModifier> HEART_RHODONITE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "heart_rhodonite_native_biome_modifier"));
-    public static final ResourceKey<BiomeModifier> ICE_SAPPHIRE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "ice_sapphire_native_biome_modifier"));
-    public static final ResourceKey<BiomeModifier> KINETIC_OPAL_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "kinetic_opal_native_biome_modifier"));
-    public static final ResourceKey<BiomeModifier> LUCKY_CITRINE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "lucky_citrine_native_biome_modifier"));
-    public static final ResourceKey<BiomeModifier> POWER_PYRITE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "power_pyrite_native_biome_modifier"));
-    public static final ResourceKey<BiomeModifier> SPIDER_KUNZITE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "spider_kunzite_native_biome_modifier"));
-    public static final ResourceKey<BiomeModifier> SPIRIT_GARNET_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "spirit_garnet_native_biome_modifier"));
-    public static final ResourceKey<BiomeModifier> UNBREAKING_IOLITE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "unbreaking_iolite_native_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> DIVE_AQUAMARINE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "dive_aquamarine_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> DIVINE_BERYL_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "divine_beryl_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> FIRE_RUBY_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "fire_ruby_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> HASTE_PERIDOT_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "haste_peridot_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> HEART_RHODONITE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "heart_rhodonite_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> ICE_SAPPHIRE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "ice_sapphire_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> KINETIC_OPAL_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "kinetic_opal_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> LUCKY_CITRINE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "lucky_citrine_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> POWER_PYRITE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "power_pyrite_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> SPIDER_KUNZITE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "spider_kunzite_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> SPIRIT_GARNET_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "spirit_garnet_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> UNBREAKING_IOLITE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "unbreaking_iolite_biome_modifier"));
     public static final ResourceKey<BiomeModifier> MALACHITE_METEORITE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "malachite_meteorite_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> RANDOM_ORE_OVERWORLD_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "random_ore_overworld_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> RANDOM_ORE_NETHER_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "random_ore_nether_biome_modifier"));
 
     protected BiomeModifierProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(packOutput, lookupProvider);
@@ -49,6 +51,28 @@ public class BiomeModifierProvider extends DataMapProvider {
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         HolderGetter<Biome> biomes = context.lookup(Registries.BIOME);
         HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
+
+        //RANDOM_ORE_OVERWORLD_NATIVE_BIOME_MODIFIER
+        var randomOreOverworldFeature = placedFeatures.getOrThrow(MMFeatures.PlacedFeatures.RANDOM_GEM_OVERWORLD_VEIN_PLACED_KEY);
+        context.register(
+                RANDOM_ORE_OVERWORLD_NATIVE_BIOME_MODIFIER,
+                new BiomeModifiers.AddFeaturesBiomeModifier(
+                        biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                        HolderSet.direct(randomOreOverworldFeature),
+                        GenerationStep.Decoration.UNDERGROUND_ORES
+                )
+        );
+
+        //RANDOM_ORE_NETHER_NATIVE_BIOME_MODIFIER
+        var randomOreNetherFeature = placedFeatures.getOrThrow(MMFeatures.PlacedFeatures.RANDOM_GEM_OVERWORLD_VEIN_PLACED_KEY);
+        context.register(
+                RANDOM_ORE_NETHER_NATIVE_BIOME_MODIFIER,
+                new BiomeModifiers.AddFeaturesBiomeModifier(
+                        biomes.getOrThrow(BiomeTags.IS_NETHER),
+                        HolderSet.direct(randomOreNetherFeature),
+                        GenerationStep.Decoration.UNDERGROUND_ORES
+                )
+        );
 
         //DIVE_AQUAMARINE_NATIVE_BIOME_MODIFIER
         var diveAquamarineFeature = placedFeatures.getOrThrow(MMFeatures.PlacedFeatures.DIVE_AQUAMARINE_VEIN_PLACED_KEY);

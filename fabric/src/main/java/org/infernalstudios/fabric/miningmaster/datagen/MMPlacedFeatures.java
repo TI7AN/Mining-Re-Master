@@ -29,8 +29,12 @@ public class MMPlacedFeatures {
     public static void configure(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
+        int commonCount = 5;
+        int uncommonCount = 3;
+        int rareCount = 1;
+
         List<PlacementModifier> rareOverworldGemVeinModifiers = List.of(
-                CountPlacement.of(1),
+                CountPlacement.of(rareCount),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(
                         TrapezoidHeight.of(
@@ -42,7 +46,7 @@ public class MMPlacedFeatures {
         );
 
         List<PlacementModifier> uncommonOverworldGemVeinModifiers = List.of(
-                CountPlacement.of(3),
+                CountPlacement.of(uncommonCount),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(
                         TrapezoidHeight.of(
@@ -54,7 +58,7 @@ public class MMPlacedFeatures {
         );
 
         List<PlacementModifier> commonOverworldGemVeinModifiers = List.of(
-                CountPlacement.of(5),
+                CountPlacement.of(commonCount),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(
                         TrapezoidHeight.of(
@@ -66,7 +70,7 @@ public class MMPlacedFeatures {
         );
 
         List<PlacementModifier> rareNetherGemVeinModifiers = List.of(
-                CountPlacement.of(1),
+                CountPlacement.of(rareCount),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(
                         TrapezoidHeight.of(
@@ -78,7 +82,7 @@ public class MMPlacedFeatures {
         );
 
         List<PlacementModifier> uncommonNetherGemVeinModifiers = List.of(
-                CountPlacement.of(3),
+                CountPlacement.of(uncommonCount),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(
                         TrapezoidHeight.of(
@@ -90,7 +94,7 @@ public class MMPlacedFeatures {
         );
 
         List<PlacementModifier> commonNetherGemVeinModifiers = List.of(
-                CountPlacement.of(5),
+                CountPlacement.of(commonCount),
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(
                         TrapezoidHeight.of(
@@ -121,6 +125,21 @@ public class MMPlacedFeatures {
                 BiomeFilter.biome()
         );
 
+        context.register(
+                MMFeatures.PlacedFeatures.RANDOM_GEM_OVERWORLD_VEIN_PLACED_KEY,
+                new PlacedFeature(
+                        configuredFeatures.getOrThrow(MMFeatures.ConfiguredFeatures.RANDOM_GEM_VEIN_CONFIGURED_KEY),
+                        uncommonOverworldGemVeinModifiers
+                )
+        );
+
+        context.register(
+                MMFeatures.PlacedFeatures.RANDOM_GEM_NETHER_VEIN_PLACED_KEY,
+                new PlacedFeature(
+                        configuredFeatures.getOrThrow(MMFeatures.ConfiguredFeatures.RANDOM_GEM_VEIN_CONFIGURED_KEY),
+                        uncommonNetherGemVeinModifiers
+                )
+        );
 
         context.register(
                 MMFeatures.PlacedFeatures.FIRE_RUBY_VEIN_PLACED_KEY,

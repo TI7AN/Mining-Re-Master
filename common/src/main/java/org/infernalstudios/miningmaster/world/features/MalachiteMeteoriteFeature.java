@@ -27,23 +27,23 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.phys.Vec3;
-import org.infernalstudios.miningmaster.world.features.config.MalachiteMeteoriteFeatureConfig;
+import org.infernalstudios.miningmaster.world.features.config.MalachiteMeteoriteConfiguration;
 import org.infernalstudios.miningmaster.init.MMBlocks;
 
 import static java.lang.Math.sqrt;
 
-public class MalachiteMeteoriteFeature extends Feature<MalachiteMeteoriteFeatureConfig> {
+public class MalachiteMeteoriteFeature extends Feature<MalachiteMeteoriteConfiguration> {
 
-    public MalachiteMeteoriteFeature(Codec<MalachiteMeteoriteFeatureConfig> codec) {
+    public MalachiteMeteoriteFeature(Codec<MalachiteMeteoriteConfiguration> codec) {
         super(codec);
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<MalachiteMeteoriteFeatureConfig> context) {
+    public boolean place(FeaturePlaceContext<MalachiteMeteoriteConfiguration> context) {
         RandomSource rand = context.random();
         BlockPos pos = context.origin();
         WorldGenLevel level = context.level();
-        MalachiteMeteoriteFeatureConfig config = context.config();
+        MalachiteMeteoriteConfiguration config = context.config();
 
         if (rand.nextInt(1) < config.chanceToGenerate()) {
             BlockPos.MutableBlockPos mutable = new BlockPos.MutableBlockPos(pos.getX(), 0, pos.getZ());

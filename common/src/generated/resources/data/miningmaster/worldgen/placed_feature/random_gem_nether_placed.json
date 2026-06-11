@@ -1,5 +1,5 @@
 {
-  "feature": "miningmaster:ore_lucky_citrine_gem",
+  "feature": "miningmaster:ore_random_gem",
   "placement": [
     {
       "type": "minecraft:count",
@@ -13,10 +13,10 @@
       "height": {
         "type": "minecraft:trapezoid",
         "max_inclusive": {
-          "absolute": 30
+          "absolute": 60
         },
         "min_inclusive": {
-          "absolute": -40
+          "absolute": 0
         }
       }
     },

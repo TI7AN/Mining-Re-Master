@@ -31,15 +31,15 @@ import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import org.infernalstudios.miningmaster.MiningMaster;
 import org.infernalstudios.miningmaster.world.features.MalachiteMeteoriteFeature;
 import org.infernalstudios.miningmaster.world.features.GemOreFeature;
-import org.infernalstudios.miningmaster.world.features.config.MalachiteMeteoriteFeatureConfig;
-import org.infernalstudios.miningmaster.world.features.config.GemOreFeatureConfig;
+import org.infernalstudios.miningmaster.world.features.config.MalachiteMeteoriteConfiguration;
+import org.infernalstudios.miningmaster.world.features.config.GemOreConfiguration;
 
 public class MMFeatures {
 
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(MiningMaster.MOD_ID, Registries.FEATURE);
 
-    public static final RegistrySupplier<GemOreFeature> MM_GEM_ORE_FEATURE = FEATURES.register("ore_gem_feature", () -> new GemOreFeature(GemOreFeatureConfig.CODEC));
-    public static final RegistrySupplier<MalachiteMeteoriteFeature> MALACHITE_METEORITE_FEATURE = FEATURES.register("malachite_meteorite_feature", () -> new MalachiteMeteoriteFeature(MalachiteMeteoriteFeatureConfig.CODEC));
+    public static final RegistrySupplier<GemOreFeature> MM_GEM_ORE_FEATURE = FEATURES.register("ore_gem_feature", () -> new GemOreFeature(GemOreConfiguration.CODEC));
+    public static final RegistrySupplier<MalachiteMeteoriteFeature> MALACHITE_METEORITE_FEATURE = FEATURES.register("malachite_meteorite_feature", () -> new MalachiteMeteoriteFeature(MalachiteMeteoriteConfiguration.CODEC));
 
     public static class PlacedFeatures {
         public static final ResourceKey<PlacedFeature> FIRE_RUBY_VEIN_PLACED_KEY = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "ore_fire_ruby_gem_placed"));
@@ -54,8 +54,9 @@ public class MMFeatures {
         public static final ResourceKey<PlacedFeature> HEART_RHODONITE_VEIN_PLACED_KEY = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "ore_heart_rhodonite_gem_placed"));
         public static final ResourceKey<PlacedFeature> POWER_PYRITE_VEIN_PLACED_KEY = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "ore_power_pyrite_gem_placed"));
         public static final ResourceKey<PlacedFeature> KINETIC_OPAL_VEIN_PLACED_KEY = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "ore_kinetic_opal_gem_placed"));
-        public static final ResourceKey<PlacedFeature> AIR_MALACHITE_VEIN_PLACED_KEY = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "ore_air_malachite_gem_placed"));
         public static final ResourceKey<PlacedFeature> MALACHITE_METEORITE_PLACED_KEY = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "malachite_meteorite_placed"));
+        public static final ResourceKey<PlacedFeature> RANDOM_GEM_OVERWORLD_VEIN_PLACED_KEY = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "random_gem_overworld_placed"));
+        public static final ResourceKey<PlacedFeature> RANDOM_GEM_NETHER_VEIN_PLACED_KEY = ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "random_gem_nether_placed"));
     }
 
     public static class ConfiguredFeatures {
@@ -72,8 +73,8 @@ public class MMFeatures {
         public static final ResourceKey<ConfiguredFeature<?, ?>> HEART_RHODONITE_VEIN_CONFIGURED_KEY = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "ore_heart_rhodonite_gem"));
         public static final ResourceKey<ConfiguredFeature<?, ?>> POWER_PYRITE_VEIN_CONFIGURED_KEY = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "ore_power_pyrite_gem"));
         public static final ResourceKey<ConfiguredFeature<?, ?>> KINETIC_OPAL_VEIN_CONFIGURED_KEY = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "ore_kinetic_opal_gem"));
-        public static final ResourceKey<ConfiguredFeature<?, ?>> AIR_MALACHITE_VEIN_CONFIGURED_KEY = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "ore_air_malachite_gem"));
         public static final ResourceKey<ConfiguredFeature<?, ?>> MALACHITE_METEORITE_CONFIGURED_KEY = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "malachite_meteorite"));
+        public static final ResourceKey<ConfiguredFeature<?, ?>> RANDOM_GEM_VEIN_CONFIGURED_KEY = ResourceKey.create(Registries.CONFIGURED_FEATURE, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "ore_random_gem"));
 
     }
 

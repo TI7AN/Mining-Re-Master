@@ -20,11 +20,11 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 
-public record MalachiteMeteoriteFeatureConfig(int minRadius, int maxRadius, int chanceToGenerate) implements FeatureConfiguration {
-    public static final Codec<MalachiteMeteoriteFeatureConfig> CODEC = RecordCodecBuilder.create((builder) -> builder.group(
-            Codec.INT.fieldOf("min_radius").forGetter(MalachiteMeteoriteFeatureConfig::minRadius),
-            Codec.INT.fieldOf("max_radius").forGetter(MalachiteMeteoriteFeatureConfig::maxRadius),
-            Codec.INT.fieldOf("chance_to_generate").forGetter(MalachiteMeteoriteFeatureConfig::chanceToGenerate))
-        .apply(builder, MalachiteMeteoriteFeatureConfig::new));
+public record MalachiteMeteoriteConfiguration(int minRadius, int maxRadius, int chanceToGenerate) implements FeatureConfiguration {
+    public static final Codec<MalachiteMeteoriteConfiguration> CODEC = RecordCodecBuilder.create((builder) -> builder.group(
+            Codec.INT.fieldOf("min_radius").forGetter(MalachiteMeteoriteConfiguration::minRadius),
+            Codec.INT.fieldOf("max_radius").forGetter(MalachiteMeteoriteConfiguration::maxRadius),
+            Codec.INT.fieldOf("chance_to_generate").forGetter(MalachiteMeteoriteConfiguration::chanceToGenerate))
+        .apply(builder, MalachiteMeteoriteConfiguration::new));
 
 }

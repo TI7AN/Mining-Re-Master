@@ -13,6 +13,24 @@ public class MMBiomeModifiers {
         MiningMaster.LOGGER.info("Init BiomeModifications");
 
         //This does not work on neoforge (works on fabric) 1.21.1, TODO check compatibility on newer versions
+        BiomeModifications.addProperties(context -> context.hasTag(BiomeTags.IS_OVERWORLD),
+                (biomeContext, mutable) -> {
+                    mutable.getGenerationProperties().addFeature(
+                            GenerationStep.Decoration.UNDERGROUND_ORES,
+                            MMFeatures.PlacedFeatures.RANDOM_GEM_OVERWORLD_VEIN_PLACED_KEY
+                    );
+                }
+        );
+
+        BiomeModifications.addProperties(context -> context.hasTag(BiomeTags.IS_NETHER),
+                (biomeContext, mutable) -> {
+                    mutable.getGenerationProperties().addFeature(
+                            GenerationStep.Decoration.UNDERGROUND_ORES,
+                            MMFeatures.PlacedFeatures.RANDOM_GEM_NETHER_VEIN_PLACED_KEY
+                    );
+                }
+        );
+
         BiomeModifications.addProperties(context -> context.hasTag(BiomeTags.IS_OCEAN),
                 (biomeContext, mutable) -> {
                     mutable.getGenerationProperties().addFeature(

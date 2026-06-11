@@ -25,11 +25,22 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import java.util.ArrayList;
 import java.util.List;
 
-public record GemOreFeatureConfig(List<TargetWeightedState> targetStates, float discardChanceOnAirExposure) implements FeatureConfiguration {
-    public static final Codec<GemOreFeatureConfig> CODEC = RecordCodecBuilder.create((builder) -> builder.group(
-                Codec.list(TargetWeightedState.CODEC).fieldOf("targets").forGetter(GemOreFeatureConfig::targetStates),
-                Codec.floatRange(0.0F, 1.0F).fieldOf("discard_chance_on_air_exposure").forGetter(GemOreFeatureConfig::discardChanceOnAirExposure))
-            .apply(builder, GemOreFeatureConfig::new));
+public record GemOreConfiguration(List<TargetWeightedState> targetStates, float discardChanceOnAirExposure, int size) implements FeatureConfiguration {
+    public static final Codec<GemOreConfiguration> CODEC = RecordCodecBuilder.create((builder) -> builder.group(
+                Codec.list(TargetWeightedState.CODEC).fieldOf("targets").forGetter(GemOreConfiguration::targetStates),
+                Codec.floatRange(0.0F, 1.0F).fieldOf("discard_chance_on_air_exposure").forGetter(GemOreConfiguration::discardChanceOnAirExposure),
+                Codec.intRange(0, 64).fieldOf("size").forGetter(oreConfiguration -> oreConfiguration.size)
+            )
+            .apply(builder, GemOreConfiguration::new)
+    );
+
+    public static GemOreConfiguration.TargetWeightedState target(RuleTest target, List<WeightedState> weightedStates) {
+        return new TargetWeightedState(target, weightedStates);
+    }
+
+    public static GemOreConfiguration.WeightedState state(BlockState state, int weight) {
+        return new WeightedState(state, weight);
+    }
 
     public static class TargetWeightedState {
         public static final Codec<TargetWeightedState> CODEC = RecordCodecBuilder.create((builder) -> builder.group(
@@ -47,7 +58,7 @@ public record GemOreFeatureConfig(List<TargetWeightedState> targetStates, float 
 
             this.states = new ArrayList<>();
 
-            for (GemOreFeatureConfig.WeightedState weightedState : weightedStates) {
+            for (GemOreConfiguration.WeightedState weightedState : weightedStates) {
                 for (int i = 0; i < weightedState.weight; i++) {
                     this.states.add(weightedState.state);
                 }

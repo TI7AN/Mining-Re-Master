@@ -1,20 +1,16 @@
 package org.infernalstudios.fabric.miningmaster.datagen;
 
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.configurations.FeatureConfiguration;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
 import net.minecraft.world.level.levelgen.structure.templatesystem.RuleTest;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
-import org.infernalstudios.miningmaster.MiningMaster;
 import org.infernalstudios.miningmaster.init.MMBlocks;
 import org.infernalstudios.miningmaster.init.MMFeatures;
-import org.infernalstudios.miningmaster.world.features.config.MalachiteMeteoriteFeatureConfig;
+import org.infernalstudios.miningmaster.world.features.config.GemOreConfiguration;
+import org.infernalstudios.miningmaster.world.features.config.MalachiteMeteoriteConfiguration;
 
 import java.util.List;
 
@@ -26,6 +22,54 @@ public class MMConfiguredFeatures {
         RuleTest netherrackReplaceableRule = new TagMatchTest(BlockTags.BASE_STONE_NETHER);
 
         int size = 3;
+
+        List<GemOreConfiguration.TargetWeightedState> randomOreConfig =
+                List.of(
+                        GemOreConfiguration.target(
+                                stoneReplaceableRule,
+                                List.of(
+                                    GemOreConfiguration.state(MMBlocks.ICE_SAPPHIRE_ORE.get().defaultBlockState(), 2),
+                                    GemOreConfiguration.state(MMBlocks.SPIRIT_GARNET_ORE.get().defaultBlockState(), 2),
+                                    GemOreConfiguration.state(MMBlocks.DIVE_AQUAMARINE_ORE.get().defaultBlockState(), 2),
+                                    GemOreConfiguration.state(MMBlocks.DIVINE_BERYL_ORE.get().defaultBlockState(), 2),
+                                    GemOreConfiguration.state(MMBlocks.SPIDER_KUNZITE_ORE.get().defaultBlockState(), 2),
+                                    GemOreConfiguration.state(MMBlocks.FIRE_RUBY_ORE.get().defaultBlockState(), 2),
+                                    GemOreConfiguration.state(MMBlocks.HASTE_PERIDOT_ORE.get().defaultBlockState(), 1),
+                                    GemOreConfiguration.state(MMBlocks.LUCKY_CITRINE_ORE.get().defaultBlockState(), 1),
+                                    GemOreConfiguration.state(MMBlocks.UNBREAKING_IOLITE_ORE.get().defaultBlockState(), 1)
+                                )
+                        ),
+                        GemOreConfiguration.target(
+                                stoneReplaceableRule,
+                                List.of(
+                                        GemOreConfiguration.state(MMBlocks.DEEPSLATE_ICE_SAPPHIRE_ORE.get().defaultBlockState(), 2),
+                                        GemOreConfiguration.state(MMBlocks.DEEPSLATE_SPIRIT_GARNET_ORE.get().defaultBlockState(), 2),
+                                        GemOreConfiguration.state(MMBlocks.DEEPSLATE_DIVE_AQUAMARINE_ORE.get().defaultBlockState(), 2),
+                                        GemOreConfiguration.state(MMBlocks.DEEPSLATE_DIVINE_BERYL_ORE.get().defaultBlockState(), 2),
+                                        GemOreConfiguration.state(MMBlocks.DEEPSLATE_SPIDER_KUNZITE_ORE.get().defaultBlockState(), 2),
+                                        GemOreConfiguration.state(MMBlocks.DEEPSLATE_FIRE_RUBY_ORE.get().defaultBlockState(), 2),
+                                        GemOreConfiguration.state(MMBlocks.DEEPSLATE_HASTE_PERIDOT_ORE.get().defaultBlockState(), 1),
+                                        GemOreConfiguration.state(MMBlocks.DEEPSLATE_LUCKY_CITRINE_ORE.get().defaultBlockState(), 1),
+                                        GemOreConfiguration.state(MMBlocks.DEEPSLATE_UNBREAKING_IOLITE_ORE.get().defaultBlockState(), 1)
+                                )
+                        ),
+                        GemOreConfiguration.target(
+                                netherrackReplaceableRule,
+                                List.of(
+                                        GemOreConfiguration.state(MMBlocks.POWER_PYRITE_ORE.get().defaultBlockState(), 1),
+                                        GemOreConfiguration.state(MMBlocks.KINETIC_OPAL_ORE.get().defaultBlockState(), 1),
+                                        GemOreConfiguration.state(MMBlocks.HEART_RHODONITE_ORE.get().defaultBlockState(), 1)
+                                )
+                        )
+                );
+
+        context.register(
+                MMFeatures.ConfiguredFeatures.RANDOM_GEM_VEIN_CONFIGURED_KEY,
+                new ConfiguredFeature<>(
+                        MMFeatures.MM_GEM_ORE_FEATURE.get(),
+                        new GemOreConfiguration(randomOreConfig, 0, size)
+                )
+        );
 
         List<OreConfiguration.TargetBlockState> fireRubyOreConfig =
                 List.of(
@@ -208,7 +252,7 @@ public class MMConfiguredFeatures {
                 MMFeatures.ConfiguredFeatures.MALACHITE_METEORITE_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         MMFeatures.MALACHITE_METEORITE_FEATURE.get(),
-                        new MalachiteMeteoriteFeatureConfig(15, 24, 1)
+                        new MalachiteMeteoriteConfiguration(15, 24, 1)
                 )
         );
     }
