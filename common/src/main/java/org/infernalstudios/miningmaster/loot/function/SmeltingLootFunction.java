@@ -1,4 +1,4 @@
-package org.infernalstudios.miningmaster.loot_functions;
+package org.infernalstudios.miningmaster.loot.function;
 
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -13,12 +13,11 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction;
-import net.minecraft.world.level.storage.loot.functions.LootItemFunction;
 import net.minecraft.world.level.storage.loot.functions.LootItemFunctionType;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import org.infernalstudios.miningmaster.init.MMEnchantments;
-import org.infernalstudios.miningmaster.init.MMLootFunctions;
+import org.infernalstudios.miningmaster.init.MMLoot;
 
 import java.util.List;
 import java.util.Optional;
@@ -35,7 +34,7 @@ public class SmeltingLootFunction extends LootItemConditionalFunction {
 
     @Override
     public LootItemFunctionType<? extends LootItemConditionalFunction> getType() {
-        return MMLootFunctions.SMELTING_DROPS.get();
+        return MMLoot.MMLootFunctions.SMELTING_FUNCTION.get();
     }
 
     public static SmeltingLootFunction.Builder<?> builder() {

@@ -1,0 +1,11 @@
+{
+  "type": "miningmaster:drop_modifying_enchantment_loot_modifier",
+  "conditions": [
+    {
+      "condition": "miningmaster:smelting_condition"
+    }
+  ],
+  "function": {
+    "function": "miningmaster:smelting_function"
+  }
+}

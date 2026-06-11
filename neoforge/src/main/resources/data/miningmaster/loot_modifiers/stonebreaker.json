@@ -1,0 +1,11 @@
+{
+  "type": "miningmaster:drop_modifying_enchantment_loot_modifier",
+  "conditions": [
+    {
+      "condition": "miningmaster:stonebreaker_condition"
+    }
+  ],
+  "function": {
+    "function": "miningmaster:stonebreaker_function"
+  }
+}

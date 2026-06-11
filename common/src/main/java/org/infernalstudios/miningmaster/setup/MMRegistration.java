@@ -1,7 +1,6 @@
 package org.infernalstudios.miningmaster.setup;
 
 import org.infernalstudios.miningmaster.init.*;
-import org.infernalstudios.miningmaster.init.client.MMItemProperties;
 import org.infernalstudios.miningmaster.network.MMNetworkHandler;
 
 public class MMRegistration {
@@ -21,7 +20,7 @@ public class MMRegistration {
         MMRecipes.init();
         MMFeatures.init();
         MMSounds.init();
-        MMLootFunctions.init();
+        MMLoot.init();
         MMNetworkHandler.init();
     }
 }

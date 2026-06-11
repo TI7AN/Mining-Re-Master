@@ -21,6 +21,7 @@ import org.infernalstudios.miningmaster.client.gui.screen.inventory.GemForgeScre
 import org.infernalstudios.miningmaster.init.MMMenuTypes;
 import org.infernalstudios.miningmaster.setup.MMClientSetup;
 import org.infernalstudios.miningmaster.setup.MMCommonSetup;
+import org.infernalstudios.neoforge.miningmaster.init.MMLootModifiers;
 //import org.infernalstudios.miningmaster.client.gui.screen.inventory.GemForgeScreen;
 //import org.infernalstudios.miningmaster.enchantments.*;
 //import org.infernalstudios.neoforge.miningmaster.events.MiningMasterClientEvents;
@@ -34,6 +35,7 @@ public final class MiningMasterNeoForge {
     public MiningMasterNeoForge(IEventBus modEventBus) {
 
         MiningMaster.init();
+        MMLootModifiers.init(modEventBus);
 
         //<editor-fold desc="Old code">
         //        NeoForge.EVENT_BUS.register(new MiningMasterEvents());
