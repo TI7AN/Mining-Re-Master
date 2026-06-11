@@ -46,6 +46,7 @@ public class MMTags {
     public static class Blocks {
         public static final TagKey<Block> MM_SNOWPIERCER_BLOCKS = tag("snowpiercer_blocks");
         public static final TagKey<Block> C_ORES = commonTag("ores");
+        public static final TagKey<Block> C_STONES = commonTag("stones");
 
         private static TagKey<Block> tag(String name) {
             return TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, name));

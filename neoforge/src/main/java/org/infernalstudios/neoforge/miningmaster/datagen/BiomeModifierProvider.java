@@ -40,6 +40,7 @@ public class BiomeModifierProvider extends DataMapProvider {
     public static final ResourceKey<BiomeModifier> SPIDER_KUNZITE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "spider_kunzite_native_biome_modifier"));
     public static final ResourceKey<BiomeModifier> SPIRIT_GARNET_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "spirit_garnet_native_biome_modifier"));
     public static final ResourceKey<BiomeModifier> UNBREAKING_IOLITE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "unbreaking_iolite_native_biome_modifier"));
+    public static final ResourceKey<BiomeModifier> MALACHITE_METEORITE_NATIVE_BIOME_MODIFIER = ResourceKey.create(NeoForgeRegistries.Keys.BIOME_MODIFIERS, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "malachite_meteorite_biome_modifier"));
 
     protected BiomeModifierProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(packOutput, lookupProvider);
@@ -181,6 +182,17 @@ public class BiomeModifierProvider extends DataMapProvider {
                 new BiomeModifiers.AddFeaturesBiomeModifier(
                         biomes.getOrThrow(MMTags.Biomes.MM_UNBREAKING_IOLITE_BIOMES),
                         HolderSet.direct(unbreakingIoliteFeature),
+                        GenerationStep.Decoration.UNDERGROUND_ORES
+                )
+        );
+
+        //MALACHITE_METEORITE_NATIVE_BIOME_MODIFIER
+        var malachiteMeteoriteFeature = placedFeatures.getOrThrow(MMFeatures.PlacedFeatures.MALACHITE_METEORITE_PLACED_KEY);
+        context.register(
+                MALACHITE_METEORITE_NATIVE_BIOME_MODIFIER,
+                new BiomeModifiers.AddFeaturesBiomeModifier(
+                        biomes.getOrThrow(BiomeTags.IS_END),
+                        HolderSet.direct(malachiteMeteoriteFeature),
                         GenerationStep.Decoration.UNDERGROUND_ORES
                 )
         );

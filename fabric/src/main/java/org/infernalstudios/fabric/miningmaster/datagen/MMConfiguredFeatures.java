@@ -14,6 +14,7 @@ import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import org.infernalstudios.miningmaster.MiningMaster;
 import org.infernalstudios.miningmaster.init.MMBlocks;
 import org.infernalstudios.miningmaster.init.MMFeatures;
+import org.infernalstudios.miningmaster.world.features.config.MalachiteMeteoriteFeatureConfig;
 
 import java.util.List;
 
@@ -22,18 +23,21 @@ public class MMConfiguredFeatures {
     public static void configure(BootstrapContext<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneReplaceableRule = new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceableRule = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
+        RuleTest netherrackReplaceableRule = new TagMatchTest(BlockTags.BASE_STONE_NETHER);
+
+        int size = 64;
 
         List<OreConfiguration.TargetBlockState> fireRubyOreConfig =
                 List.of(
                         OreConfiguration.target(stoneReplaceableRule, MMBlocks.FIRE_RUBY_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.FIRE_RUBY_ORE.get().defaultBlockState())
+                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.DEEPSLATE_FIRE_RUBY_ORE.get().defaultBlockState())
                 );
 
         context.register(
                 MMFeatures.ConfiguredFeatures.FIRE_RUBY_VEIN_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         Feature.ORE,
-                        new OreConfiguration(fireRubyOreConfig, 10)
+                        new OreConfiguration(fireRubyOreConfig, size)
                 )
         );
 
@@ -41,14 +45,14 @@ public class MMConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> iceSapphireOreConfig =
                 List.of(
                         OreConfiguration.target(stoneReplaceableRule, MMBlocks.ICE_SAPPHIRE_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.ICE_SAPPHIRE_ORE.get().defaultBlockState())
+                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.DEEPSLATE_ICE_SAPPHIRE_ORE.get().defaultBlockState())
                 );
 
         context.register(
                 MMFeatures.ConfiguredFeatures.ICE_SAPPHIRE_VEIN_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         Feature.ORE,
-                        new OreConfiguration(iceSapphireOreConfig, 10)
+                        new OreConfiguration(iceSapphireOreConfig, size)
                 )
         );
 
@@ -56,14 +60,14 @@ public class MMConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> spiritGarnetOreConfig =
                 List.of(
                         OreConfiguration.target(stoneReplaceableRule, MMBlocks.SPIRIT_GARNET_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.SPIRIT_GARNET_ORE.get().defaultBlockState())
+                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.DEEPSLATE_SPIRIT_GARNET_ORE.get().defaultBlockState())
                 );
 
         context.register(
                 MMFeatures.ConfiguredFeatures.SPIRIT_GARNET_VEIN_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         Feature.ORE,
-                        new OreConfiguration(spiritGarnetOreConfig, 10)
+                        new OreConfiguration(spiritGarnetOreConfig, size)
                 )
         );
 
@@ -71,14 +75,14 @@ public class MMConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> hastePeridotOreConfig =
                 List.of(
                         OreConfiguration.target(stoneReplaceableRule, MMBlocks.HASTE_PERIDOT_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.HASTE_PERIDOT_ORE.get().defaultBlockState())
+                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.DEEPSLATE_HASTE_PERIDOT_ORE.get().defaultBlockState())
                 );
 
         context.register(
                 MMFeatures.ConfiguredFeatures.HASTE_PERIDOT_VEIN_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         Feature.ORE,
-                        new OreConfiguration(hastePeridotOreConfig, 10)
+                        new OreConfiguration(hastePeridotOreConfig, size)
                 )
         );
 
@@ -86,14 +90,14 @@ public class MMConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> luckyCitrineOreConfig =
                 List.of(
                         OreConfiguration.target(stoneReplaceableRule, MMBlocks.LUCKY_CITRINE_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.LUCKY_CITRINE_ORE.get().defaultBlockState())
+                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.DEEPSLATE_LUCKY_CITRINE_ORE.get().defaultBlockState())
                 );
 
         context.register(
                 MMFeatures.ConfiguredFeatures.LUCKY_CITRINE_VEIN_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         Feature.ORE,
-                        new OreConfiguration(luckyCitrineOreConfig, 10)
+                        new OreConfiguration(luckyCitrineOreConfig, size)
                 )
         );
 
@@ -101,14 +105,14 @@ public class MMConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> diveAquamarineOreConfig =
                 List.of(
                         OreConfiguration.target(stoneReplaceableRule, MMBlocks.DIVE_AQUAMARINE_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.DIVE_AQUAMARINE_ORE.get().defaultBlockState())
+                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.DEEPSLATE_DIVE_AQUAMARINE_ORE.get().defaultBlockState())
                 );
 
         context.register(
                 MMFeatures.ConfiguredFeatures.DIVE_AQUAMARINE_VEIN_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         Feature.ORE,
-                        new OreConfiguration(diveAquamarineOreConfig, 10)
+                        new OreConfiguration(diveAquamarineOreConfig, size)
                 )
         );
 
@@ -116,14 +120,14 @@ public class MMConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> divineBerylOreConfig =
                 List.of(
                         OreConfiguration.target(stoneReplaceableRule, MMBlocks.DIVINE_BERYL_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.DIVINE_BERYL_ORE.get().defaultBlockState())
+                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.DEEPSLATE_DIVINE_BERYL_ORE.get().defaultBlockState())
                 );
 
         context.register(
                 MMFeatures.ConfiguredFeatures.DIVINE_BERYL_VEIN_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         Feature.ORE,
-                        new OreConfiguration(divineBerylOreConfig, 10)
+                        new OreConfiguration(divineBerylOreConfig, size)
                 )
         );
 
@@ -131,14 +135,14 @@ public class MMConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> spiderKunzitelOreConfig =
                 List.of(
                         OreConfiguration.target(stoneReplaceableRule, MMBlocks.SPIDER_KUNZITE_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.SPIDER_KUNZITE_ORE.get().defaultBlockState())
+                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.DEEPSLATE_SPIDER_KUNZITE_ORE.get().defaultBlockState())
                 );
 
         context.register(
                 MMFeatures.ConfiguredFeatures.SPIDER_KUNZITE_VEIN_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         Feature.ORE,
-                        new OreConfiguration(spiderKunzitelOreConfig, 10)
+                        new OreConfiguration(spiderKunzitelOreConfig, size)
                 )
         );
 
@@ -146,74 +150,65 @@ public class MMConfiguredFeatures {
         List<OreConfiguration.TargetBlockState> unbreakingIoliteOreConfig =
                 List.of(
                         OreConfiguration.target(stoneReplaceableRule, MMBlocks.UNBREAKING_IOLITE_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.UNBREAKING_IOLITE_ORE.get().defaultBlockState())
+                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.DEEPSLATE_UNBREAKING_IOLITE_ORE.get().defaultBlockState())
                 );
 
         context.register(
                 MMFeatures.ConfiguredFeatures.UNBREAKING_IOLITE_VEIN_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         Feature.ORE,
-                        new OreConfiguration(unbreakingIoliteOreConfig, 10)
+                        new OreConfiguration(unbreakingIoliteOreConfig, size)
                 )
         );
 
 
         List<OreConfiguration.TargetBlockState> heartRhodoniteOreConfig =
                 List.of(
-                        OreConfiguration.target(stoneReplaceableRule, MMBlocks.HEART_RHODONITE_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.HEART_RHODONITE_ORE.get().defaultBlockState())
+                        OreConfiguration.target(netherrackReplaceableRule, MMBlocks.HEART_RHODONITE_ORE.get().defaultBlockState())
                 );
 
         context.register(
                 MMFeatures.ConfiguredFeatures.HEART_RHODONITE_VEIN_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         Feature.ORE,
-                        new OreConfiguration(heartRhodoniteOreConfig, 10)
+                        new OreConfiguration(heartRhodoniteOreConfig, size)
                 )
         );
 
 
         List<OreConfiguration.TargetBlockState> powerPyriteOreConfig =
                 List.of(
-                        OreConfiguration.target(stoneReplaceableRule, MMBlocks.POWER_PYRITE_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.POWER_PYRITE_ORE.get().defaultBlockState())
+                        OreConfiguration.target(netherrackReplaceableRule, MMBlocks.POWER_PYRITE_ORE.get().defaultBlockState())
                 );
 
         context.register(
                 MMFeatures.ConfiguredFeatures.POWER_PYRITE_VEIN_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         Feature.ORE,
-                        new OreConfiguration(powerPyriteOreConfig, 10)
+                        new OreConfiguration(powerPyriteOreConfig, size)
                 )
         );
 
 
         List<OreConfiguration.TargetBlockState> kineticOpalOreConfig =
                 List.of(
-                        OreConfiguration.target(stoneReplaceableRule, MMBlocks.KINETIC_OPAL_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.KINETIC_OPAL_ORE.get().defaultBlockState())
+                        OreConfiguration.target(netherrackReplaceableRule, MMBlocks.KINETIC_OPAL_ORE.get().defaultBlockState())
                 );
 
         context.register(
                 MMFeatures.ConfiguredFeatures.KINETIC_OPAL_VEIN_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
                         Feature.ORE,
-                        new OreConfiguration(kineticOpalOreConfig, 10)
+                        new OreConfiguration(kineticOpalOreConfig, size)
                 )
         );
 
 
-        List<OreConfiguration.TargetBlockState> airMalachiteOreConfig =
-                List.of(
-                        OreConfiguration.target(stoneReplaceableRule, MMBlocks.AIR_MALACHITE_ORE.get().defaultBlockState()),
-                        OreConfiguration.target(deepslateReplaceableRule, MMBlocks.AIR_MALACHITE_ORE.get().defaultBlockState())
-                );
-
         context.register(
-                MMFeatures.ConfiguredFeatures.AIR_MALACHITE_VEIN_CONFIGURED_KEY,
+                MMFeatures.ConfiguredFeatures.MALACHITE_METEORITE_CONFIGURED_KEY,
                 new ConfiguredFeature<>(
-                        Feature.ORE,
-                        new OreConfiguration(airMalachiteOreConfig, 10)
+                        MMFeatures.MALACHITE_METEORITE_FEATURE.get(),
+                        new MalachiteMeteoriteFeatureConfig(15, 24, 1)
                 )
         );
     }
