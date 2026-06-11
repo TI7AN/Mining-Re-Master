@@ -1,15 +1,20 @@
-package org.infernalstudios.miningmaster.init;
+package org.infernalstudios.miningmaster.init.client;
 
+import dev.architectury.event.events.common.LifecycleEvent;
+import dev.architectury.platform.Platform;
 import dev.architectury.registry.item.ItemPropertiesRegistry;
-import net.minecraft.client.renderer.item.ItemProperties;
+import net.fabricmc.api.EnvType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
+import org.infernalstudios.miningmaster.init.MMItems;
 
 public class MMItemProperties {
 
     public static void init() {
-        addCustomItemProperties();
+        if(Platform.getEnv() == EnvType.CLIENT)
+            LifecycleEvent.SETUP.register( () ->
+                    addCustomItemProperties()
+            );
     }
 
     private static void addCustomItemProperties() {
