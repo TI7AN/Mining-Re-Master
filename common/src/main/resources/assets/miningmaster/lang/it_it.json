@@ -3,7 +3,7 @@
 
   "miningmaster.gui.recipebook.toggleRecipes.forgable": "Showing Forgable",
 
-  "miningmaster.jei.forging": "Forging",
+  "miningmaster.jei.gem_forging": "Gem Forging",
 
   "block.miningmaster.fire_ruby_ore": "Minerale di rubino di fuoco",
   "block.miningmaster.ice_sapphire_ore": "Minerale di zaffiro di ghiaccio",
@@ -237,5 +237,25 @@
   "tetra.improvement.enchantment/miningmaster_snowpiercer.name": "Snowpiercer",
   "tetra.improvement.enchantment/miningmaster_snowpiercer.description": "Grants the user the Speed effect when on snow or ice.",
   "tetra.improvement.enchantment/miningmaster_stonebreaker.name": "Stonebreaker",
-  "tetra.improvement.enchantment/miningmaster_stonebreaker.description": "Causes certain stones and Netherrack to not drop when mined."
+  "tetra.improvement.enchantment/miningmaster_stonebreaker.description": "Causes certain stones and Netherrack to not drop when mined.",
+  "miningmaster.jei.gem_forging": "Gem Forging",
+  "block.miningmaster.divine_beryl_ore": "Divine Beryl Ore",
+  "block.miningmaster.spider_kunzite_ore": "Spider Kunzite Ore",
+  "block.miningmaster.unbreaking_iolite_ore": "Unbreaking Iolite Ore",
+  "block.miningmaster.deepslate_divine_beryl_ore": "Deepslate Divine Beryl Ore",
+  "block.miningmaster.deepslate_spider_kunzite_ore": "Deepslate Spider Kunzite Ore",
+  "block.miningmaster.deepslate_unbreaking_iolite_ore": "Deepslate Unbreaking Iolite Ore",
+  "block.miningmaster.divine_beryl_block": "Block of Divine Beryl",
+  "block.miningmaster.spider_kunzite_block": "Block of Spider Kunzite",
+  "block.miningmaster.unbreaking_iolite_block": "Block of Unbreaking Iolite",
+  "item.miningmaster.divine_beryl": "Divine Beryl",
+  "item.miningmaster.spider_kunzite": "Spider Kunzite",
+  "item.miningmaster.unbreaking_iolite": "Unbreaking Iolite",
+  "item.miningmaster.unbreaking_iolite_pickaxe": "Unbreaking Iolite Pickaxe",
+  "miningmaster.config.option.divineBerylEnabled": "Divine Beryl Enabled",
+  "miningmaster.config.tooltip.divineBerylEnabled": "Determines if Divine Beryl will generate.",
+  "miningmaster.config.option.spiderKunziteEnabled": "Spider Kunzite Enabled",
+  "miningmaster.config.tooltip.spiderKunziteEnabled": "Determines if Spider Kunzite will generate.",
+  "miningmaster.config.option.unbreakingIoliteEnabled": "Unbreaking Iolite Enabled",
+  "miningmaster.config.tooltip.unbreakingIoliteEnabled": "Determines if Unbreaking Iolite will generate."
 }

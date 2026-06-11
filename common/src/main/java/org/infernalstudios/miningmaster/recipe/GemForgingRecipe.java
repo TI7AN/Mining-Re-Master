@@ -168,15 +168,15 @@ public class GemForgingRecipe implements IForgingRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return MMRecipes.FORGING_RECIPE.get();
+        return MMRecipes.GEM_FORGING_RECIPE.get();
     }
 
     @Override
     public @NotNull RecipeType<?> getType() {
-        return MMRecipes.FORGING_RECIPE_TYPE;
+        return MMRecipes.GEM_FORGING_RECIPE_TYPE;
     }
 
-    public static class ForgingRecipeType implements RecipeType<GemForgingRecipe> {
+    public static class GemForgingRecipeType implements RecipeType<GemForgingRecipe> {
         @Override
         public String toString() {
             return GemForgingRecipe.TYPE_ID.toString();

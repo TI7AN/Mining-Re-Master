@@ -26,7 +26,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-//import org.infernalstudios.miningmaster.init.MMTileEntityTypes;
 import org.infernalstudios.miningmaster.block.entity.GemForgeBlockEntity;
 import org.infernalstudios.miningmaster.init.MMBlockEntities;
 import org.jetbrains.annotations.NotNull;

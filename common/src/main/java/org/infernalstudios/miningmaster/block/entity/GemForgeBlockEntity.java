@@ -124,7 +124,7 @@ public class GemForgeBlockEntity extends BaseContainerBlockEntity implements Wor
         if (!level.isClientSide) {
             RecipeHolder<GemForgingRecipe> recipe = level.getRecipeManager()
                     .getRecipeFor(
-                            MMRecipes.FORGING_RECIPE_TYPE,
+                            MMRecipes.GEM_FORGING_RECIPE_TYPE,
                             new GemForgingRecipeInput(gemForge.inventory),
                             level)
                     .orElse(null);

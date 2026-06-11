@@ -54,7 +54,6 @@ public class GemForgeRecipeGui extends RecipeBookComponent {
     }
 
     protected void initFilterButtonTextures() {
-//        this.filterButton.initTextureValues(152, 41, 28, 18, RECIPE_BOOK_GEM_FORGE);
         this.filterButton.initTextureValues(RECIPE_BOOK_GEM_FORGE_SPRITE);
     }
 
@@ -65,9 +64,7 @@ public class GemForgeRecipeGui extends RecipeBookComponent {
     }
 
     @Override
-//    public void addItemToSlot(Iterator<Ingredient> ingredients, int slotIn, int maxAmount, int y, int x)
     public void addItemToSlot(Ingredient item, int slot, int maxAmount, int x, int y) {
-//        Ingredient ingredient = ingredients.next();
         if (!item.isEmpty()) {
             Slot slot2 = this.menu.slots.get(slot);
 

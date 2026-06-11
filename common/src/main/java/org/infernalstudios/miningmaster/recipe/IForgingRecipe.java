@@ -23,10 +23,10 @@ import org.infernalstudios.miningmaster.MiningMaster;
 import org.infernalstudios.miningmaster.init.MMRecipes;
 
 public interface IForgingRecipe extends Recipe<GemForgingRecipeInput> {
-    ResourceLocation TYPE_ID = ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "forging");
+    ResourceLocation TYPE_ID = ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, "gem_forging");
 
     @Override
     default RecipeType<?> getType() {
-        return MMRecipes.FORGING_RECIPE_TYPE;
+        return MMRecipes.GEM_FORGING_RECIPE_TYPE;
     }
 }
