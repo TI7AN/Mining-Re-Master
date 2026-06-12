@@ -7,9 +7,23 @@ license = "Insert License Here"
 modId = "miningmaster"
 version = "${version}"
 displayName = "Mining Master"
-authors = "Me!"
+authors = ["Infernal Studios", "TI7AN"]
+logoFile = "Mining_Master_Banner.png"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+Ported by: TI7AN
+
+Mining Master is a mod that adds 10 new 'Enchanting Ores' to the game. These ores, when applied to a tool or armour-piece on a Smithing Table, bestow an Enchantment!
+Using further Enchanting Ores on the same piece of equipment will up the enchantment level, too. It also adds 10 new enchantments that are associated with these gems!
+
+It's a small mod, but we think it'll add a lot! We hope you enjoy it! :D
+
+Credits
+HellionGames, SwanX1 - Developers
+Nekomaster1000 - Conceptualiser, 2D & 3D Artist,
+GLaDOS Edition, Luxintrus, TheCraftyGhost - Additional 2D Artists
+Reetam - Meteorite Concept
+
+Thank you to Mickelus for helping with Tetra compatibility features!
 '''
 enumExtensions="META-INF/enumextensions.json"
 #logoFile = ""
