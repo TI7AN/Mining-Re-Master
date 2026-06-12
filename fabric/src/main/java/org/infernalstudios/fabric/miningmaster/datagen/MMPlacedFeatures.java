@@ -29,9 +29,9 @@ public class MMPlacedFeatures {
     public static void configure(BootstrapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
-        int commonCount = 5;
-        int uncommonCount = 3;
-        int rareCount = 1;
+        int commonCount = 7;
+        int uncommonCount = 4;
+        int rareCount = 2;
 
         List<PlacementModifier> rareOverworldGemVeinModifiers = List.of(
                 CountPlacement.of(rareCount),
@@ -50,8 +50,8 @@ public class MMPlacedFeatures {
                 InSquarePlacement.spread(),
                 HeightRangePlacement.of(
                         TrapezoidHeight.of(
-                                VerticalAnchor.absolute(-40),
-                                VerticalAnchor.absolute(30)
+                                VerticalAnchor.absolute(-60),
+                                VerticalAnchor.absolute(20)
                         )
                 ),
                 BiomeFilter.biome()
@@ -63,7 +63,7 @@ public class MMPlacedFeatures {
                 HeightRangePlacement.of(
                         TrapezoidHeight.of(
                                 VerticalAnchor.absolute(-50),
-                                VerticalAnchor.absolute(10)
+                                VerticalAnchor.absolute(40)
                         )
                 ),
                 BiomeFilter.biome()
@@ -129,7 +129,7 @@ public class MMPlacedFeatures {
                 MMFeatures.PlacedFeatures.RANDOM_GEM_OVERWORLD_VEIN_PLACED_KEY,
                 new PlacedFeature(
                         configuredFeatures.getOrThrow(MMFeatures.ConfiguredFeatures.RANDOM_GEM_VEIN_CONFIGURED_KEY),
-                        uncommonOverworldGemVeinModifiers
+                        commonOverworldGemVeinModifiers
                 )
         );
 
@@ -137,7 +137,7 @@ public class MMPlacedFeatures {
                 MMFeatures.PlacedFeatures.RANDOM_GEM_NETHER_VEIN_PLACED_KEY,
                 new PlacedFeature(
                         configuredFeatures.getOrThrow(MMFeatures.ConfiguredFeatures.RANDOM_GEM_VEIN_CONFIGURED_KEY),
-                        uncommonNetherGemVeinModifiers
+                        commonNetherGemVeinModifiers
                 )
         );
 

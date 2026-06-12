@@ -3,16 +3,17 @@
   "id": "miningmaster",
   "version": "${version}",
   "name": "Mining Master",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Ported by: TI7AN\nMining Master is a mod that adds 10 new 'Enchanting Ores' to the game. These ores, when applied to a tool or armour-piece on a Smithing Table, bestow an Enchantment!\nUsing further Enchanting Ores on the same piece of equipment will up the enchantment level, too. It also adds 10 new enchantments that are associated with these gems!\n\nIt's a small mod, but we think it'll add a lot! We hope you enjoy it! :D\n\nCredits\nHellionGames, SwanX1 - Developers\nNekomaster1000 - Conceptualiser, 2D & 3D Artist,\nGLaDOS Edition, Luxintrus, TheCraftyGhost - Additional 2D Artists\nReetam - Meteorite Concept\n\nThank you to Mickelus for helping with Tetra compatibility features!",
   "authors": [
-    "Me!"
+    "Infernal Studios",
+    "TI7AN"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "",
+    "sources": ""
   },
-  "license": "CC0-1.0",
-  "icon": "assets/miningmaster/icon.png",
+  "license": "Apache-2.0",
+  "icon": "Mining_Master_Banner.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -39,8 +40,5 @@
     "java": ">=21",
     "architectury": ">=13.0.8",
     "fabric-api": "*"
-  },
-  "suggests": {
-    "another-mod": "*"
   }
 }
