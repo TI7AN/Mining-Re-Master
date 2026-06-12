@@ -21,7 +21,7 @@ public class MMConfiguredFeatures {
         RuleTest deepslateReplaceableRule = new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
         RuleTest netherrackReplaceableRule = new TagMatchTest(BlockTags.BASE_STONE_NETHER);
 
-        int size = 3;
+        int size = 15;
 
         List<GemOreConfiguration.TargetWeightedState> randomOreConfig =
                 List.of(
