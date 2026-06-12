@@ -2,8 +2,10 @@ package org.infernalstudios.fabric.miningmaster.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import org.infernalstudios.miningmaster.init.MMBlocks;
@@ -20,6 +22,8 @@ public class MMItemTagProvider extends FabricTagProvider<Item> {
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
+//        HolderGetter<Item> holderGetterItem = wrapperLookup.lookupOrThrow(Registries.ITEM);
+
         getOrCreateTagBuilder(MMTags.Items.MM_CATALYSTS)
                 .add(Items.DIAMOND_SWORD)
                 .add(MMItems.FIRE_RUBY_SWORD.get())
@@ -124,5 +128,11 @@ public class MMItemTagProvider extends FabricTagProvider<Item> {
                 .setReplace(false)
         ;
 
+        getOrCreateTagBuilder(MMTags.Items.MM_ENCHANTABLE_ALL_WEAPONS)
+                .forceAddTag(MMTags.Items.C_MELEE_WEAPONS)
+                .forceAddTag(ItemTags.BOW_ENCHANTABLE)
+                .forceAddTag(ItemTags.CROSSBOW_ENCHANTABLE)
+                .setReplace(false)
+        ;
     }
 }

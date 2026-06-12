@@ -14,6 +14,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.EquipmentSlotGroup;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentEffectComponents;
 import net.minecraft.world.item.enchantment.LevelBasedValue;
@@ -35,9 +36,13 @@ public class MMEnchantmentProvider extends FabricDynamicRegistryProvider {
     }
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
+        HolderGetter<Item> holderGetterItem = context.lookup(Registries.ITEM);
+        HolderGetter<Block> holderGetterBlock = context.lookup(Registries.BLOCK);
+        HolderGetter<Enchantment> holderGetterEnchantment = context.lookup(Registries.ENCHANTMENT);
+
 
         register(context, MMEnchantments.FLOATATION, Enchantment.enchantment(Enchantment.definition(
-                context.lookup(Registries.ITEM).getOrThrow(ItemTags.CROSSBOW_ENCHANTABLE),
+                holderGetterItem.getOrThrow(ItemTags.CROSSBOW_ENCHANTABLE),
                 2,
                 3,
                 Enchantment.constantCost(20),
@@ -47,18 +52,20 @@ public class MMEnchantmentProvider extends FabricDynamicRegistryProvider {
         );
 
         register(context, MMEnchantments.FREEZING, Enchantment.enchantment(Enchantment.definition(
-                //TODO this should apply to every weapon not just melees, create a custom tag
-                context.lookup(Registries.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                holderGetterItem.getOrThrow(MMTags.Items.MM_ENCHANTABLE_ALL_WEAPONS),
                 2,
                 2,
                 Enchantment.constantCost(20),
                 Enchantment.constantCost(50),
                 8,
                 EquipmentSlotGroup.MAINHAND))
+                .exclusiveWith(
+                holderGetterEnchantment.getOrThrow(MMTags.Enchantments.MM_TEMPERATURE_ENCHANTMENTS_EXCLUSIVE_SET)
+                )
         );
 
         register(context, MMEnchantments.GRACE, Enchantment.enchantment(Enchantment.definition(
-                context.lookup(Registries.ITEM).getOrThrow(ItemTags.CHEST_ARMOR_ENCHANTABLE),
+                holderGetterItem.getOrThrow(ItemTags.CHEST_ARMOR_ENCHANTABLE),
                 2,
                 5,
                 Enchantment.constantCost(20),
@@ -68,7 +75,7 @@ public class MMEnchantmentProvider extends FabricDynamicRegistryProvider {
         );
 
         register(context, MMEnchantments.HEARTFELT, Enchantment.enchantment(Enchantment.definition(
-                context.lookup(Registries.ITEM).getOrThrow(ItemTags.ARMOR_ENCHANTABLE),
+                holderGetterItem.getOrThrow(ItemTags.ARMOR_ENCHANTABLE),
                 2,
                 2,
                 Enchantment.constantCost(20),
@@ -87,7 +94,7 @@ public class MMEnchantmentProvider extends FabricDynamicRegistryProvider {
         );
 
         register(context, MMEnchantments.KNIGHT_JUMP, Enchantment.enchantment(Enchantment.definition(
-                context.lookup(Registries.ITEM).getOrThrow(ItemTags.LEG_ARMOR_ENCHANTABLE),
+                holderGetterItem.getOrThrow(ItemTags.LEG_ARMOR_ENCHANTABLE),
                 2,
                 3,
                 Enchantment.constantCost(20),
@@ -97,7 +104,7 @@ public class MMEnchantmentProvider extends FabricDynamicRegistryProvider {
         );
 
         register(context, MMEnchantments.LEECHING, Enchantment.enchantment(Enchantment.definition(
-                context.lookup(Registries.ITEM).getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                holderGetterItem.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
                 2,
                 1,
                 Enchantment.constantCost(20),
@@ -107,7 +114,7 @@ public class MMEnchantmentProvider extends FabricDynamicRegistryProvider {
         );
 
         register(context, MMEnchantments.RUNNER, Enchantment.enchantment(Enchantment.definition(
-                context.lookup(Registries.ITEM).getOrThrow(ItemTags.FOOT_ARMOR_ENCHANTABLE),
+                holderGetterItem.getOrThrow(ItemTags.FOOT_ARMOR_ENCHANTABLE),
                 2,
                 3,
                 Enchantment.constantCost(20),
@@ -126,7 +133,7 @@ public class MMEnchantmentProvider extends FabricDynamicRegistryProvider {
         );
 
         register(context, MMEnchantments.SMELTING, Enchantment.enchantment(Enchantment.definition(
-                context.lookup(Registries.ITEM).getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                holderGetterItem.getOrThrow(ItemTags.MINING_ENCHANTABLE),
                 2,
                 1,
                 Enchantment.constantCost(20),
@@ -135,10 +142,9 @@ public class MMEnchantmentProvider extends FabricDynamicRegistryProvider {
                 EquipmentSlotGroup.MAINHAND))
         );
 
-        HolderGetter<Block> blockLookup = context.lookup(Registries.BLOCK);
         register(context, MMEnchantments.SNOWPIERCER, Enchantment.enchantment(
                 Enchantment.definition(
-                    context.lookup(Registries.ITEM).getOrThrow(ItemTags.LEG_ARMOR_ENCHANTABLE),
+                    holderGetterItem.getOrThrow(ItemTags.LEG_ARMOR_ENCHANTABLE),
                     2,
                     1,
                     Enchantment.constantCost(20),
@@ -165,13 +171,14 @@ public class MMEnchantmentProvider extends FabricDynamicRegistryProvider {
         );
 
         register(context, MMEnchantments.STONEBREAKER, Enchantment.enchantment(Enchantment.definition(
-                context.lookup(Registries.ITEM).getOrThrow(ItemTags.MINING_ENCHANTABLE),
+                holderGetterItem.getOrThrow(ItemTags.MINING_ENCHANTABLE),
                 2,
                 1,
                 Enchantment.constantCost(20),
                 Enchantment.constantCost(50),
                 8,
                 EquipmentSlotGroup.MAINHAND))
+                .exclusiveWith(holderGetterEnchantment.getOrThrow(MMTags.Enchantments.MM_MINING_DROP_ALTERATION_ENCHANTMENTS_EXCLUSIVE_SET))
         );
     }
 

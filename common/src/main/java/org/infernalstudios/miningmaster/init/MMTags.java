@@ -20,6 +20,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import org.infernalstudios.miningmaster.MiningMaster;
@@ -33,6 +34,8 @@ public class MMTags {
         public static final TagKey<Item> C_GEMS = commonTag("gems");
         public static final TagKey<Item> C_ORES = commonTag("ores");
         public static final TagKey<Item> MM_CATALYSTS = tag("catalysts");
+        public static final TagKey<Item> C_MELEE_WEAPONS = toolCommonTag("melee_weapon");
+        public static final TagKey<Item> MM_ENCHANTABLE_ALL_WEAPONS = tag("enchantable/all_weapons");
 
         private static TagKey<Item> tag(String name) {
             return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, name));
@@ -40,6 +43,14 @@ public class MMTags {
 
         private static TagKey<Item> commonTag(String name) {
             return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", name));
+        }
+
+        private static TagKey<Item> toolTag(String name) {
+            return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, name).withPrefix("tools/"));
+        }
+
+        private static TagKey<Item> toolCommonTag(String name) {
+            return TagKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath("c", name).withPrefix("tools/"));
         }
     }
 
@@ -70,6 +81,28 @@ public class MMTags {
 
         private static TagKey<Biome> commonTag(String name) {
             return TagKey.create(Registries.BIOME, ResourceLocation.fromNamespaceAndPath("c", name));
+        }
+    }
+
+    public static class Enchantments {
+        public static final TagKey<Enchantment> MM_TEMPERATURE_ENCHANTMENTS_EXCLUSIVE_SET = exclusiveSet("temperature_enchantments");
+        public static final TagKey<Enchantment> MM_MINING_DROP_ALTERATION_ENCHANTMENTS_EXCLUSIVE_SET = exclusiveSet("mining_drop_alteration_enchantments");
+
+
+        private static TagKey<Enchantment> tag(String name) {
+            return TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, name));
+        }
+
+        private static TagKey<Enchantment> commonTag(String name) {
+            return TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath("c", name));
+        }
+
+        private static TagKey<Enchantment> exclusiveSet(String name) {
+            return TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath(MiningMaster.MOD_ID, name).withPrefix("exclusive_set/"));
+        }
+
+        private static TagKey<Enchantment> commonexclusiveSet(String name) {
+            return TagKey.create(Registries.ENCHANTMENT, ResourceLocation.fromNamespaceAndPath("c", name).withPrefix("exclusive_set/"));
         }
     }
 

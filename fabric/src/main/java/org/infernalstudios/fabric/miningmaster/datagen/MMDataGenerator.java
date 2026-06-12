@@ -16,6 +16,7 @@ public class MMDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(MMRecipeProvider::new);
         pack.addProvider(MMBiomeTagProvider::new);
         pack.addProvider(MMWorldgenProvider::new);
+        pack.addProvider(MMEnchantmentTagProvider::new);
         pack.addProvider(MMEnchantmentProvider::new);
     }
 

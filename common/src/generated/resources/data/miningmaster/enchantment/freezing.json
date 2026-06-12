@@ -3,6 +3,7 @@
   "description": {
     "translate": "enchantment.miningmaster.freezing"
   },
+  "exclusive_set": "#miningmaster:exclusive_set/temperature_enchantments",
   "max_cost": {
     "base": 50,
     "per_level_above_first": 0
@@ -15,6 +16,6 @@
   "slots": [
     "mainhand"
   ],
-  "supported_items": "#minecraft:enchantable/weapon",
+  "supported_items": "#miningmaster:enchantable/all_weapons",
   "weight": 2
 }

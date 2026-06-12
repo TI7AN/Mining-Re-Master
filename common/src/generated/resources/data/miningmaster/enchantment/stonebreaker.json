@@ -3,6 +3,7 @@
   "description": {
     "translate": "enchantment.miningmaster.stonebreaker"
   },
+  "exclusive_set": "#miningmaster:exclusive_set/mining_drop_alteration_enchantments",
   "max_cost": {
     "base": 50,
     "per_level_above_first": 0
