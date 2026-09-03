@@ -45,7 +45,7 @@ side = "BOTH"
 [[dependencies.miningmaster]]
 modId = "architectury"
 type = "required"
-versionRange = "[13.0.8,)"
+versionRange = "[13.0.11,)"
 ordering = "AFTER"
 side = "BOTH"
 
