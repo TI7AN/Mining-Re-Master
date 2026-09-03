@@ -2,7 +2,7 @@ accessWidener       v2       named
 
 accessible field net/minecraft/world/item/enchantment/Enchantment definition Lnet/minecraft/world/item/enchantment/Enchantment$EnchantmentDefinition;
 
-# Enum Extensions
+# Enum Extensions not available yet
 #transitive-extend-enum net/minecraft/world/inventory/RecipeBookType MININGMASTER_GEM_FORGING
 
 accessible class net/minecraft/stats/RecipeBookSettings$TypeSettings

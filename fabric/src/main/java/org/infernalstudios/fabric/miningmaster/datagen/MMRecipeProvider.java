@@ -46,15 +46,15 @@ public class MMRecipeProvider extends FabricRecipeProvider {
     public void buildRecipes(RecipeOutput recipeExporter) {
 
         //<editor-fold desc="Example recipe">
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ENCHANTED_GOLDEN_APPLE, 1)
-                .pattern("ggg")
-                .pattern("gag")
-                .pattern("ggg")
-                .define('g', Items.GOLD_BLOCK)
-                .define('a', Items.APPLE)
-                .unlockedBy(RecipeProvider.getHasName(Items.APPLE), has(Items.APPLE))
-                .save(recipeExporter)
-        ;
+//        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.ENCHANTED_GOLDEN_APPLE, 1)
+//                .pattern("ggg")
+//                .pattern("gag")
+//                .pattern("ggg")
+//                .define('g', Items.GOLD_BLOCK)
+//                .define('a', Items.APPLE)
+//                .unlockedBy(RecipeProvider.getHasName(Items.APPLE), has(Items.APPLE))
+//                .save(recipeExporter)
+//        ;
         //</editor-fold>
 
         //<editor-fold desc="Smithing table enchanting recipes">

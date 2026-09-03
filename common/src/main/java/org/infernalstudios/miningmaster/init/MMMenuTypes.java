@@ -32,11 +32,10 @@ import org.infernalstudios.miningmaster.container.GemForgeMenu;
 public class MMMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(MiningMaster.MOD_ID, Registries.MENU);
 
-//    public static final RegistrySupplier<MenuType<GemForgeContainer>> GEM_FORGE_CONTAINER = CONTAINER_TYPES.register("gem_forge_container", () -> IForgeMenuType.create(((windowId, inv, data) -> new GemForgeContainer(windowId, inv))));
     public static final RegistrySupplier<MenuType<GemForgeMenu>> GEM_FORGE_MENU = MENUS.register("gem_forge_menu", () -> new MenuType<>(GemForgeMenu::new, FeatureFlags.DEFAULT_FLAGS));
 
     public static void init() {
         MENUS.register();
-        MiningMaster.LOGGER.info("Containers registered");
+        MiningMaster.LOGGER.info("Menu types registered");
     };
 }
