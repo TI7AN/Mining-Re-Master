@@ -44,10 +44,7 @@ public class PlayerMixin {
             if (leechingLevel > 0) {
                 miningmaster$applyLeechingEffects(leechingLevel, attackDamage);
             }
-            if (freezingLevel > 0
-//                    TODO this should be data driven
-//                    && !(mainHandItemStack.getItem() instanceof BowItem || mainHandItemStack.getItem() instanceof CrossbowItem)
-            )
+            if (freezingLevel > 0)
             {
                 miningmaster$applyFreezingEffects(freezingLevel, target);
             }
