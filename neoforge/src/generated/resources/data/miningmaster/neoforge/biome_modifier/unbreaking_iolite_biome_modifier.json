@@ -1,6 +1,0 @@
-{
-  "type": "neoforge:add_features",
-  "biomes": "#miningmaster:unbreaking_iolite_biomes",
-  "features": "miningmaster:ore_unbreaking_iolite_gem_placed",
-  "step": "underground_ores"
-}

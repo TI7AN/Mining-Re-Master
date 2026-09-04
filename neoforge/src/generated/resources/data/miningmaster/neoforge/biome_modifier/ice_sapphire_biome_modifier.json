@@ -1,6 +1,0 @@
-{
-  "type": "neoforge:add_features",
-  "biomes": "#c:is_cold/overworld",
-  "features": "miningmaster:ore_ice_sapphire_gem_placed",
-  "step": "underground_ores"
-}

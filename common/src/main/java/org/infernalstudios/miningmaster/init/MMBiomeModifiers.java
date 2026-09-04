@@ -12,7 +12,8 @@ public class MMBiomeModifiers {
     public static void init() {
         MiningMaster.LOGGER.info("Init BiomeModifications");
 
-        //This does not work on neoforge (works on fabric) 1.21.1, TODO check compatibility on newer versions
+        //This seems to have been fixed by a neoforge update
+        //This does not work on neoforge (works on fabric) 1.21.1, TODO check which versions
         BiomeModifications.addProperties(context -> context.hasTag(BiomeTags.IS_OVERWORLD),
                 (biomeContext, mutable) -> {
                     mutable.getGenerationProperties().addFeature(
