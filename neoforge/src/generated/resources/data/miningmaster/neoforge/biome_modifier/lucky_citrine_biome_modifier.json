@@ -1,6 +1,0 @@
-{
-  "type": "neoforge:add_features",
-  "biomes": "#minecraft:is_badlands",
-  "features": "miningmaster:ore_lucky_citrine_gem_placed",
-  "step": "underground_ores"
-}
